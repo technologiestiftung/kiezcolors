@@ -1,0 +1,145 @@
+<script>
+	import { onMount } from 'svelte';
+	import * as d3 from 'd3';
+	import textures from 'textures';
+	import {
+		areaSizes,
+		landuses,
+		categories,
+		dimensions,
+		totalSize,
+		circleRadius,
+		svgBack,
+		mapCenter,
+		locationText,
+		lang
+	} from '$lib/stores.js';
+
+	let visWrapper;
+	const width = $dimensions[1],
+		height = $dimensions[0];
+
+	$: redraw($areaSizes, $lang);
+
+	function redraw() {
+		if ($svgBack) {
+			$svgBack.remove();
+		}
+		if (!$areaSizes) return;
+		$svgBack = d3
+			.select(visWrapper)
+			.append('svg')
+			.attr('encoding', 'UTF-8')
+			.attr('version', '1.0')
+			.attr('width', width)
+			.attr('height', height)
+			.attr('xmlns', 'http://www.w3.org/2000/svg');
+
+		// var defs = $svg.append('svg:defs');
+
+		const rect = $svgBack.append('rect');
+		rect
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('width', width)
+			.attr('height', height)
+			.attr('fill', '#f9f9f9');
+
+		let sizeKeys = JSON.parse(JSON.stringify($areaSizes));
+		sizeKeys = Object.keys($areaSizes).filter((key) => {
+			if (Math.round($areaSizes[key].p) < 1) {
+				return false;
+			} else {
+				return key;
+			}
+		});
+		sizeKeys = sizeKeys.sort(function compareFn(a, b) {
+			return $areaSizes[b].p - $areaSizes[a].p;
+		});
+
+		const textGroup = $svgBack.append('g');
+		// .attr('transform', 'translate(' + 20 + ',' + 100 + ')');
+
+		let xPositionRect = 20;
+		textGroup
+			.selectAll('.rect-legend')
+			.data(...[sizeKeys])
+			.enter()
+			.append('rect')
+			.attr('classs', 'rect-legend')
+			.attr('width', 20)
+			.attr('height', 20)
+			.attr('fill', function (d, i) {
+				return categories[landuses[d].category].color;
+			})
+			.attr('transform', function (d, i) {
+				if (i != 0) {
+					xPositionRect += 24;
+				}
+				return 'translate(' + 20 + ',' + xPositionRect + ')';
+			});
+
+		let xPositionText = 12;
+		textGroup
+			.selectAll('.text-legend')
+			.data(sizeKeys)
+			.enter()
+			.append('text')
+			.attr('classs', 'text-legend')
+			// .attr('transform', 'translate(' + width / 2 + ',' + height * 0.93 + ')')
+			.attr('transform', function (d, i) {
+				xPositionText += 24;
+				return 'translate(' + 45 + ',' + xPositionText + ')';
+			})
+			.attr('text-anchor', 'start')
+			.attr('font-family', 'Outfit')
+			.attr('font-size', 14)
+			.attr('fill', '#292929')
+			.html(function (key) {
+				return (
+					Math.round($areaSizes[key].p) +
+					'% ' +
+					($lang === 'en' ? landuses[key].name_en : landuses[key].name)
+				);
+			});
+		// .text('Pound: ');
+
+		$svgBack
+			.append('text')
+			.attr('transform', 'translate(' + (width - 20) + ',' + height * 0.94 + ')')
+			.attr('text-anchor', 'end')
+			.attr('font-family', 'Outfit')
+			.attr('font-size', 12)
+			.attr('fill', '#292929')
+			.text($circleRadius + 'm ' + ($lang === 'en' ? 'around ' : 'um ') + $locationText);
+
+		$svgBack
+			.append('text')
+			.attr('transform', 'translate(' + (width - 20) + ',' + height * 0.97 + ')')
+			.attr('text-anchor', 'end')
+			.attr('font-family', 'Outfit')
+			.attr('font-size', 12)
+			.attr('fill', '#292929')
+			.text('Data: Geoportal Berlin / ALKIS Berlin');
+		// console.log($mapCenter);
+
+		// Geoportal Berlin / ALKIS Berlin
+	}
+</script>
+
+<!-- 
+{#if $areaSizes}
+	<div {width} {height} class="">
+		<p>Radius: {$circleRadius}m</p>
+
+		<ul>
+			{#each Object.keys($areaSizes) as key}
+				<li style={'color:' + categories[landuses[key].category].color}>
+					{Math.round($areaSizes[key].p)}% {landuses[key].name}
+				</li>
+			{/each}
+		</ul>
+	</div>
+{/if} -->
+
+<div class="w-fit" bind:this={visWrapper} />
