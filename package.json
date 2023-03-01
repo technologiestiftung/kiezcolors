@@ -1,0 +1,47 @@
+{
+	"name": "app",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"devDependencies": {
+		"@fontsource/fira-mono": "^4.5.10",
+		"@neoconfetti/svelte": "^1.0.0",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-netlify": "^2.0.5",
+		"@sveltejs/adapter-static": "^2.0.1",
+		"@sveltejs/kit": "^1.5.0",
+		"autoprefixer": "^10.4.7",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-svelte3": "^4.0.0",
+		"postcss": "^8.4.14",
+		"postcss-load-config": "^4.0.1",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.8.1",
+		"svelte": "^3.54.0",
+		"svelte-preprocess": "^4.10.7",
+		"tailwindcss": "^3.1.5",
+		"vite": "^4.0.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"@fontsource/outfit": "^4.5.11",
+		"@turf/area": "^6.5.0",
+		"@turf/bbox-polygon": "^6.5.0",
+		"@turf/boolean-within": "^6.5.0",
+		"@turf/destination": "^6.5.0",
+		"@turf/distance": "^6.5.0",
+		"@turf/intersect": "^6.5.0",
+		"@turf/midpoint": "^6.5.0",
+		"@turf/points-within-polygon": "^6.5.0",
+		"d3": "^7.6.1",
+		"d3-hierarchy": "^3.1.2",
+		"maplibre-gl": "^2.1.9",
+		"textures": "^1.2.3"
+	}
+}

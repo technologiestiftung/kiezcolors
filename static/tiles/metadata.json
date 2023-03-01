@@ -1,0 +1,15 @@
+{
+"name": "./tiles",
+"description": "./tiles",
+"version": "2",
+"minzoom": "10",
+"maxzoom": "13",
+"center": "13.425293,52.522904,13",
+"bounds": "13.088348,52.338246,13.761159,52.675508",
+"type": "overlay",
+"strategies": "[{},{},{},{},{},{},{},{},{},{},{\"detail_reduced\":7,\"tiny_polygons\":123870,\"tile_size_desired\":1177211},{\"detail_reduced\":4,\"tiny_polygons\":30506,\"tile_size_desired\":819809},{\"tiny_polygons\":2147},{\"tiny_polygons\":1132}]",
+"format": "pbf",
+"generator": "tippecanoe v2.23.0",
+"generator_options": "tippecanoe --output-to-directory ./tiles '--use-attribute-for-id=id' --no-tile-compression --force -B 10 '--minimum-zoom=10' '--maximum-zoom=13' ./alkis.geojson",
+"json": "{\"vector_layers\":[{\"id\":\"alkis\",\"description\":\"\",\"minzoom\":10,\"maxzoom\":13,\"fields\":{\"bezeich\":\"String\"}}],\"tilestats\":{\"layerCount\":1,\"layers\":[{\"layer\":\"alkis\",\"count\":108141,\"geometry\":\"Polygon\",\"attributeCount\":1,\"attributes\":[{\"attribute\":\"bezeich\",\"count\":24,\"type\":\"string\",\"values\":[\"AX_Bahnverkehr\",\"AX_FlaecheBesondererFunktionalerPraegung\",\"AX_FlaecheGemischterNutzung\",\"AX_Fliessgewaesser\",\"AX_Flugverkehr\",\"AX_Friedhof\",\"AX_Gehoelz\",\"AX_Hafenbecken\",\"AX_Halde\",\"AX_Heide\",\"AX_IndustrieUndGewerbeflaeche\",\"AX_Landwirtschaft\",\"AX_Moor\",\"AX_Platz\",\"AX_Schiffsverkehr\",\"AX_SportFreizeitUndErholungsflaeche\",\"AX_StehendesGewaesser\",\"AX_Strassenverkehr\",\"AX_Sumpf\",\"AX_TagebauGrubeSteinbruch\",\"AX_UnlandVegetationsloseFlaeche\",\"AX_Wald\",\"AX_Weg\",\"AX_Wohnbauflaeche\"]}]}]}}"
+}
