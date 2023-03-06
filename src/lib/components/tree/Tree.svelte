@@ -351,28 +351,7 @@ https://observablehq.com/@d3/treemap
   }
 </script>
 
-<!-- <main class="m-2">
-	<svg id="vis" bind:this={vis} width="{width}px" height="{height}px" />
-</main> -->
-
-<main class="w-fit" bind:this={visWrapper}>
-  <!-- <svg id="vis" bind:this={vis} width="{width}px" height="{height}px" /> -->
-</main>
+<main class="w-fit" bind:this={visWrapper} />
 
 <style>
-  /* main {
-		height: 100%;
-		display: flex;
-	} */
-
-  /* #vis {
-		width: 100%;
-		height: 100%;
-		background-color: whitesmoke;
-	} */
-
-  /* circle {
-		fill: black;
-		fill-opacity: 0.5;
-	} */
 </style>

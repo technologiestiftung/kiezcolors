@@ -19,6 +19,9 @@ function subscribe(store, ...callbacks) {
   const unsub = store.subscribe(...callbacks);
   return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
 }
+function null_to_empty(value) {
+  return value == null ? "" : value;
+}
 function set_store_value(store, ret, value) {
   store.set(value);
   return ret;
@@ -116,10 +119,11 @@ export {
   create_ssr_component as c,
   set_store_value as d,
   escape as e,
-  safe_not_equal as f,
+  noop as f,
   getContext as g,
+  safe_not_equal as h,
   missing_component as m,
-  noop as n,
+  null_to_empty as n,
   setContext as s,
   validate_component as v
 };

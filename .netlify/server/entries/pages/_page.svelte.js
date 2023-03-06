@@ -1,4 +1,4 @@
-import { c as create_ssr_component, a as subscribe, b as add_attribute, d as set_store_value, v as validate_component } from "../../chunks/index2.js";
+import { c as create_ssr_component, a as subscribe, b as add_attribute, d as set_store_value, v as validate_component, e as escape, n as null_to_empty } from "../../chunks/index2.js";
 import "maplibre-gl";
 import { w as writable } from "../../chunks/index.js";
 import destination from "@turf/destination";
@@ -473,10 +473,7 @@ const Tree = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `
 
 
-
-
-<main class="${"w-fit"}"${add_attribute("this", visWrapper, 0)}>
-</main>`;
+<main class="${"w-fit"}"${add_attribute("this", visWrapper, 0)}></main>`;
 });
 const Text = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $svgBack, $$unsubscribe_svgBack;
@@ -551,13 +548,11 @@ const Text = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_circleRadius();
   $$unsubscribe_areaSizes();
   $$unsubscribe_dimensions();
-  return `
-
-<div class="${"w-fit"}"${add_attribute("this", visWrapper, 0)}></div>`;
+  return `<div class="${"w-fit"}"${add_attribute("this", visWrapper, 0)}></div>`;
 });
 const _page_svelte_svelte_type_style_lang = "";
 const css = {
-  code: '#nav.svelte-lss2vz{width:444px;height:630px}#intro-text.svelte-lss2vz{font-family:"IBM Plex Mono"}',
+  code: '#nav.svelte-w2b6um{width:444px}.ibm.svelte-w2b6um{font-family:"IBM Plex Mono"}',
   map: null
 };
 const btnClasses = "border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100";
@@ -588,14 +583,14 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 <div class="${"flex mt-4 flex-wrap justify-evenly text-4xl"}">Kiezcolors</div>
 
 
-<p id="${"intro-text"}" class="${"flex mt-4 flex-wrap justify-evenly svelte-lss2vz"}">Move the map of Berlin to create a postcard showing the landuse distribution
+<p class="${"ibm flex mt-4 flex-wrap justify-evenly px-10 svelte-w2b6um"}">Move the map of Berlin to create a postcard showing the landuse distribution
   in your neighborhood.
 </p>
 <section class="${"flex m-4 mt-0 flex-wrap justify-evenly"}"><span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Map</span>${validate_component(Map, "Map").$$render($$result, {}, {}, {})}</span>
   <span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard front</span>${validate_component(Tree, "Tree").$$render($$result, {}, {}, {})}</span>
   <span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard back</span>${validate_component(Text, "Text").$$render($$result, {}, {}, {})}</span>
 
-  <div class="${"m-2 svelte-lss2vz"}" id="${"nav"}"><span class="${"text-center w-full inline-block my-4"}">Edit &amp; Download</span>
+  <div class="${"m-2 svelte-w2b6um"}" id="${"nav"}"><span class="${"text-center w-full inline-block my-4"}">Edit &amp; Download</span>
     <span class="${"border p-4 inline-block w-full"}"><input type="${"text"}" class="${"mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-secondary focus:border-secondary block w-full p-2.5"}"${add_attribute("value", $textVis, 0)}>
       <label class="${""}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute("checked", $useLocationAsText, 1)}>
         use location as Text
@@ -610,15 +605,25 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 
       <div class="${"mt-4 mb-2"}">Download</div>
       <span class="${"mr-4"}"><span class="${"w-10 inline-block"}">SVG</span>
-        <button${add_attribute("class", btnClasses, 0)}>Front</button>
-        <button${add_attribute("class", btnClasses, 0)}>Back</button></span>
+        <button class="${escape(null_to_empty(btnClasses), true) + " svelte-w2b6um"}">Front</button>
+        <button class="${escape(null_to_empty(btnClasses), true) + " svelte-w2b6um"}">Back</button></span>
 
       <span class="${"w-10 inline-block"}">PNG</span>
-      <button${add_attribute("class", btnClasses, 0)}>Front</button>
-      <button${add_attribute("class", btnClasses, 0)}>Back</button>
+      <button class="${escape(null_to_empty(btnClasses), true) + " svelte-w2b6um"}">Front</button>
+      <button class="${escape(null_to_empty(btnClasses), true) + " svelte-w2b6um"}">Back</button>
 
-      </span></div>
-</section>`;
+      </span></div></section>
+
+<footer class="${"flex mt-4 flex-wrap justify-evenly p-10 pt-20"}"><p>Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by
+    the Technologiestiftung Berlin and is funded by the Berlin Senate Department
+    for the Interior, Digitization and Sports.
+  </p>
+
+  <div style="${"text-align:center;margin-top:20px"}" class="${"flex"}"><a style="${"margin:10px"}" href="${"https://odis-berlin.de"}"><img width="${"200"}" src="${"https://logos.citylab-berlin.org/logo-odis-berlin.svg"}"></a>
+    <a style="${"margin:10px"}" href="${"https://www.technologiestiftung-berlin.de/"}"><img width="${"150"}" src="${"https://logos.citylab-berlin.org/logo-technologiestiftung-berlin-de.svg"}"></a>
+    <a style="${"margin:10px"}" href="${"https://www.berlin.de/sen/inneres/"}"><img width="${"100"}" src="${"https://logos.citylab-berlin.org/logo-berlin-seninnds-de.svg"}"></a>
+    <a style="${"margin:10px"}" href="${"https://citylab-berlin.org/de/start/"}"><img width="${"200"}" src="${"https://logos.citylab-berlin.org/logo-citylab-berlin.svg"}"></a></div>
+</footer>`;
 });
 export {
   Page as default

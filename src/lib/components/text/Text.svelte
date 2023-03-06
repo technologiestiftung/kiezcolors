@@ -58,7 +58,6 @@
     });
 
     const textGroup = $svgBack.append("g");
-    // .attr('transform', 'translate(' + 20 + ',' + 100 + ')');
 
     let xPositionRect = 20;
     textGroup
@@ -86,7 +85,6 @@
       .enter()
       .append("text")
       .attr("classs", "text-legend")
-      // .attr('transform', 'translate(' + width / 2 + ',' + height * 0.93 + ')')
       .attr("transform", function (d, i) {
         xPositionText += 24;
         return "translate(" + 45 + "," + xPositionText + ")";
@@ -102,7 +100,6 @@
           ($lang === "en" ? landuses[key].name_en : landuses[key].name)
         );
       });
-    // .text('Pound: ');
 
     const textLocation =
       $circleRadius +
@@ -137,30 +134,7 @@
       .text(function (d) {
         return d;
       });
-    // $svgBack
-    // 	.append('text')
-    // 	.attr('transform', 'translate(' + (width - 20) + ',' + height * 0.97 + ')')
-    // 	.attr('text-anchor', 'end')
-    // 	.attr('font-family', 'Outfit')
-    // 	.attr('font-size', 12)
-    // 	.attr('fill', '#292929')
-    // 	.text('Data: Geoportal Berlin / ALKIS Berlin');
   }
 </script>
-
-<!-- 
-{#if $areaSizes}
-	<div {width} {height} class="">
-		<p>Radius: {$circleRadius}m</p>
-
-		<ul>
-			{#each Object.keys($areaSizes) as key}
-				<li style={'color:' + categories[landuses[key].category].color}>
-					{Math.round($areaSizes[key].p)}% {landuses[key].name}
-				</li>
-			{/each}
-		</ul>
-	</div>
-{/if} -->
 
 <div class="w-fit" bind:this={visWrapper} />

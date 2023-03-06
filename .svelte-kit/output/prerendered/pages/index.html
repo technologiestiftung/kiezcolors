@@ -5,17 +5,17 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout.4c44fcdf.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/_page.5ff3db9a.css" rel="stylesheet">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.25d12e01.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.9d2900f1.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.83820c84.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.c584bb13.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.fdcd0279.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.cc4ad5eb.mjs">
+		<link href="./_app/immutable/assets/_layout.879fa96f.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_page.ea12d2b6.css" rel="stylesheet">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.1afedc9a.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.409b7b29.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.adca0b45.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.2fc6a978.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.a0c02172.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.452f97b4.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.js.fb1865a6.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_layout.da46b06b.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.26666608.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.17c08982.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.js.3dc38d36.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_page.da46b06b.mjs"><title>Kiezcolors</title><!-- HEAD_svelte-80kcdw_START --><meta name="description" content="A map based tool to create a postcard showing the landuse distribution in your neighborhood"><!-- HEAD_svelte-80kcdw_END -->
 	</head>
@@ -30,7 +30,7 @@
 <div class="flex mt-4 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
 
 
-<p id="intro-text" class="flex mt-4 flex-wrap justify-evenly svelte-lss2vz">Move the map of Berlin to create a postcard showing the landuse distribution
+<p class="ibm flex mt-4 flex-wrap justify-evenly px-10 svelte-w2b6um">Move the map of Berlin to create a postcard showing the landuse distribution
   in your neighborhood.
 </p>
 <section class="flex m-4 mt-0 flex-wrap justify-evenly"><span class="m-2"><span class="text-center w-full inline-block my-4">Map</span><div id="map" class="border-2 w-fit svelte-adct14"><div class="absolute right-2 bottom-2 z-50 text-gray-500">
@@ -46,15 +46,10 @@
   <span class="m-2"><span class="text-center w-full inline-block my-4">Postcard front</span>
 
 
+<main class="w-fit"></main></span>
+  <span class="m-2"><span class="text-center w-full inline-block my-4">Postcard back</span><div class="w-fit"></div></span>
 
-
-<main class="w-fit">
-</main></span>
-  <span class="m-2"><span class="text-center w-full inline-block my-4">Postcard back</span>
-
-<div class="w-fit"></div></span>
-
-  <div class="m-2 svelte-lss2vz" id="nav"><span class="text-center w-full inline-block my-4">Edit &amp; Download</span>
+  <div class="m-2 svelte-w2b6um" id="nav"><span class="text-center w-full inline-block my-4">Edit &amp; Download</span>
     <span class="border p-4 inline-block w-full"><input type="text" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-secondary focus:border-secondary block w-full p-2.5" value="My Kiezcolors Text">
       <label class=""><input type="checkbox" class="mt-4">
         use location as Text
@@ -69,15 +64,25 @@
 
       <div class="mt-4 mb-2">Download</div>
       <span class="mr-4"><span class="w-10 inline-block">SVG</span>
-        <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100">Front</button>
-        <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100">Back</button></span>
+        <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100 svelte-w2b6um">Front</button>
+        <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100 svelte-w2b6um">Back</button></span>
 
       <span class="w-10 inline-block">PNG</span>
-      <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100">Front</button>
-      <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100">Back</button>
+      <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100 svelte-w2b6um">Front</button>
+      <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100 svelte-w2b6um">Back</button>
 
-      </span></div>
-</section></main>
+      </span></div></section>
+
+<footer class="flex mt-4 flex-wrap justify-evenly p-10 pt-20"><p>Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by
+    the Technologiestiftung Berlin and is funded by the Berlin Senate Department
+    for the Interior, Digitization and Sports.
+  </p>
+
+  <div style="text-align:center;margin-top:20px" class="flex"><a style="margin:10px" href="https://odis-berlin.de"><img width="200" src="https://logos.citylab-berlin.org/logo-odis-berlin.svg"></a>
+    <a style="margin:10px" href="https://www.technologiestiftung-berlin.de/"><img width="150" src="https://logos.citylab-berlin.org/logo-technologiestiftung-berlin-de.svg"></a>
+    <a style="margin:10px" href="https://www.berlin.de/sen/inneres/"><img width="100" src="https://logos.citylab-berlin.org/logo-berlin-seninnds-de.svg"></a>
+    <a style="margin:10px" href="https://citylab-berlin.org/de/start/"><img width="200" src="https://logos.citylab-berlin.org/logo-citylab-berlin.svg"></a></div>
+</footer></main>
 
 	<footer></footer>
 </div>
@@ -86,7 +91,7 @@
 			
 			<script>
 				{
-					__sveltekit_1jpm0z6 = {
+					__sveltekit_moxd7f = {
 						env: {},
 						assets: new URL(".", location.href).pathname.replace(/^\/$/, ''),
 						element: document.currentScript.parentElement
@@ -95,10 +100,10 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.25d12e01.mjs"),
-						import("./_app/immutable/entry/app.fdcd0279.mjs")
+						import("./_app/immutable/entry/start.1afedc9a.mjs"),
+						import("./_app/immutable/entry/app.a0c02172.mjs")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1jpm0z6.element, {
+						kit.start(app, __sveltekit_moxd7f.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,
