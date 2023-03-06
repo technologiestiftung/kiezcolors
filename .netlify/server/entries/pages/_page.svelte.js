@@ -1,10 +1,4 @@
-import {
-  c as create_ssr_component,
-  a as subscribe,
-  b as add_attribute,
-  d as set_store_value,
-  v as validate_component,
-} from "../../chunks/index2.js";
+import { c as create_ssr_component, a as subscribe, b as add_attribute, d as set_store_value, v as validate_component } from "../../chunks/index2.js";
 import "maplibre-gl";
 import { w as writable } from "../../chunks/index.js";
 import destination from "@turf/destination";
@@ -34,146 +28,146 @@ let landuses = {
     category: "other",
     info: "Schulen, Museum",
     name: "Besondere funktionale Prägung",
-    name_en: "Special functional characterization",
+    name_en: "Special functional characterization"
   },
   AX_IndustrieUndGewerbeflaeche: {
     category: "industry",
     info: "",
     name: "Industrie, Gewerbe",
-    name_en: "Industry, commerce",
+    name_en: "Industry, commerce"
   },
   AX_FlaecheGemischterNutzung: {
     category: "other",
     info: "",
     name: "Gemischte Nutzung",
-    name_en: "Mixed use",
+    name_en: "Mixed use"
   },
   AX_Heide: {
     category: "nature",
     info: "",
     name: "Heide",
-    name_en: "Heath",
+    name_en: "Heath"
   },
   AX_Gehoelz: {
     category: "nature",
     info: "",
     name: "Gehölz",
-    name_en: "Grove",
+    name_en: "Grove"
   },
   AX_Moor: {
     category: "nature",
     info: "",
     name: "Moor",
-    name_en: "Moor",
+    name_en: "Moor"
   },
   AX_Sumpf: {
     category: "nature",
     info: "",
     name: "Sumpf",
-    name_en: "Swamp",
+    name_en: "Swamp"
   },
   AX_Wald: {
     category: "nature",
     info: "",
     name: "Wald",
-    name_en: "Forest",
+    name_en: "Forest"
   },
   AX_Friedhof: {
     category: "nature",
     info: "",
     name: "Friedhof",
-    name_en: "Cemetery",
+    name_en: "Cemetery"
   },
   AX_UnlandVegetationsloseFlaeche: {
     category: "nature",
     info: "",
     name: "Unland, Vegetationslose Fläche",
-    name_en: "Wasteland, area without vegetation",
+    name_en: "Wasteland, area without vegetation"
   },
   AX_Landwirtschaft: {
     category: "nature",
     info: "",
     name: "Landwirtschaft",
-    name_en: "Farming",
+    name_en: "Farming"
   },
   AX_Fliessgewaesser: {
     category: "water",
     info: "",
     name: "Fliessgewässer",
-    name_en: "Watercourse",
+    name_en: "Watercourse"
   },
   AX_Hafenbecken: {
     category: "water",
     info: "",
     name: "Hafenbecken",
-    name_en: "Port basin",
+    name_en: "Port basin"
   },
   AX_StehendesGewaesser: {
     category: "water",
     info: "",
     name: "Stehendes Gewässer",
-    name_en: "Stagnant water",
+    name_en: "Stagnant water"
   },
   AX_SportFreizeitUndErholungsflaeche: {
     category: "leisure",
     info: "",
     name: "Sport, Freizeit, Erholungsfläche",
-    name_en: "Sports, leisure, recreational area",
+    name_en: "Sports, leisure, recreational area"
   },
   AX_Platz: {
     category: "street",
     info: "",
     name: "Platz",
-    name_en: "Square",
+    name_en: "Square"
   },
   AX_Strassenverkehr: {
     category: "street",
     info: "",
     name: "Straßenverkehr",
-    name_en: "Street traffic",
+    name_en: "Street traffic"
   },
   AX_Weg: {
     category: "street",
     info: "",
     name: "Weg",
-    name_en: "Path",
+    name_en: "Path"
   },
   AX_Wohnbauflaeche: {
     category: "living",
     info: "",
     name: "Wohnbau",
-    name_en: "Residential",
+    name_en: "Residential"
   },
   AX_Halde: {
     category: "trash",
     info: "",
     name: "Halde",
-    name_en: "Dump",
+    name_en: "Dump"
   },
   AX_Flugverkehr: {
     category: "transport",
     info: "",
     name: "Flugverkehr",
-    name_en: "Air traffic",
+    name_en: "Air traffic"
   },
   AX_TagebauGrubeSteinbruch: {
     category: "industry",
     info: "",
     name: "Tagebau, Grube, Steinbruch",
-    name_en: "Open pit, mine, quarry",
+    name_en: "Open pit, mine, quarry"
   },
   AX_Schiffsverkehr: {
     category: "transport",
     info: "",
     name: "Schiffsverkehr",
-    name_en: "Shipping traffic",
+    name_en: "Shipping traffic"
   },
   AX_Bahnverkehr: {
     category: "transport",
     info: "",
     name: "Bahnverkehr",
-    name_en: "Rail transport",
-  },
+    name_en: "Rail transport"
+  }
 };
 let categories = {
   street: { color: "#292929", name: "street" },
@@ -184,7 +178,7 @@ let categories = {
   water: { color: "#277da1", name: "water" },
   nature: { color: "#53935c", name: "nature" },
   industry: { color: "#f9c74f", name: "industry" },
-  leisure: { color: "#a4ba72", name: "leisure" },
+  leisure: { color: "#a4ba72", name: "leisure" }
 };
 const landuseColors = [];
 Object.keys(landuses).forEach((key) => {
@@ -193,7 +187,7 @@ Object.keys(landuses).forEach((key) => {
 });
 function drawCanvasCirlce(map, canvas, circleRadius2) {
   const cooUp = destination(map.getCenter().toArray(), circleRadius2, 90, {
-    units: "meters",
+    units: "meters"
   }).geometry.coordinates;
   const rightPoints = map.project(cooUp);
   const centerPoints = map.project(map.getCenter().toArray());
@@ -231,15 +225,9 @@ function getMaxCircleRadius(map) {
   const bbox = map.getBounds().toArray().flat();
   const bboxPoly = bboxPolygon(bbox);
   const bboxPolyCoordinates = bboxPoly.geometry.coordinates[0];
-  const midPointHeight = midpoint(
-    bboxPolyCoordinates[1],
-    bboxPolyCoordinates[2]
-  );
+  const midPointHeight = midpoint(bboxPolyCoordinates[1], bboxPolyCoordinates[2]);
   const maxWidth = distance(midPointHeight, center) * 1e3;
-  const midPointWidtht = midpoint(
-    bboxPolyCoordinates[2],
-    bboxPolyCoordinates[3]
-  );
+  const midPointWidtht = midpoint(bboxPolyCoordinates[2], bboxPolyCoordinates[3]);
   const maxHeight = distance(midPointWidtht, center) * 1e3;
   const maxDistance = Math.min(maxHeight, maxWidth);
   let radius;
@@ -274,7 +262,7 @@ function getLanduseSizes(map, circleGeom) {
   let sizes = {};
   let sumSizes = 0;
   const landuse = map.queryRenderedFeatures({ layers: ["landuse"] });
-  landuse.forEach(function (feature) {
+  landuse.forEach(function(feature) {
     const intersection = intersect(circleGeom, feature.geometry);
     if (intersection) {
       const size = area(intersection);
@@ -287,54 +275,55 @@ function getLanduseSizes(map, circleGeom) {
       sumSizes += size;
     }
   });
-  Object.keys(sizes).forEach(function (key) {
-    sizes[key].p = (sizes[key].m / sumSizes) * 100;
+  Object.keys(sizes).forEach(function(key) {
+    sizes[key].p = sizes[key].m / sumSizes * 100;
   });
   return { sizes, sumSizes };
 }
 function getCircleGeom(map, opt) {
   let points = [];
   for (let i = 0; i < opt.steps; i++) {
-    const angle = (360 / opt.steps) * i;
+    const angle = 360 / opt.steps * i;
     const options = { units: "meters" };
-    const cooUp = destination(
-      map.getCenter().toArray(),
-      opt.radius,
-      angle,
-      options
-    ).geometry.coordinates;
+    const cooUp = destination(map.getCenter().toArray(), opt.radius, angle, options).geometry.coordinates;
     points.push(cooUp);
   }
   points.push(points[0]);
   return {
     type: "Polygon",
-    coordinates: [points],
+    coordinates: [points]
   };
 }
 function checkCirleFits(map, cirlceGeom) {
   const bbox = map.getBounds().toArray();
   const bBoxGeoJSON = {
-    type: "Feature",
-    properties: {},
-    geometry: {
-      type: "Polygon",
-      coordinates: [
+    "type": "Feature",
+    "properties": {},
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
         [
           bbox[0],
-          [bbox[1][0], bbox[0][1]],
+          [
+            bbox[1][0],
+            bbox[0][1]
+          ],
           bbox[1],
-          [bbox[0][0], bbox[1][1]],
-          bbox[0],
-        ],
-      ],
-    },
+          [
+            bbox[0][0],
+            bbox[1][1]
+          ],
+          bbox[0]
+        ]
+      ]
+    }
   };
   return within(cirlceGeom, bBoxGeoJSON);
 }
 const Map_svelte_svelte_type_style_lang = "";
 const css$1 = {
   code: "#map.svelte-adct14{width:444px;height:630px}#myCanvas.svelte-adct14{z-index:10;pointer-events:none}",
-  map: null,
+  map: null
 };
 const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $circleRadius, $$unsubscribe_circleRadius;
@@ -345,51 +334,23 @@ const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $totalSize, $$unsubscribe_totalSize;
   let $areaSizes, $$unsubscribe_areaSizes;
   let $showBasemap, $$unsubscribe_showBasemap;
-  $$unsubscribe_circleRadius = subscribe(
-    circleRadius,
-    (value) => ($circleRadius = value)
-  );
-  $$unsubscribe_locationText = subscribe(
-    locationText,
-    (value) => ($locationText = value)
-  );
-  $$unsubscribe_textVis = subscribe(textVis, (value) => ($textVis = value));
-  $$unsubscribe_useLocationAsText = subscribe(
-    useLocationAsText,
-    (value) => ($useLocationAsText = value)
-  );
-  $$unsubscribe_mapCenter = subscribe(
-    mapCenter,
-    (value) => ($mapCenter = value)
-  );
-  $$unsubscribe_totalSize = subscribe(
-    totalSize,
-    (value) => ($totalSize = value)
-  );
-  $$unsubscribe_areaSizes = subscribe(
-    areaSizes,
-    (value) => ($areaSizes = value)
-  );
-  $$unsubscribe_showBasemap = subscribe(
-    showBasemap,
-    (value) => ($showBasemap = value)
-  );
+  $$unsubscribe_circleRadius = subscribe(circleRadius, (value) => $circleRadius = value);
+  $$unsubscribe_locationText = subscribe(locationText, (value) => $locationText = value);
+  $$unsubscribe_textVis = subscribe(textVis, (value) => $textVis = value);
+  $$unsubscribe_useLocationAsText = subscribe(useLocationAsText, (value) => $useLocationAsText = value);
+  $$unsubscribe_mapCenter = subscribe(mapCenter, (value) => $mapCenter = value);
+  $$unsubscribe_totalSize = subscribe(totalSize, (value) => $totalSize = value);
+  $$unsubscribe_areaSizes = subscribe(areaSizes, (value) => $areaSizes = value);
+  $$unsubscribe_showBasemap = subscribe(showBasemap, (value) => $showBasemap = value);
   let map;
-  const drawAndCount = function (map2) {
-    if (!map2 || !map2.getLayer("landuse")) return;
+  const drawAndCount = function(map2) {
+    if (!map2 || !map2.getLayer("landuse"))
+      return;
     const mC = map2.getCenter().toArray();
-    set_store_value(
-      mapCenter,
-      ($mapCenter = [mC[0].toFixed(4), mC[1].toFixed(4)]),
-      $mapCenter
-    );
+    set_store_value(mapCenter, $mapCenter = [mC[0].toFixed(4), mC[1].toFixed(4)], $mapCenter);
     const canvas = document.getElementById("myCanvas");
     let carCountingEnabled = map2.getZoom() >= 10;
-    set_store_value(
-      circleRadius,
-      ($circleRadius = getMaxCircleRadius(map2)),
-      $circleRadius
-    );
+    set_store_value(circleRadius, $circleRadius = getMaxCircleRadius(map2), $circleRadius);
     let circleGeom = getCircleGeom(map2, { radius: $circleRadius, steps: 30 });
     let circleFits = checkCirleFits(map2, circleGeom);
     if (!circleFits || !carCountingEnabled) {
@@ -401,16 +362,11 @@ const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return;
     }
     const { sizes, sumSizes } = getLanduseSizes(map2, circleGeom);
-    set_store_value(areaSizes, ($areaSizes = sizes), $areaSizes);
-    set_store_value(totalSize, ($totalSize = sumSizes), $totalSize);
-    set_store_value(
-      locationText,
-      ($locationText =
-        "Lat " + $mapCenter[1] + " N, Lng " + $mapCenter[0] + " E"),
-      $locationText
-    );
+    set_store_value(areaSizes, $areaSizes = sizes, $areaSizes);
+    set_store_value(totalSize, $totalSize = sumSizes, $totalSize);
+    set_store_value(locationText, $locationText = "Lat " + $mapCenter[1] + " N, Lng " + $mapCenter[0] + " E", $locationText);
     if ($useLocationAsText) {
-      set_store_value(textVis, ($textVis = $locationText), $textVis);
+      set_store_value(textVis, $textVis = $locationText, $textVis);
     }
     drawCanvasCirlce(map2, canvas, $circleRadius);
   };
@@ -426,20 +382,12 @@ const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_totalSize();
   $$unsubscribe_areaSizes();
   $$unsubscribe_showBasemap();
-  return `<div id="${"map"}" class="${"border-2 w-fit svelte-adct14"}"><div class="${"absolute right-2 bottom-2 z-50 text-gray-500"}">${
-    $showBasemap
-      ? `© <a target="${"_blank"}" href="${"https://www.openstreetmap.org/copyright"}">OpenStreetMap</a>
-			contributors © |`
-      : ``
-  }
+  return `<div id="${"map"}" class="${"border-2 w-fit svelte-adct14"}"><div class="${"absolute right-2 bottom-2 z-50 text-gray-500"}">${$showBasemap ? `© <a target="${"_blank"}" href="${"https://www.openstreetmap.org/copyright"}">OpenStreetMap</a>
+			contributors © |` : ``}
 
 		Geoportal Berlin / ALKIS Berlin
 	</div>
-	<label class="${"absolute right-2 bottom-8 z-50 text-gray-500"}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute(
-    "checked",
-    $showBasemap,
-    1
-  )}>
+	<label class="${"absolute right-2 bottom-8 z-50 text-gray-500"}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute("checked", $showBasemap, 1)}>
 		Show Basemap
 	</label>
 
@@ -451,21 +399,15 @@ const Tree = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $textVis, $$unsubscribe_textVis;
   let $areaSizes, $$unsubscribe_areaSizes;
   let $dimensions, $$unsubscribe_dimensions;
-  $$unsubscribe_svg = subscribe(svg, (value) => ($svg = value));
-  $$unsubscribe_textVis = subscribe(textVis, (value) => ($textVis = value));
-  $$unsubscribe_areaSizes = subscribe(
-    areaSizes,
-    (value) => ($areaSizes = value)
-  );
-  $$unsubscribe_dimensions = subscribe(
-    dimensions,
-    (value) => ($dimensions = value)
-  );
-  const width = $dimensions[1],
-    height = $dimensions[0];
+  $$unsubscribe_svg = subscribe(svg, (value) => $svg = value);
+  $$unsubscribe_textVis = subscribe(textVis, (value) => $textVis = value);
+  $$unsubscribe_areaSizes = subscribe(areaSizes, (value) => $areaSizes = value);
+  $$unsubscribe_dimensions = subscribe(dimensions, (value) => $dimensions = value);
+  const width = $dimensions[1], height = $dimensions[0];
   let visWrapper;
   function dataUpdated(size) {
-    if (!size) return;
+    if (!size)
+      return;
     const treeChildren = [];
     Object.keys(categories).forEach((keyCategories) => {
       const child = {};
@@ -482,7 +424,7 @@ const Tree = create_ssr_component(($$result, $$props, $$bindings, slots) => {
           child.children.push({
             name: keyCategories,
             size: size[keyLanduses]?.p || 0,
-            color: categories[keyCategories].color,
+            color: categories[keyCategories].color
           });
         }
       });
@@ -495,73 +437,28 @@ const Tree = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     if ($svg) {
       $svg.remove();
     }
-    set_store_value(
-      svg,
-      ($svg = d3
-        .select(visWrapper)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("xmlns", "http://www.w3.org/2000/svg")),
-      $svg
-    );
+    set_store_value(svg, $svg = d3.select(visWrapper).append("svg").attr("width", width).attr("height", height).attr("xmlns", "http://www.w3.org/2000/svg"), $svg);
     const rect = $svg.append("rect");
-    rect
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("width", width)
-      .attr("height", height)
-      .attr("fill", "#f9f9f9");
+    rect.attr("x", 0).attr("y", 0).attr("width", width).attr("height", height).attr("fill", "#f9f9f9");
     textures.lines().thicker();
-    let treemap = d3
-      .treemap()
-      .tile(d3.treemapBinary)
-      .size([width, height - 120])
-      .round(true)
-      .paddingInner(6);
+    let treemap = d3.treemap().tile(d3.treemapBinary).size([width, height - 120]).round(true).paddingInner(6);
     const root = d3.hierarchy(data);
     treemap(root.sum(sumByCount));
-    let cell = $svg
-      .selectAll("g")
-      .data(root.leaves())
-      .enter()
-      .append("g")
-      .attr("transform", function (d) {
-        return "translate(" + d.x0 + "," + d.y0 + ")";
-      });
-    cell
-      .append("rect")
-      .attr("id", function (d) {})
-      .attr("width", function (d) {
-        return d.x1 - d.x0;
-      })
-      .attr("height", function (d) {
-        return d.y1 - d.y0;
-      })
-      .attr("fill", function (d) {
-        return d.data.color;
-      });
-    $svg
-      .selectAll("text")
-      .data([$textVis])
-      .enter()
-      .append("text")
-      .attr("transform", "translate(" + width / 2 + "," + height * 0.91 + ")")
-      .attr("text-anchor", "middle")
-      .attr("font-family", "Outfit")
-      .attr("font-size", 30)
-      .attr("fill", "#292929")
-      .text(function (d) {
-        return d;
-      });
-    $svg
-      .append("text")
-      .attr("transform", "translate(" + width / 2 + "," + height * 0.95 + ")")
-      .attr("text-anchor", "middle")
-      .attr("font-family", "IBM Plex Mono")
-      .attr("font-size", 10)
-      .attr("fill", "#277da1")
-      .text("Made with Open Data");
+    let cell = $svg.selectAll("g").data(root.leaves()).enter().append("g").attr("transform", function(d) {
+      return "translate(" + d.x0 + "," + d.y0 + ")";
+    });
+    cell.append("rect").attr("id", function(d) {
+    }).attr("width", function(d) {
+      return d.x1 - d.x0;
+    }).attr("height", function(d) {
+      return d.y1 - d.y0;
+    }).attr("fill", function(d) {
+      return d.data.color;
+    });
+    $svg.selectAll("text").data([$textVis]).enter().append("text").attr("transform", "translate(" + width / 2 + "," + height * 0.91 + ")").attr("text-anchor", "middle").attr("font-family", "Outfit").attr("font-size", 30).attr("fill", "#292929").text(function(d) {
+      return d;
+    });
+    $svg.append("text").attr("transform", "translate(" + width / 2 + "," + height * 0.95 + ")").attr("text-anchor", "middle").attr("font-family", "IBM Plex Mono").attr("font-size", 10).attr("fill", "#277da1").text("Made with Open Data");
     function sumByCount(d) {
       return d.size;
     }
@@ -588,51 +485,23 @@ const Text = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $circleRadius, $$unsubscribe_circleRadius;
   let $areaSizes, $$unsubscribe_areaSizes;
   let $dimensions, $$unsubscribe_dimensions;
-  $$unsubscribe_svgBack = subscribe(svgBack, (value) => ($svgBack = value));
-  $$unsubscribe_locationText = subscribe(
-    locationText,
-    (value) => ($locationText = value)
-  );
-  $$unsubscribe_lang = subscribe(lang, (value) => ($lang = value));
-  $$unsubscribe_circleRadius = subscribe(
-    circleRadius,
-    (value) => ($circleRadius = value)
-  );
-  $$unsubscribe_areaSizes = subscribe(
-    areaSizes,
-    (value) => ($areaSizes = value)
-  );
-  $$unsubscribe_dimensions = subscribe(
-    dimensions,
-    (value) => ($dimensions = value)
-  );
+  $$unsubscribe_svgBack = subscribe(svgBack, (value) => $svgBack = value);
+  $$unsubscribe_locationText = subscribe(locationText, (value) => $locationText = value);
+  $$unsubscribe_lang = subscribe(lang, (value) => $lang = value);
+  $$unsubscribe_circleRadius = subscribe(circleRadius, (value) => $circleRadius = value);
+  $$unsubscribe_areaSizes = subscribe(areaSizes, (value) => $areaSizes = value);
+  $$unsubscribe_dimensions = subscribe(dimensions, (value) => $dimensions = value);
   let visWrapper;
-  const width = $dimensions[1],
-    height = $dimensions[0];
+  const width = $dimensions[1], height = $dimensions[0];
   function redraw() {
     if ($svgBack) {
       $svgBack.remove();
     }
-    if (!$areaSizes) return;
-    set_store_value(
-      svgBack,
-      ($svgBack = d3
-        .select(visWrapper)
-        .append("svg")
-        .attr("encoding", "UTF-8")
-        .attr("version", "1.0")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("xmlns", "http://www.w3.org/2000/svg")),
-      $svgBack
-    );
+    if (!$areaSizes)
+      return;
+    set_store_value(svgBack, $svgBack = d3.select(visWrapper).append("svg").attr("encoding", "UTF-8").attr("version", "1.0").attr("width", width).attr("height", height).attr("xmlns", "http://www.w3.org/2000/svg"), $svgBack);
     const rect = $svgBack.append("rect");
-    rect
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("width", width)
-      .attr("height", height)
-      .attr("fill", "#f9f9f9");
+    rect.attr("x", 0).attr("y", 0).attr("width", width).attr("height", height).attr("fill", "#f9f9f9");
     let sizeKeys = JSON.parse(JSON.stringify($areaSizes));
     sizeKeys = Object.keys($areaSizes).filter((key) => {
       if (Math.round($areaSizes[key].p) < 1) {
@@ -646,72 +515,32 @@ const Text = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     });
     const textGroup = $svgBack.append("g");
     let xPositionRect = 20;
-    textGroup
-      .selectAll(".rect-legend")
-      .data(...[sizeKeys])
-      .enter()
-      .append("rect")
-      .attr("classs", "rect-legend")
-      .attr("width", 20)
-      .attr("height", 20)
-      .attr("fill", function (d, i) {
-        return categories[landuses[d].category].color;
-      })
-      .attr("transform", function (d, i) {
-        if (i != 0) {
-          xPositionRect += 24;
-        }
-        return "translate(" + 20 + "," + xPositionRect + ")";
-      });
+    textGroup.selectAll(".rect-legend").data(...[sizeKeys]).enter().append("rect").attr("classs", "rect-legend").attr("width", 20).attr("height", 20).attr("fill", function(d, i) {
+      return categories[landuses[d].category].color;
+    }).attr("transform", function(d, i) {
+      if (i != 0) {
+        xPositionRect += 24;
+      }
+      return "translate(" + 20 + "," + xPositionRect + ")";
+    });
     let xPositionText = 12;
-    textGroup
-      .selectAll(".text-legend")
-      .data(sizeKeys)
-      .enter()
-      .append("text")
-      .attr("classs", "text-legend")
-      .attr("transform", function (d, i) {
-        xPositionText += 24;
-        return "translate(" + 45 + "," + xPositionText + ")";
-      })
-      .attr("text-anchor", "start")
-      .attr("font-family", "Outfit")
-      .attr("font-size", 14)
-      .attr("fill", "#292929")
-      .html(function (key) {
-        return (
-          Math.round($areaSizes[key].p) +
-          "% " +
-          ($lang === "en" ? landuses[key].name_en : landuses[key].name)
-        );
-      });
-    $svgBack
-      .append("text")
-      .attr(
-        "transform",
-        "translate(" + (width - 20) + "," + height * 0.94 + ")"
-      )
-      .attr("text-anchor", "end")
-      .attr("font-family", "Outfit")
-      .attr("font-size", 12)
-      .attr("fill", "#292929")
-      .text(
-        $circleRadius +
-          "m " +
-          ($lang === "en" ? "around " : "um ") +
-          $locationText
-      );
-    $svgBack
-      .append("text")
-      .attr(
-        "transform",
-        "translate(" + (width - 20) + "," + height * 0.97 + ")"
-      )
-      .attr("text-anchor", "end")
-      .attr("font-family", "Outfit")
-      .attr("font-size", 12)
-      .attr("fill", "#292929")
-      .text("Data: Geoportal Berlin / ALKIS Berlin");
+    textGroup.selectAll(".text-legend").data(sizeKeys).enter().append("text").attr("classs", "text-legend").attr("transform", function(d, i) {
+      xPositionText += 24;
+      return "translate(" + 45 + "," + xPositionText + ")";
+    }).attr("text-anchor", "start").attr("font-family", "Outfit").attr("font-size", 14).attr("fill", "#292929").html(function(key) {
+      return Math.round($areaSizes[key].p) + "% " + ($lang === "en" ? landuses[key].name_en : landuses[key].name);
+    });
+    const textLocation = $circleRadius + "m " + ($lang === "en" ? "around " : "um ") + $locationText;
+    const textData = "Data: Geoportal Berlin / ALKIS Berlin";
+    const textMaptime = "Maptime Berlin / Open Data Day 2023";
+    const textUrl = "kiezcolors.odis-berlin.de";
+    let dy = 0;
+    $svgBack.append("text").attr("transform", "translate(" + (width - 20) + "," + height * 0.85 + ")").attr("text-anchor", "end").attr("font-family", "Outfit").attr("font-size", 12).attr("fill", "#292929").selectAll(".rect-legend").data([textLocation, textData, textMaptime, textUrl]).enter().append("tspan").attr("x", 0).attr("y", 0).attr("dy", function() {
+      dy = dy + 1.5;
+      return dy + "em";
+    }).text(function(d) {
+      return d;
+    });
   }
   {
     redraw();
@@ -728,11 +557,10 @@ const Text = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 const _page_svelte_svelte_type_style_lang = "";
 const css = {
-  code: "#nav.svelte-17pnevh{width:444px;height:630px}#intro-text.svelte-17pnevh{font-family:'IBM Plex Mono'}",
-  map: null,
+  code: '#nav.svelte-lss2vz{width:444px;height:630px}#intro-text.svelte-lss2vz{font-family:"IBM Plex Mono"}',
+  map: null
 };
-const btnClasses =
-  "border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100";
+const btnClasses = "border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100";
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $dimensions, $$unsubscribe_dimensions;
   let $textVis, $$unsubscribe_textVis;
@@ -740,16 +568,10 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $lang, $$unsubscribe_lang;
   let $$unsubscribe_svg;
   let $$unsubscribe_svgBack;
-  $$unsubscribe_dimensions = subscribe(
-    dimensions,
-    (value) => ($dimensions = value)
-  );
-  $$unsubscribe_textVis = subscribe(textVis, (value) => ($textVis = value));
-  $$unsubscribe_useLocationAsText = subscribe(
-    useLocationAsText,
-    (value) => ($useLocationAsText = value)
-  );
-  $$unsubscribe_lang = subscribe(lang, (value) => ($lang = value));
+  $$unsubscribe_dimensions = subscribe(dimensions, (value) => $dimensions = value);
+  $$unsubscribe_textVis = subscribe(textVis, (value) => $textVis = value);
+  $$unsubscribe_useLocationAsText = subscribe(useLocationAsText, (value) => $useLocationAsText = value);
+  $$unsubscribe_lang = subscribe(lang, (value) => $lang = value);
   $$unsubscribe_svg = subscribe(svg, (value) => value);
   $$unsubscribe_svgBack = subscribe(svgBack, (value) => value);
   $dimensions[1];
@@ -761,66 +583,43 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_lang();
   $$unsubscribe_svg();
   $$unsubscribe_svgBack();
-  return `${
-    (($$result.head += `<!-- HEAD_svelte-t32ptj_START -->${
-      (($$result.title = `<title>Home</title>`), "")
-    }<meta name="${"description"}" content="${"Svelte demo app"}"><!-- HEAD_svelte-t32ptj_END -->`),
-    "")
-  }
+  return `${$$result.head += `<!-- HEAD_svelte-80kcdw_START -->${$$result.title = `<title>Kiezcolors</title>`, ""}<meta name="${"description"}" content="${"A map based tool to create a postcard showing the landuse distribution in your neighborhood"}"><!-- HEAD_svelte-80kcdw_END -->`, ""}
 
-<div class="${"flex mt-4 flex-wrap justify-evenly text-4xl"}">Landparceler</div>
+<div class="${"flex mt-4 flex-wrap justify-evenly text-4xl"}">Kiezcolors</div>
 
 
-<p id="${"intro-text"}" class="${"flex mt-4 flex-wrap justify-evenly svelte-17pnevh"}">Move the map of Berlin to create a postcard showing the landuse distribution in your neighborhood.
+<p id="${"intro-text"}" class="${"flex mt-4 flex-wrap justify-evenly svelte-lss2vz"}">Move the map of Berlin to create a postcard showing the landuse distribution
+  in your neighborhood.
 </p>
-<section class="${"flex m-4 mt-0 flex-wrap justify-evenly"}"><span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Map</span>${validate_component(
-    Map,
-    "Map"
-  ).$$render($$result, {}, {}, {})}</span>
-	<span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard front</span>${validate_component(
-    Tree,
-    "Tree"
-  ).$$render($$result, {}, {}, {})}</span>
-	<span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard back</span>${validate_component(
-    Text,
-    "Text"
-  ).$$render($$result, {}, {}, {})}</span>
+<section class="${"flex m-4 mt-0 flex-wrap justify-evenly"}"><span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Map</span>${validate_component(Map, "Map").$$render($$result, {}, {}, {})}</span>
+  <span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard front</span>${validate_component(Tree, "Tree").$$render($$result, {}, {}, {})}</span>
+  <span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard back</span>${validate_component(Text, "Text").$$render($$result, {}, {}, {})}</span>
 
-	<div class="${"m-2 svelte-17pnevh"}" id="${"nav"}"><span class="${"text-center w-full inline-block my-4"}">Edit &amp; Download</span>
-		<span class="${"border p-4 inline-block w-full"}"><input type="${"text"}" class="${"mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-secondary focus:border-secondary block w-full p-2.5"}"${add_attribute(
-    "value",
-    $textVis,
-    0
-  )}>
-			<label class="${""}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute(
-    "checked",
-    $useLocationAsText,
-    1
-  )}>
-				use location as Text
-			</label>
-			<div class="${"mt-2 w-full"}"><span class="${"mr-2"}">Language</span>
-				<label><input type="${"radio"}"${add_attribute("value", "de", 0)}${
-    "de" === $lang ? add_attribute("checked", true, 1) : ""
-  }>
-					DE
-				</label>
-				<label><input type="${"radio"}"${add_attribute("value", "en", 0)}${
-    "en" === $lang ? add_attribute("checked", true, 1) : ""
-  }>
-					EN
-				</label></div>
+  <div class="${"m-2 svelte-lss2vz"}" id="${"nav"}"><span class="${"text-center w-full inline-block my-4"}">Edit &amp; Download</span>
+    <span class="${"border p-4 inline-block w-full"}"><input type="${"text"}" class="${"mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-secondary focus:border-secondary block w-full p-2.5"}"${add_attribute("value", $textVis, 0)}>
+      <label class="${""}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute("checked", $useLocationAsText, 1)}>
+        use location as Text
+      </label>
+      <div class="${"mt-2 w-full"}"><span class="${"mr-2"}">Language</span>
+        <label><input type="${"radio"}"${add_attribute("value", "de", 0)}${"de" === $lang ? add_attribute("checked", true, 1) : ""}>
+          DE
+        </label>
+        <label><input type="${"radio"}"${add_attribute("value", "en", 0)}${"en" === $lang ? add_attribute("checked", true, 1) : ""}>
+          EN
+        </label></div>
 
-			<div class="${"mt-4 mb-2"}">Download</div>
-			<span class="${"mr-4"}"><span class="${"w-10 inline-block"}">SVG</span>
-				<button${add_attribute("class", btnClasses, 0)}>Front</button>
-				<button${add_attribute("class", btnClasses, 0)}>Back</button></span>
+      <div class="${"mt-4 mb-2"}">Download</div>
+      <span class="${"mr-4"}"><span class="${"w-10 inline-block"}">SVG</span>
+        <button${add_attribute("class", btnClasses, 0)}>Front</button>
+        <button${add_attribute("class", btnClasses, 0)}>Back</button></span>
 
-			<span class="${"w-10 inline-block"}">PNG</span>
-			<button${add_attribute("class", btnClasses, 0)}>Front</button>
-			<button${add_attribute("class", btnClasses, 0)}>Back</button>
+      <span class="${"w-10 inline-block"}">PNG</span>
+      <button${add_attribute("class", btnClasses, 0)}>Front</button>
+      <button${add_attribute("class", btnClasses, 0)}>Back</button>
 
-			</span></div>
+      </span></div>
 </section>`;
 });
-export { Page as default };
+export {
+  Page as default
+};

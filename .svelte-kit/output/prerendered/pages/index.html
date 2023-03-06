@@ -1,218 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="./favicon.png" />
-    <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="content-security-policy" content="" />
-    <link
-      href="./_app/immutable/assets/_layout.4c44fcdf.css"
-      rel="stylesheet"
-    />
-    <link href="./_app/immutable/assets/_page.93faa26e.css" rel="stylesheet" />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/entry/start.58dfc25f.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/chunks/index.9d2900f1.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/chunks/singletons.bbddee8d.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/chunks/index.c584bb13.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/entry/app.ab430fa6.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/entry/_layout.svelte.cc4ad5eb.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/entry/_layout.js.fb1865a6.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/chunks/_layout.da46b06b.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/entry/_page.svelte.ba7f025d.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/entry/_page.js.3dc38d36.mjs"
-    />
-    <link
-      rel="preload"
-      as="script"
-      crossorigin="anonymous"
-      href="./_app/immutable/chunks/_page.da46b06b.mjs"
-    />
-    <title>Home</title>
-    <!-- HEAD_svelte-t32ptj_START -->
-    <meta name="description" content="Svelte demo app" />
-    <!-- HEAD_svelte-t32ptj_END -->
-  </head>
-  <body data-sveltekit-preload-data="hover">
-    <div style="display: contents">
-      <div class="app">
-        <header></header>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link href="./_app/immutable/assets/_layout.4c44fcdf.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_page.5ff3db9a.css" rel="stylesheet">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.25d12e01.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.9d2900f1.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.83820c84.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.c584bb13.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.fdcd0279.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.cc4ad5eb.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.js.fb1865a6.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_layout.da46b06b.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.26666608.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.js.3dc38d36.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_page.da46b06b.mjs"><title>Kiezcolors</title><!-- HEAD_svelte-80kcdw_START --><meta name="description" content="A map based tool to create a postcard showing the landuse distribution in your neighborhood"><!-- HEAD_svelte-80kcdw_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
 
-        <main>
-          <div class="flex mt-4 flex-wrap justify-evenly text-4xl">
-            Landparceler
-          </div>
 
-          <p
-            id="intro-text"
-            class="flex mt-4 flex-wrap justify-evenly svelte-17pnevh"
-          >
-            Move the map of Berlin to create a postcard showing the landuse
-            distribution in your neighborhood.
-          </p>
-          <section class="flex m-4 mt-0 flex-wrap justify-evenly">
-            <span class="m-2"
-              ><span class="text-center w-full inline-block my-4">Map</span>
-              <div id="map" class="border-2 w-fit svelte-adct14">
-                <div class="absolute right-2 bottom-2 z-50 text-gray-500">
-                  Geoportal Berlin / ALKIS Berlin
-                </div>
-                <label class="absolute right-2 bottom-8 z-50 text-gray-500"
-                  ><input type="checkbox" class="mt-4" />
-                  Show Basemap
-                </label>
+<div class="app"><header></header>
 
-                <canvas
-                  id="myCanvas"
-                  class="absolute svelte-adct14"
-                ></canvas></div
-            ></span>
-            <span class="m-2"
-              ><span class="text-center w-full inline-block my-4"
-                >Postcard front</span
-              >
+	<main>
 
-              <main class="w-fit"></main
-            ></span>
-            <span class="m-2"
-              ><span class="text-center w-full inline-block my-4"
-                >Postcard back</span
-              >
+<div class="flex mt-4 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
 
-              <div class="w-fit"></div
-            ></span>
 
-            <div class="m-2 svelte-17pnevh" id="nav">
-              <span class="text-center w-full inline-block my-4"
-                >Edit &amp; Download</span
-              >
-              <span class="border p-4 inline-block w-full"
-                ><input
-                  type="text"
-                  class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-secondary focus:border-secondary block w-full p-2.5"
-                  value="My Kiezcolors Text"
-                />
-                <label class=""
-                  ><input type="checkbox" class="mt-4" />
-                  use location as Text
-                </label>
-                <div class="mt-2 w-full">
-                  <span class="mr-2">Language</span>
-                  <label
-                    ><input type="radio" value="de" />
-                    DE
-                  </label>
-                  <label
-                    ><input type="radio" value="en" checked />
-                    EN
-                  </label>
-                </div>
+<p id="intro-text" class="flex mt-4 flex-wrap justify-evenly svelte-lss2vz">Move the map of Berlin to create a postcard showing the landuse distribution
+  in your neighborhood.
+</p>
+<section class="flex m-4 mt-0 flex-wrap justify-evenly"><span class="m-2"><span class="text-center w-full inline-block my-4">Map</span><div id="map" class="border-2 w-fit svelte-adct14"><div class="absolute right-2 bottom-2 z-50 text-gray-500">
 
-                <div class="mt-4 mb-2">Download</div>
-                <span class="mr-4"
-                  ><span class="w-10 inline-block">SVG</span>
-                  <button
-                    class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100"
-                  >
-                    Front
-                  </button>
-                  <button
-                    class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100"
-                  >
-                    Back
-                  </button></span
-                >
+		Geoportal Berlin / ALKIS Berlin
+	</div>
+	<label class="absolute right-2 bottom-8 z-50 text-gray-500"><input type="checkbox" class="mt-4">
+		Show Basemap
+	</label>
 
-                <span class="w-10 inline-block">PNG</span>
-                <button
-                  class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100"
-                >
-                  Front
-                </button>
-                <button
-                  class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100"
-                >
-                  Back
-                </button>
-              </span>
-            </div>
-          </section>
-        </main>
+	<canvas id="myCanvas" class="absolute svelte-adct14"></canvas>
+</div></span>
+  <span class="m-2"><span class="text-center w-full inline-block my-4">Postcard front</span>
 
-        <footer></footer>
-      </div>
 
-      <script>
-        {
-          __sveltekit_15wlf5m = {
-            env: {},
-            assets: new URL(".", location.href).pathname.replace(/^\/$/, ""),
-            element: document.currentScript.parentElement,
-          };
 
-          const data = [null, null];
 
-          Promise.all([
-            import("./_app/immutable/entry/start.58dfc25f.mjs"),
-            import("./_app/immutable/entry/app.ab430fa6.mjs"),
-          ]).then(([kit, app]) => {
-            kit.start(app, __sveltekit_15wlf5m.element, {
-              node_ids: [0, 2],
-              data,
-              form: null,
-              error: null,
-            });
-          });
-        }
-      </script>
-    </div>
-  </body>
+<main class="w-fit">
+</main></span>
+  <span class="m-2"><span class="text-center w-full inline-block my-4">Postcard back</span>
+
+<div class="w-fit"></div></span>
+
+  <div class="m-2 svelte-lss2vz" id="nav"><span class="text-center w-full inline-block my-4">Edit &amp; Download</span>
+    <span class="border p-4 inline-block w-full"><input type="text" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-secondary focus:border-secondary block w-full p-2.5" value="My Kiezcolors Text">
+      <label class=""><input type="checkbox" class="mt-4">
+        use location as Text
+      </label>
+      <div class="mt-2 w-full"><span class="mr-2">Language</span>
+        <label><input type="radio" value="de">
+          DE
+        </label>
+        <label><input type="radio" value="en" checked>
+          EN
+        </label></div>
+
+      <div class="mt-4 mb-2">Download</div>
+      <span class="mr-4"><span class="w-10 inline-block">SVG</span>
+        <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100">Front</button>
+        <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100">Back</button></span>
+
+      <span class="w-10 inline-block">PNG</span>
+      <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100">Front</button>
+      <button class="border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100">Back</button>
+
+      </span></div>
+</section></main>
+
+	<footer></footer>
+</div>
+
+
+			
+			<script>
+				{
+					__sveltekit_1jpm0z6 = {
+						env: {},
+						assets: new URL(".", location.href).pathname.replace(/^\/$/, ''),
+						element: document.currentScript.parentElement
+					};
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.25d12e01.mjs"),
+						import("./_app/immutable/entry/app.fdcd0279.mjs")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_1jpm0z6.element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>

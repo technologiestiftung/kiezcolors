@@ -22,7 +22,7 @@ let showBasemap = writable(false);
 let locationText = writable();
 let useLocationAsText = writable(false);
 let lang = writable("en");
-let textVis = writable("My Text");
+let textVis = writable("My Kiezcolors Text");
 let landuses = {
   AX_FlaecheBesondererFunktionalerPraegung: {
     category: "other",
@@ -530,8 +530,17 @@ const Text = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     }).attr("text-anchor", "start").attr("font-family", "Outfit").attr("font-size", 14).attr("fill", "#292929").html(function(key) {
       return Math.round($areaSizes[key].p) + "% " + ($lang === "en" ? landuses[key].name_en : landuses[key].name);
     });
-    $svgBack.append("text").attr("transform", "translate(" + (width - 20) + "," + height * 0.94 + ")").attr("text-anchor", "end").attr("font-family", "Outfit").attr("font-size", 12).attr("fill", "#292929").text($circleRadius + "m " + ($lang === "en" ? "around " : "um ") + $locationText);
-    $svgBack.append("text").attr("transform", "translate(" + (width - 20) + "," + height * 0.97 + ")").attr("text-anchor", "end").attr("font-family", "Outfit").attr("font-size", 12).attr("fill", "#292929").text("Data: Geoportal Berlin / ALKIS Berlin");
+    const textLocation = $circleRadius + "m " + ($lang === "en" ? "around " : "um ") + $locationText;
+    const textData = "Data: Geoportal Berlin / ALKIS Berlin";
+    const textMaptime = "Maptime Berlin / Open Data Day 2023";
+    const textUrl = "kiezcolors.odis-berlin.de";
+    let dy = 0;
+    $svgBack.append("text").attr("transform", "translate(" + (width - 20) + "," + height * 0.85 + ")").attr("text-anchor", "end").attr("font-family", "Outfit").attr("font-size", 12).attr("fill", "#292929").selectAll(".rect-legend").data([textLocation, textData, textMaptime, textUrl]).enter().append("tspan").attr("x", 0).attr("y", 0).attr("dy", function() {
+      dy = dy + 1.5;
+      return dy + "em";
+    }).text(function(d) {
+      return d;
+    });
   }
   {
     redraw();
@@ -548,7 +557,7 @@ const Text = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 const _page_svelte_svelte_type_style_lang = "";
 const css = {
-  code: "#nav.svelte-17pnevh{width:444px;height:630px}#intro-text.svelte-17pnevh{font-family:'IBM Plex Mono'}",
+  code: '#nav.svelte-lss2vz{width:444px;height:630px}#intro-text.svelte-lss2vz{font-family:"IBM Plex Mono"}',
   map: null
 };
 const btnClasses = "border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100";
@@ -574,40 +583,41 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_lang();
   $$unsubscribe_svg();
   $$unsubscribe_svgBack();
-  return `${$$result.head += `<!-- HEAD_svelte-t32ptj_START -->${$$result.title = `<title>Home</title>`, ""}<meta name="${"description"}" content="${"Svelte demo app"}"><!-- HEAD_svelte-t32ptj_END -->`, ""}
+  return `${$$result.head += `<!-- HEAD_svelte-80kcdw_START -->${$$result.title = `<title>Kiezcolors</title>`, ""}<meta name="${"description"}" content="${"A map based tool to create a postcard showing the landuse distribution in your neighborhood"}"><!-- HEAD_svelte-80kcdw_END -->`, ""}
 
-<div class="${"flex mt-4 flex-wrap justify-evenly text-4xl"}">Landparceler</div>
+<div class="${"flex mt-4 flex-wrap justify-evenly text-4xl"}">Kiezcolors</div>
 
 
-<p id="${"intro-text"}" class="${"flex mt-4 flex-wrap justify-evenly svelte-17pnevh"}">Move the map of Berlin to create a postcard showing the landuse distribution in your neighborhood.
+<p id="${"intro-text"}" class="${"flex mt-4 flex-wrap justify-evenly svelte-lss2vz"}">Move the map of Berlin to create a postcard showing the landuse distribution
+  in your neighborhood.
 </p>
 <section class="${"flex m-4 mt-0 flex-wrap justify-evenly"}"><span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Map</span>${validate_component(Map, "Map").$$render($$result, {}, {}, {})}</span>
-	<span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard front</span>${validate_component(Tree, "Tree").$$render($$result, {}, {}, {})}</span>
-	<span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard back</span>${validate_component(Text, "Text").$$render($$result, {}, {}, {})}</span>
+  <span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard front</span>${validate_component(Tree, "Tree").$$render($$result, {}, {}, {})}</span>
+  <span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Postcard back</span>${validate_component(Text, "Text").$$render($$result, {}, {}, {})}</span>
 
-	<div class="${"m-2 svelte-17pnevh"}" id="${"nav"}"><span class="${"text-center w-full inline-block my-4"}">Edit &amp; Download</span>
-		<span class="${"border p-4 inline-block w-full"}"><input type="${"text"}" class="${"mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-secondary focus:border-secondary block w-full p-2.5"}"${add_attribute("value", $textVis, 0)}>
-			<label class="${""}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute("checked", $useLocationAsText, 1)}>
-				use location as Text
-			</label>
-			<div class="${"mt-2 w-full"}"><span class="${"mr-2"}">Language</span>
-				<label><input type="${"radio"}"${add_attribute("value", "de", 0)}${"de" === $lang ? add_attribute("checked", true, 1) : ""}>
-					DE
-				</label>
-				<label><input type="${"radio"}"${add_attribute("value", "en", 0)}${"en" === $lang ? add_attribute("checked", true, 1) : ""}>
-					EN
-				</label></div>
+  <div class="${"m-2 svelte-lss2vz"}" id="${"nav"}"><span class="${"text-center w-full inline-block my-4"}">Edit &amp; Download</span>
+    <span class="${"border p-4 inline-block w-full"}"><input type="${"text"}" class="${"mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-secondary focus:border-secondary block w-full p-2.5"}"${add_attribute("value", $textVis, 0)}>
+      <label class="${""}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute("checked", $useLocationAsText, 1)}>
+        use location as Text
+      </label>
+      <div class="${"mt-2 w-full"}"><span class="${"mr-2"}">Language</span>
+        <label><input type="${"radio"}"${add_attribute("value", "de", 0)}${"de" === $lang ? add_attribute("checked", true, 1) : ""}>
+          DE
+        </label>
+        <label><input type="${"radio"}"${add_attribute("value", "en", 0)}${"en" === $lang ? add_attribute("checked", true, 1) : ""}>
+          EN
+        </label></div>
 
-			<div class="${"mt-4 mb-2"}">Download</div>
-			<span class="${"mr-4"}"><span class="${"w-10 inline-block"}">SVG</span>
-				<button${add_attribute("class", btnClasses, 0)}>Front</button>
-				<button${add_attribute("class", btnClasses, 0)}>Back</button></span>
+      <div class="${"mt-4 mb-2"}">Download</div>
+      <span class="${"mr-4"}"><span class="${"w-10 inline-block"}">SVG</span>
+        <button${add_attribute("class", btnClasses, 0)}>Front</button>
+        <button${add_attribute("class", btnClasses, 0)}>Back</button></span>
 
-			<span class="${"w-10 inline-block"}">PNG</span>
-			<button${add_attribute("class", btnClasses, 0)}>Front</button>
-			<button${add_attribute("class", btnClasses, 0)}>Back</button>
+      <span class="${"w-10 inline-block"}">PNG</span>
+      <button${add_attribute("class", btnClasses, 0)}>Front</button>
+      <button${add_attribute("class", btnClasses, 0)}>Back</button>
 
-			</span></div>
+      </span></div>
 </section>`;
 });
 export {
