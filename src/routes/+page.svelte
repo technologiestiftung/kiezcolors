@@ -255,7 +255,7 @@
 <div class="flex mt-4 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
 <!-- <div class="flex mt-4 flex-wrap justify-evenly text">Berlin</div> -->
 
-<p id="intro-text" class="flex mt-4 flex-wrap justify-evenly">
+<p id="intro-text" class="flex mt-4 flex-wrap justify-evenly px-10">
   Move the map of Berlin to create a postcard showing the landuse distribution
   in your neighborhood.
 </p>
