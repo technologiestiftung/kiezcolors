@@ -89,7 +89,7 @@
   />
 </svelte:head>
 
-<div class="flex mt-4 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
+<div class="flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
 <!-- <div class="flex mt-4 flex-wrap justify-evenly text">Berlin</div> -->
 
 <p class="ibm flex mt-4 flex-wrap justify-evenly px-10">

@@ -1,4 +1,4 @@
-import { c as create_ssr_component, a as subscribe, b as add_attribute, d as set_store_value, v as validate_component, e as escape, n as null_to_empty } from "../../chunks/index2.js";
+import { c as create_ssr_component, a as subscribe, e as escape, b as add_attribute, d as set_store_value, v as validate_component, n as null_to_empty } from "../../chunks/index2.js";
 import "maplibre-gl";
 import { w as writable } from "../../chunks/index.js";
 import destination from "@turf/destination";
@@ -322,7 +322,7 @@ function checkCirleFits(map, cirlceGeom) {
 }
 const Map_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: "#map.svelte-adct14{width:444px;height:630px}#myCanvas.svelte-adct14{z-index:10;pointer-events:none}",
+  code: "#map.svelte-1hz8ni8{width:444px;height:630px}#myCanvas.svelte-1hz8ni8{z-index:10;pointer-events:none}",
   map: null
 };
 const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -382,16 +382,18 @@ const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_totalSize();
   $$unsubscribe_areaSizes();
   $$unsubscribe_showBasemap();
-  return `<div id="${"map"}" class="${"border-2 w-fit svelte-adct14"}"><div class="${"absolute right-2 bottom-2 z-50 text-gray-500"}">${$showBasemap ? `© <a target="${"_blank"}" href="${"https://www.openstreetmap.org/copyright"}">OpenStreetMap</a>
-			contributors © |` : ``}
+  return `<div id="${"map"}" class="${"border-2 w-fit svelte-1hz8ni8"}"><div class="${"absolute right-2 bottom-8 z-50 "}">Radius: ${escape($circleRadius)}m</div>
 
-		Geoportal Berlin / ALKIS Berlin
-	</div>
-	<label class="${"absolute right-2 bottom-8 z-50 text-gray-500"}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute("checked", $showBasemap, 1)}>
-		Show Basemap
-	</label>
+  <div class="${"absolute right-2 bottom-2 z-50 "}">${$showBasemap ? `© <a target="${"_blank"}" href="${"https://www.openstreetmap.org/copyright"}">OpenStreetMap</a>
+      contributors © |` : ``}
 
-	<canvas id="${"myCanvas"}" class="${"absolute svelte-adct14"}"></canvas>
+    Geoportal Berlin / ALKIS Berlin
+  </div>
+  <label class="${"absolute right-2 bottom-14 z-50"}"><input type="${"checkbox"}" class="${"mt-4"}"${add_attribute("checked", $showBasemap, 1)}>
+    Show Basemap
+  </label>
+
+  <canvas id="${"myCanvas"}" class="${"absolute svelte-1hz8ni8"}"></canvas>
 </div>`;
 });
 const Tree = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -580,7 +582,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_svgBack();
   return `${$$result.head += `<!-- HEAD_svelte-80kcdw_START -->${$$result.title = `<title>Kiezcolors</title>`, ""}<meta name="${"description"}" content="${"A map based tool to create a postcard showing the landuse distribution in your neighborhood"}"><!-- HEAD_svelte-80kcdw_END -->`, ""}
 
-<div class="${"flex mt-4 flex-wrap justify-evenly text-4xl"}">Kiezcolors</div>
+<div class="${"flex mt-8 flex-wrap justify-evenly text-4xl"}">Kiezcolors</div>
 
 
 <p class="${"ibm flex mt-4 flex-wrap justify-evenly px-10 svelte-w2b6um"}">Move the map of Berlin to create a postcard showing the landuse distribution

@@ -5,17 +5,17 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout.879fa96f.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/_page.ea12d2b6.css" rel="stylesheet">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.1afedc9a.mjs">
+		<link href="./_app/immutable/assets/_layout.0ab10c77.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_page.f4544d5a.css" rel="stylesheet">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.54c2978a.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.409b7b29.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.adca0b45.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.599b1cda.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.2fc6a978.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.a0c02172.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.452f97b4.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.e9efa409.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.de71b353.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.js.fb1865a6.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_layout.da46b06b.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.17c08982.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.130d454d.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.js.3dc38d36.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_page.da46b06b.mjs"><title>Kiezcolors</title><!-- HEAD_svelte-80kcdw_START --><meta name="description" content="A map based tool to create a postcard showing the landuse distribution in your neighborhood"><!-- HEAD_svelte-80kcdw_END -->
 	</head>
@@ -27,21 +27,23 @@
 
 	<main>
 
-<div class="flex mt-4 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
+<div class="flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
 
 
 <p class="ibm flex mt-4 flex-wrap justify-evenly px-10 svelte-w2b6um">Move the map of Berlin to create a postcard showing the landuse distribution
   in your neighborhood.
 </p>
-<section class="flex m-4 mt-0 flex-wrap justify-evenly"><span class="m-2"><span class="text-center w-full inline-block my-4">Map</span><div id="map" class="border-2 w-fit svelte-adct14"><div class="absolute right-2 bottom-2 z-50 text-gray-500">
+<section class="flex m-4 mt-0 flex-wrap justify-evenly"><span class="m-2"><span class="text-center w-full inline-block my-4">Map</span><div id="map" class="border-2 w-fit svelte-1hz8ni8"><div class="absolute right-2 bottom-8 z-50 ">Radius: undefinedm</div>
 
-		Geoportal Berlin / ALKIS Berlin
-	</div>
-	<label class="absolute right-2 bottom-8 z-50 text-gray-500"><input type="checkbox" class="mt-4">
-		Show Basemap
-	</label>
+  <div class="absolute right-2 bottom-2 z-50 ">
 
-	<canvas id="myCanvas" class="absolute svelte-adct14"></canvas>
+    Geoportal Berlin / ALKIS Berlin
+  </div>
+  <label class="absolute right-2 bottom-14 z-50"><input type="checkbox" class="mt-4">
+    Show Basemap
+  </label>
+
+  <canvas id="myCanvas" class="absolute svelte-1hz8ni8"></canvas>
 </div></span>
   <span class="m-2"><span class="text-center w-full inline-block my-4">Postcard front</span>
 
@@ -91,7 +93,7 @@
 			
 			<script>
 				{
-					__sveltekit_moxd7f = {
+					__sveltekit_vagja5 = {
 						env: {},
 						assets: new URL(".", location.href).pathname.replace(/^\/$/, ''),
 						element: document.currentScript.parentElement
@@ -100,10 +102,10 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.1afedc9a.mjs"),
-						import("./_app/immutable/entry/app.a0c02172.mjs")
+						import("./_app/immutable/entry/start.54c2978a.mjs"),
+						import("./_app/immutable/entry/app.e9efa409.mjs")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_moxd7f.element, {
+						kit.start(app, __sveltekit_vagja5.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,

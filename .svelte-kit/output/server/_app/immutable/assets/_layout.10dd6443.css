@@ -437,6 +437,9 @@ video {
 .absolute {
   position: absolute;
 }
+.bottom-14 {
+  bottom: 3.5rem;
+}
 .bottom-2 {
   bottom: 0.5rem;
 }
@@ -476,6 +479,9 @@ video {
 }
 .mt-4 {
   margin-top: 1rem;
+}
+.mt-8 {
+  margin-top: 2rem;
 }
 .block {
   display: block;
@@ -561,10 +567,6 @@ video {
 }
 .italic {
   font-style: italic;
-}
-.text-gray-500 {
-  --tw-text-opacity: 1;
-  color: rgb(148 148 148 / var(--tw-text-opacity));
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
