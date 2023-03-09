@@ -1,4 +1,4 @@
-import { c as create_ssr_component, a as subscribe, e as escape, b as add_attribute, d as set_store_value, v as validate_component, n as null_to_empty } from "../../chunks/index2.js";
+import { c as create_ssr_component, a as subscribe, b as add_attribute, v as validate_component, e as escape, d as set_store_value, n as null_to_empty } from "../../chunks/index2.js";
 import "maplibre-gl";
 import { w as writable } from "../../chunks/index.js";
 import destination from "@turf/destination";
@@ -22,6 +22,7 @@ let showBasemap = writable(false);
 let locationText = writable();
 let useLocationAsText = writable(false);
 let lang = writable("en");
+let newBounds = writable();
 let textVis = writable("My Kiezcolors Text");
 let landuses = {
   AX_FlaecheBesondererFunktionalerPraegung: {
@@ -185,6 +186,23 @@ Object.keys(landuses).forEach((key) => {
   landuseColors.push(key);
   landuseColors.push(categories[landuses[key].category].color);
 });
+const Gecoder = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let $$unsubscribe_textVis;
+  let $$unsubscribe_newBounds;
+  $$unsubscribe_textVis = subscribe(textVis, (value) => value);
+  $$unsubscribe_newBounds = subscribe(newBounds, (value) => value);
+  let searchText = "";
+  $$unsubscribe_textVis();
+  $$unsubscribe_newBounds();
+  return `
+
+<div class="${"absolute z-50 top-2 bg-white "}" style="${"transform:translate(2%); width:96%"}"><div class="${"demo-icon icon-search absolute text-xl right-4 mt-1 cursor-pointer top-2"}"><svg id="${"submit"}" xmlns="${"http://www.w3.org/2000/svg"}" width="${"16"}" height="${"16"}" fill="${"currentColor"}" class="${""}" viewBox="${"0 0 16 16"}"><path d="${"M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"}"></path></svg></div>
+
+  <input autocomplete="${"off"}" autocorrect="${"off"}" spellcheck="${"false"}" placeholder="${"search..."}" class="${"h-10 w-full px-4 focus:border-white"}"${add_attribute("value", searchText, 0)}>
+
+  <div class="${"listContainerWrapper z-50 w-full left-0 top-12"}">${``}</div>
+</div>`;
+});
 function drawCanvasCirlce(map, canvas, circleRadius2) {
   const cooUp = destination(map.getCenter().toArray(), circleRadius2, 90, {
     units: "meters"
@@ -333,6 +351,7 @@ const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $mapCenter, $$unsubscribe_mapCenter;
   let $totalSize, $$unsubscribe_totalSize;
   let $areaSizes, $$unsubscribe_areaSizes;
+  let $newBounds, $$unsubscribe_newBounds;
   let $showBasemap, $$unsubscribe_showBasemap;
   $$unsubscribe_circleRadius = subscribe(circleRadius, (value) => $circleRadius = value);
   $$unsubscribe_locationText = subscribe(locationText, (value) => $locationText = value);
@@ -341,8 +360,15 @@ const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_mapCenter = subscribe(mapCenter, (value) => $mapCenter = value);
   $$unsubscribe_totalSize = subscribe(totalSize, (value) => $totalSize = value);
   $$unsubscribe_areaSizes = subscribe(areaSizes, (value) => $areaSizes = value);
+  $$unsubscribe_newBounds = subscribe(newBounds, (value) => $newBounds = value);
   $$unsubscribe_showBasemap = subscribe(showBasemap, (value) => $showBasemap = value);
   let map;
+  function setBounds(b) {
+    if (!b || !map)
+      return;
+    console.log(b);
+    map.setCenter(b);
+  }
   const drawAndCount = function(map2) {
     if (!map2 || !map2.getLayer("landuse"))
       return;
@@ -374,6 +400,9 @@ const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   {
     drawAndCount(map);
   }
+  {
+    setBounds($newBounds);
+  }
   $$unsubscribe_circleRadius();
   $$unsubscribe_locationText();
   $$unsubscribe_textVis();
@@ -381,10 +410,20 @@ const Map = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_mapCenter();
   $$unsubscribe_totalSize();
   $$unsubscribe_areaSizes();
+  $$unsubscribe_newBounds();
   $$unsubscribe_showBasemap();
-  return `<div id="${"map"}" class="${"border-2 w-fit svelte-1hz8ni8"}"><div class="${"absolute right-2 bottom-8 z-50 "}">Radius: ${escape($circleRadius)}m</div>
+  return `<div id="${"map"}" class="${"border-2 w-fit svelte-1hz8ni8"}">${validate_component(Gecoder, "Geocoder").$$render($$result, {}, {}, {})}
 
-  <div class="${"absolute right-2 bottom-2 z-50 "}">${$showBasemap ? `© <a target="${"_blank"}" href="${"https://www.openstreetmap.org/copyright"}">OpenStreetMap</a>
+  <button class="${"rounded-full absolute right-2 top-14 h-10 w-10 text-center cursor-pointer text-xl leading-7 hover:bg-gray-300 z-40 bg-white"}">+
+  </button>
+  <button class="${"rounded-full absolute right-2 top-24 mt-2 h-10 w-10 text-center cursor-pointer text-xl leading-7 hover:bg-gray-300 z-40 bg-white"}">-
+  </button>
+
+  <div class="${"absolute right-2 bottom-8 z-50 "}">Radius: ${escape($circleRadius)}m</div>
+
+  <div class="${"absolute right-2 bottom-2 z-50 "}">${$showBasemap ? `©
+      <a target="${"_blank"}" rel="${"noreferrer"}" href="${"https://www.openstreetmap.org/copyright"}">OpenStreetMap
+      </a>
       contributors © |` : ``}
 
     Geoportal Berlin / ALKIS Berlin
@@ -585,7 +624,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 <div class="${"flex mt-8 flex-wrap justify-evenly text-4xl"}">Kiezcolors</div>
 
 
-<p class="${"ibm flex mt-4 flex-wrap justify-evenly px-10 svelte-w2b6um"}">Move the map of Berlin to create a postcard showing the landuse distribution
+<p class="${"ibm flex mt-4 flex-wrap justify-evenly px-6 md:px-10 svelte-w2b6um"}">Move the map of Berlin to create a postcard showing the landuse distribution
   in your neighborhood.
 </p>
 <section class="${"flex m-4 mt-0 flex-wrap justify-evenly"}"><span class="${"m-2"}"><span class="${"text-center w-full inline-block my-4"}">Map</span>${validate_component(Map, "Map").$$render($$result, {}, {}, {})}</span>
@@ -616,7 +655,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 
       </span></div></section>
 
-<footer class="${"flex mt-4 flex-wrap justify-evenly p-10 pt-20"}"><p>Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by
+<footer class="${"flex mt-4 flex-wrap justify-evenly p-6 md:p-10 pt-20"}"><p>Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by
     the Technologiestiftung Berlin and is funded by the Berlin Senate Department
     for the Interior, Digitization and Sports.
   </p>

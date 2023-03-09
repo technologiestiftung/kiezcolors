@@ -4,6 +4,8 @@
   import { onMount } from "svelte";
   import mapStyle from "./mapStyle.js";
 
+  import Geocoder from "./Gecoder.svelte";
+
   import drawCanvasCirlce from "$lib/assets/drawCanvasCirlce";
   import getMaxCircleRadius from "$lib/assets/getMaxCircleRadius";
   import getLanduseSizes from "$lib/assets/getLanduseSizes";
@@ -21,6 +23,7 @@
     locationText,
     useLocationAsText,
     textVis,
+    newBounds,
   } from "$lib/stores.js";
 
   let map;
@@ -31,9 +34,17 @@
     map.setLayoutProperty("osm", "visibility", !show ? "none" : "visible");
   }
 
+  function setBounds(b) {
+    if (!b || !map) return;
+    console.log(b);
+    map.setCenter(b);
+  }
+
   $: setShowBasemap($showBasemap);
 
   $: drawAndCount(map, $useLocationAsText);
+
+  $: setBounds($newBounds);
 
   const drawAndCount = function (map) {
     if (!map || !map.getLayer("landuse")) return;
@@ -104,13 +115,35 @@
 </script>
 
 <div id="map" class="border-2 w-fit">
+  <Geocoder />
+
+  <button
+    class="rounded-full absolute right-2 top-14 h-10 w-10 text-center cursor-pointer text-xl leading-7 hover:bg-gray-300 z-40 bg-white"
+    on:click={() => map.zoomIn()}
+    on:keypress={() => map.zoomIn()}
+  >
+    +
+  </button>
+  <button
+    class="rounded-full absolute right-2 top-24 mt-2 h-10 w-10 text-center cursor-pointer text-xl leading-7 hover:bg-gray-300 z-40 bg-white"
+    on:click={() => map.zoomOut()}
+    on:keypress={() => map.zoomOut()}
+  >
+    -
+  </button>
+
   <div class="absolute right-2 bottom-8 z-50 ">Radius: {$circleRadius}m</div>
 
   <div class="absolute right-2 bottom-2 z-50 ">
     {#if $showBasemap}
-      &copy; <a target="_blank" href="https://www.openstreetmap.org/copyright"
-        >OpenStreetMap</a
+      &copy;
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.openstreetmap.org/copyright"
       >
+        OpenStreetMap
+      </a>
       contributors &copy; |
     {/if}
 

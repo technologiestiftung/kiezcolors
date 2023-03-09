@@ -5,17 +5,17 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout.0ab10c77.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_layout.2a2b0f0b.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/_page.f4544d5a.css" rel="stylesheet">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.54c2978a.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.409b7b29.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.599b1cda.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.2fc6a978.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.e9efa409.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.de71b353.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.7ae84e74.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.fa836dfd.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.9caa15b6.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.d5bfadca.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.b648c063.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.8d9c121e.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.js.fb1865a6.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_layout.da46b06b.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.130d454d.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.e1dc5d3a.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.js.3dc38d36.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_page.da46b06b.mjs"><title>Kiezcolors</title><!-- HEAD_svelte-80kcdw_START --><meta name="description" content="A map based tool to create a postcard showing the landuse distribution in your neighborhood"><!-- HEAD_svelte-80kcdw_END -->
 	</head>
@@ -30,10 +30,24 @@
 <div class="flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
 
 
-<p class="ibm flex mt-4 flex-wrap justify-evenly px-10 svelte-w2b6um">Move the map of Berlin to create a postcard showing the landuse distribution
+<p class="ibm flex mt-4 flex-wrap justify-evenly px-6 md:px-10 svelte-w2b6um">Move the map of Berlin to create a postcard showing the landuse distribution
   in your neighborhood.
 </p>
-<section class="flex m-4 mt-0 flex-wrap justify-evenly"><span class="m-2"><span class="text-center w-full inline-block my-4">Map</span><div id="map" class="border-2 w-fit svelte-1hz8ni8"><div class="absolute right-2 bottom-8 z-50 ">Radius: undefinedm</div>
+<section class="flex m-4 mt-0 flex-wrap justify-evenly"><span class="m-2"><span class="text-center w-full inline-block my-4">Map</span><div id="map" class="border-2 w-fit svelte-1hz8ni8">
+
+<div class="absolute z-50 top-2 bg-white " style="transform:translate(2%); width:96%"><div class="demo-icon icon-search absolute text-xl right-4 mt-1 cursor-pointer top-2"><svg id="submit" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg></div>
+
+  <input autocomplete="off" autocorrect="off" spellcheck="false" placeholder="search..." class="h-10 w-full px-4 focus:border-white" value="">
+
+  <div class="listContainerWrapper z-50 w-full left-0 top-12"></div>
+</div>
+
+  <button class="rounded-full absolute right-2 top-14 h-10 w-10 text-center cursor-pointer text-xl leading-7 hover:bg-gray-300 z-40 bg-white">+
+  </button>
+  <button class="rounded-full absolute right-2 top-24 mt-2 h-10 w-10 text-center cursor-pointer text-xl leading-7 hover:bg-gray-300 z-40 bg-white">-
+  </button>
+
+  <div class="absolute right-2 bottom-8 z-50 ">Radius: undefinedm</div>
 
   <div class="absolute right-2 bottom-2 z-50 ">
 
@@ -75,7 +89,7 @@
 
       </span></div></section>
 
-<footer class="flex mt-4 flex-wrap justify-evenly p-10 pt-20"><p>Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by
+<footer class="flex mt-4 flex-wrap justify-evenly p-6 md:p-10 pt-20"><p>Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by
     the Technologiestiftung Berlin and is funded by the Berlin Senate Department
     for the Interior, Digitization and Sports.
   </p>
@@ -93,7 +107,7 @@
 			
 			<script>
 				{
-					__sveltekit_vagja5 = {
+					__sveltekit_e0dsf0 = {
 						env: {},
 						assets: new URL(".", location.href).pathname.replace(/^\/$/, ''),
 						element: document.currentScript.parentElement
@@ -102,10 +116,10 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.54c2978a.mjs"),
-						import("./_app/immutable/entry/app.e9efa409.mjs")
+						import("./_app/immutable/entry/start.7ae84e74.mjs"),
+						import("./_app/immutable/entry/app.b648c063.mjs")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_vagja5.element, {
+						kit.start(app, __sveltekit_e0dsf0.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,

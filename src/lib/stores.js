@@ -11,6 +11,7 @@ export let showBasemap = writable(false);
 export let locationText = writable();
 export let useLocationAsText = writable(false);
 export let lang = writable("en");
+export let newBounds = writable();
 
 export let textVis = writable("My Kiezcolors Text");
 

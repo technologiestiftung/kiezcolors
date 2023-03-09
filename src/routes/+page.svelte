@@ -92,7 +92,7 @@
 <div class="flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
 <!-- <div class="flex mt-4 flex-wrap justify-evenly text">Berlin</div> -->
 
-<p class="ibm flex mt-4 flex-wrap justify-evenly px-10">
+<p class="ibm flex mt-4 flex-wrap justify-evenly px-6 md:px-10">
   Move the map of Berlin to create a postcard showing the landuse distribution
   in your neighborhood.
 </p>
@@ -169,7 +169,7 @@
   </div>
 </section>
 
-<footer class="flex mt-4 flex-wrap justify-evenly p-10 pt-20">
+<footer class="flex mt-4 flex-wrap justify-evenly p-6 md:p-10 pt-20">
   <p>
     Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by
     the Technologiestiftung Berlin and is funded by the Berlin Senate Department
