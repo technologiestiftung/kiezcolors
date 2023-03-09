@@ -202,6 +202,9 @@
       /></a
     >
   </div>
+  <div class="w-full text-center text-gray-400">
+    <a href="https://www.technologiestiftung-berlin.de/impressum">Impressum</a>
+  </div>
 </footer>
 
 <style>

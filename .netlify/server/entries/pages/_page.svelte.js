@@ -664,6 +664,7 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     <a style="${"margin:10px"}" href="${"https://www.technologiestiftung-berlin.de/"}"><img width="${"150"}" src="${"https://logos.citylab-berlin.org/logo-technologiestiftung-berlin-de.svg"}"></a>
     <a style="${"margin:10px"}" href="${"https://www.berlin.de/sen/inneres/"}"><img width="${"100"}" src="${"https://logos.citylab-berlin.org/logo-berlin-seninnds-de.svg"}"></a>
     <a style="${"margin:10px"}" href="${"https://citylab-berlin.org/de/start/"}"><img width="${"200"}" src="${"https://logos.citylab-berlin.org/logo-citylab-berlin.svg"}"></a></div>
+  <div class="${"w-full text-center text-gray-400"}"><a href="${"https://www.technologiestiftung-berlin.de/impressum"}">Impressum</a></div>
 </footer>`;
 });
 export {
