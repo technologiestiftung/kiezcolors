@@ -87,6 +87,10 @@
     name="description"
     content="A map based tool to create a postcard showing the landuse distribution in your neighborhood"
   />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=0"
+  />
 </svelte:head>
 
 <div class="flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
@@ -133,9 +137,9 @@
         </label>
       </div>
 
-      <div class="mt-4 mb-2">Download</div>
+      <div class="mt-6 mb-2 font-semibold ">Download</div>
       <span class="mr-4">
-        <span class="w-10 inline-block">SVG</span>
+        <span class="w-32 inline-block">SVG (height res)</span>
         <button
           class={btnClasses}
           on:click={() => {
@@ -149,8 +153,8 @@
           }}>Back</button
         >
       </span>
-
-      <span class="w-10 inline-block">PNG</span>
+      <br />
+      <span class="w-32 inline-block">PNG (low res)</span>
       <button
         class={btnClasses}
         on:click={() => {

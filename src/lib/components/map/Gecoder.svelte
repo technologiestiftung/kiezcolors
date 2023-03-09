@@ -57,7 +57,7 @@
   function selectResult(value, label) {
     clearResults();
     $newBounds = value;
-    $textVis = label;
+    // $textVis = label;
   }
 
   function clearResults() {
@@ -105,7 +105,7 @@
     bind:value={searchText}
     on:keydown={search}
     on:click={killEvent}
-    class=" h-10 w-full px-4 focus:border-white"
+    class=" h-10 w-full px-4 focus:border-white font-outfit"
   />
 
   <div class="listContainerWrapper z-50 w-full left-0 top-12">

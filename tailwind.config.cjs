@@ -14,6 +14,9 @@ const config = {
       secondary: "#277da1",
       white: "#ffffff",
     },
+    fontFamily: {
+      outfit: ["Outfit"],
+    },
   },
 
   plugins: [],
