@@ -93,28 +93,52 @@
   />
 </svelte:head>
 
+<div class="fixed right-0 top-0 margin-4">
+  <button
+    on:click={() => {
+      $lang = "en";
+    }}>en</button
+  >
+  <button
+    on:click={() => {
+      $lang = "de";
+    }}>de</button
+  >
+</div>
+
 <div class="flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
-<!-- <div class="flex mt-4 flex-wrap justify-evenly text">Berlin</div> -->
 
 <p class="ibm flex mt-4 flex-wrap justify-evenly px-6 md:px-10">
-  Move the map of Berlin to create a postcard showing the landuse distribution
-  in your neighborhood.
+  {#if $lang === "en"}
+    Move the map of Berlin to create a postcard showing the landuse distribution
+    in your neighborhood.
+  {:else}
+    Verschiebe die Karte von Berlin, um eine Postkarte zu erstellen, die die
+    Verteilung der Flächennutzung in Deiner Nachbarschaft zeigt.
+  {/if}
 </p>
+
 <section class="flex m-4 mt-0 flex-wrap justify-evenly">
   <span class=" m-2"
-    ><span class="text-center w-full inline-block my-4">Map</span><Map /></span
+    ><span class="text-center w-full inline-block my-4"
+      >{$lang === "en" ? "Map" : "Karte"}</span
+    ><Map /></span
   >
   <span class="m-2"
-    ><span class="text-center w-full inline-block my-4">Postcard front</span
+    ><span class="text-center w-full inline-block my-4"
+      >{$lang === "en" ? "Postcard front" : "Postkarte vorne"}</span
     ><Tree /></span
   >
   <span class=" m-2"
-    ><span class="text-center w-full inline-block my-4">Postcard back</span
+    ><span class="text-center w-full inline-block my-4"
+      >{$lang === "en" ? "Postcard back" : "Postkarte hinten"}</span
     ><Text /></span
   >
 
   <div class="m-2" id="nav">
-    <span class="text-center w-full inline-block my-4">Edit & Download</span>
+    <span class="text-center w-full inline-block my-4"
+      >{$lang === "en" ? "Edit & Download" : "Editieren & Download"}</span
+    >
     <span class="border p-4 inline-block w-full">
       <input
         type="text"
@@ -126,7 +150,7 @@
         use location as Text
       </label>
       <div class="mt-2 w-full">
-        <span class="mr-2">Language</span>
+        <span class="mr-2">{$lang === "en" ? "Language" : "Sprache"}</span>
         <label>
           <input type="radio" bind:group={$lang} value={"de"} />
           DE
@@ -144,13 +168,13 @@
           class={btnClasses}
           on:click={() => {
             downloadSVG($svg);
-          }}>Front</button
+          }}>{$lang === "en" ? "Front" : "Vorne"}</button
         >
         <button
           class={btnClasses}
           on:click={() => {
             downloadSVG($svgBack);
-          }}>Back</button
+          }}>{$lang === "en" ? "Back" : "Hinten"}</button
         >
       </span>
       <br />
@@ -159,13 +183,13 @@
         class={btnClasses}
         on:click={() => {
           downloadPNG($svg);
-        }}>Front</button
+        }}>{$lang === "en" ? "Front" : "Vorne"}</button
       >
       <button
         class={btnClasses}
         on:click={() => {
           downloadPNG($svgBack);
-        }}>Back</button
+        }}>{$lang === "en" ? "Back" : "Hinten"}</button
       >
 
       <!-- </div> -->
@@ -175,9 +199,9 @@
 
 <footer class="flex mt-4 flex-wrap justify-evenly p-6 md:p-10 pt-20">
   <p>
-    Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by
-    the Technologiestiftung Berlin and is funded by the Berlin Senate Department
-    for the Interior, Digitization and Sports.
+    {$lang === "en"
+      ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by the Technologiestiftung Berlin and is funded by the Berlin Senate Department for the Interior, Digitization and Sports."
+      : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS ist ein Projekt der Technologiestiftung Berlin und wird von der Berliner Senatsverwaltung für Inneres, Digitalisierung und Sport gefördert."}
   </p>
 
   <div style="text-align:center;margin-top:20px" class="flex">
