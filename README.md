@@ -10,7 +10,7 @@
 
 A map based tool to create a postcard showing the landuse distribution in your neighborhood 
  
-## Prerequisites
+## Tech stack
 
 This website is a [svelte](https://svelte.dev/) app.
 
