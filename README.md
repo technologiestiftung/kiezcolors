@@ -12,7 +12,7 @@ A map based tool to create a postcard showing the landuse distribution in your n
  
 ## Prerequisites
 
-This app is made using the [svelte](https://svelte.dev/) framework.
+This website is a [svelte](https://svelte.dev/) app.
 
 ## Developing
 
