@@ -7,6 +7,9 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # Kiezcolors
+
+A map based tool to create a postcard showing the landuse distribution in your neighborhood 
+ 
 ## Prerequisites
 
 tbd...
