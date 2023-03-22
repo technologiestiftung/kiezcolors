@@ -12,23 +12,42 @@ A map based tool to create a postcard showing the landuse distribution in your n
  
 ## Prerequisites
 
-tbd...
+This app is made using the [svelte](https://svelte.dev/) framework.
 
-## Installation
+## Developing
 
-tbd...
+Start a development server by running:
 
-## Usage or Deployment
+```bash
+npm run dev
 
-tbd...
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-## Development
+## Building
 
-tbd...
+To create a production version of your app:
 
-## Tests
+```bash
+npm run build
+```
 
-tbd...
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Tile Creation
+
+The tiles we created with *tippecanoe* by running the following command:
+
+```bash
+tippecanoe --output-to-directory ./tiles '--use-attribute-for-id=id' --no-tile-compression --force -B 13 '--minimum-zoom=10' '--maximum-zoom=13' ./alkis.geojson
+```
+
+## Licence
+
+The landuse data *ALKIS Berlin* can be downloaded from the Geoportal Berlin.
 
 ## Contributing
 
