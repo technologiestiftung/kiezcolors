@@ -6,8 +6,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-# {repo-template}
-
+# Kiezcolors
 ## Prerequisites
 
 tbd...
