@@ -15,7 +15,7 @@ const config = {
       white: "#ffffff",
     },
     fontFamily: {
-      outfit: ["Outfit"],
+      outfit: [""],
     },
   },
 

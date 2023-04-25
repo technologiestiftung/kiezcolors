@@ -11,7 +11,7 @@
     useLocationAsText,
     lang,
   } from "$lib/stores.js";
-  import font from "$lib/assets/font";
+  // import font from "$lib/assets/font";
   import { encode } from "$lib/assets/base64";
 
   const width = $dimensions[1],
@@ -95,6 +95,7 @@
 
 <div class="fixed right-0 top-0 margin-4">
   <button
+    class="border"
     on:click={() => {
       $lang = "en";
     }}>en</button
@@ -106,9 +107,9 @@
   >
 </div>
 
-<div class="flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
+<div class="bold flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
 
-<p class="ibm flex mt-4 flex-wrap justify-evenly px-6 md:px-10">
+<p class=" flex mt-4 flex-wrap justify-evenly px-6 md:px-10">
   {#if $lang === "en"}
     Move the map of Berlin to create a postcard showing the landuse distribution
     in your neighborhood.
@@ -129,6 +130,7 @@
       >{$lang === "en" ? "Postcard front" : "Postkarte vorne"}</span
     ><Tree /></span
   >
+
   <!-- <span class=" m-2"
     ><span class="text-center w-full inline-block my-4"
       >{$lang === "en" ? "Postcard back" : "Postkarte hinten"}</span
@@ -149,7 +151,7 @@
         <input type="checkbox" bind:checked={$useLocationAsText} class="mt-4" />
         use location as Text
       </label>
-      <div class="mt-2 w-full">
+      <!-- <div class="mt-2 w-full">
         <span class="mr-2">{$lang === "en" ? "Language" : "Sprache"}</span>
         <label>
           <input type="radio" bind:group={$lang} value={"de"} />
@@ -159,7 +161,7 @@
           <input type="radio" bind:group={$lang} value={"en"} />
           EN
         </label>
-      </div>
+      </div> -->
 
       <div class="mt-6 mb-2 font-semibold ">Download</div>
       <span class="mr-4">
@@ -241,7 +243,7 @@
     /* height: 630px; */
   }
 
-  .ibm {
-    font-family: "IBM Plex Mono";
+  .bold {
+    font-family: "IBM Plex Sans Bold";
   }
 </style>

@@ -73,7 +73,7 @@
 
     // intersectsGrid = circleIntersectsGrid(map, circleGeom);
 
-    const { sizes, sumSizes } = getLanduseSizes(map, circleGeom);
+    const { sizes, sumSizes } = getLanduseSizes(map, circleGeom, landuses);
     $areaSizes = sizes;
     $totalSize = sumSizes;
     $locationText = "Lat " + $mapCenter[1] + " N, Lng " + $mapCenter[0] + " E";

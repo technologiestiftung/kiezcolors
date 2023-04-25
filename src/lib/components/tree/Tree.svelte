@@ -8,6 +8,7 @@ https://observablehq.com/@d3/treemap
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import textures from "textures";
+  import chroma from "chroma-js";
   import {
     areaSizes,
     landuses,
@@ -29,23 +30,21 @@ https://observablehq.com/@d3/treemap
       const child = {};
       child.name = categories[keyCategories].name;
       child.children = [];
-      Object.keys(landuses).forEach((keyLanduses) => {
-        if (keyCategories === landuses[keyLanduses].category) {
-          if (!size[keyLanduses]) {
-            return;
-          }
-          // ignore small parts
-          if (Math.round(size[keyLanduses].p) < 1) {
-            return;
-          } else {
-          }
-          child.children.push({
-            name: keyCategories,
-            size: size[keyLanduses]?.p || 0,
-            color: categories[keyCategories].color,
-          });
-        }
+
+      if (!size[keyCategories]) {
+        return;
+      }
+      // ignore small parts
+      if (Math.round(size[keyCategories].p) < 1) {
+        return;
+      } else {
+      }
+      child.children.push({
+        name: keyCategories,
+        size: size[keyCategories]?.p || 0,
+        color: categories[keyCategories].color,
       });
+
       treeChildren.push(child);
     });
 
@@ -107,8 +106,8 @@ https://observablehq.com/@d3/treemap
       // .tile(d3.treemapResquarify)
       .size([width, height - 120])
       .round(true)
-      .paddingInner(6);
-    // .paddingOuter(4);
+      // .paddingInner(6);
+      .paddingOuter(4);
 
     // }
 
@@ -168,7 +167,7 @@ https://observablehq.com/@d3/treemap
       // .attr('y', function (d, i) {
       // 	return 13 + i * 10;
       // })
-      .attr("font-family", "Outfit")
+      .attr("font-family", "IBM Plex Sans Bold")
       .attr("font-size", 30)
       .attr("fill", "#292929")
       .text(function (d) {
@@ -179,7 +178,7 @@ https://observablehq.com/@d3/treemap
       .append("text")
       .attr("transform", "translate(" + width / 2 + "," + height * 0.95 + ")")
       .attr("text-anchor", "middle")
-      .attr("font-family", "IBM Plex Mono")
+      .attr("font-family", "IBM Plex Sans Text")
       .attr("font-size", 10)
       .attr("fill", "#277da1")
       .text("Made with Open Data");
@@ -187,24 +186,33 @@ https://observablehq.com/@d3/treemap
     // mySVG += '<g transform=translate('+a4With/2+','+a4Height*0.87+
     // 			') text-anchor=middle><text id="img-title" fill=white font-size=25px font-family=Arial>TEXT</text></g>'
 
-    // cell
-    // 	.append('text')
-    // 	// .attr('clip-path', function (d) {
-    // 	// 	return 'url(#clip-' + d.data.id + ')';
-    // 	// })
-    // 	.selectAll('tspan')
-    // 	.data(function (d) {
-    // 		return d.data.name.split(/(?=[A-Z][^A-Z])/g);
-    // 	})
-    // 	.enter()
-    // 	.append('tspan')
-    // 	.attr('x', 4)
-    // 	.attr('y', function (d, i) {
-    // 		return 13 + i * 10;
-    // 	})
-    // 	.text(function (d) {
-    // 		return d;
-    // 	});
+    cell
+      .append("text")
+      // .attr('clip-path', function (d) {
+      // 	return 'url(#clip-' + d.data.id + ')';
+      // })
+      .attr("x", function (d) {
+        return d.x1 - d.x0 - 5;
+      })
+      .attr("y", function (d) {
+        return d.y1 - d.y0 - 10;
+      })
+      .attr("text-anchor", "end")
+      .attr("font-family", "IBM Plex Sans Text")
+      .attr("font-size", 14)
+      .text(function (d) {
+        const w = d.x1 - d.x0;
+        const h = d.y1 - d.y0;
+        if (w < 30 || h < 30) return;
+        console.log(d.data.name, d.x1 - d.x0);
+        return Math.round(d.data.size).toString() + "%";
+        // return (Math.round(d.data.size * 10) / 10).toString() + " %";
+      })
+      .attr("fill", function (d) {
+        if (d.data.color) {
+          return chroma(d.data.color).darken().hex();
+        }
+      });
 
     // cell
     // 	.transition()
