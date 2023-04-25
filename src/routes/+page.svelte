@@ -129,11 +129,11 @@
       >{$lang === "en" ? "Postcard front" : "Postkarte vorne"}</span
     ><Tree /></span
   >
-  <span class=" m-2"
+  <!-- <span class=" m-2"
     ><span class="text-center w-full inline-block my-4"
       >{$lang === "en" ? "Postcard back" : "Postkarte hinten"}</span
     ><Text /></span
-  >
+  > -->
 
   <div class="m-2" id="nav">
     <span class="text-center w-full inline-block my-4"
