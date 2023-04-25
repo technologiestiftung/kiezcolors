@@ -12,6 +12,7 @@ export let locationText = writable();
 export let useLocationAsText = writable(false);
 export let lang = writable("de");
 export let newBounds = writable();
+//
 
 export let textVis = writable("Kiezcolors Text");
 
