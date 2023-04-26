@@ -6,6 +6,8 @@
   let selectedIndex = undefined;
 
   async function search(event) {
+    console.log("SSSS");
+    console.log(event);
     if (event.keyCode === 13 && (selectedIndex || selectedIndex === 0)) {
       selectResult(
         searchResults[selectedIndex].value,
@@ -73,44 +75,45 @@
 
 <svelte:window on:click={clearResults} />
 
-<div
-  class="absolute z-50 top-2 bg-white "
-  style="transform:translate(2%); width:96%"
->
-  <div
-    class="demo-icon icon-search absolute text-xl right-4 mt-1 cursor-pointer top-2"
-    on:click={search}
-    on:keydown={search}
-  >
-    <svg
-      id="submit"
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class=""
-      viewBox="0 0 16 16"
-    >
-      <path
-        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+<div class="absolute z-50 top-2 " style="transform:translate(2%); width:96%">
+  <div class="form-control">
+    <div class="input-group">
+      <input
+        autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
+        placeholder="search..."
+        bind:value={searchText}
+        on:keydown={search}
+        on:click={killEvent}
+        class="input input-bordered input-primary w-full px-4"
       />
-    </svg>
+      <button
+        class="btn btn-square btn-primary"
+        on:click={search}
+        on:keydown={search}
+        id="submit"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 pointer-events-none"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          /></svg
+        >
+      </button>
+    </div>
   </div>
 
-  <input
-    autocomplete="off"
-    autocorrect="off"
-    spellcheck="false"
-    placeholder="search..."
-    bind:value={searchText}
-    on:keydown={search}
-    on:click={killEvent}
-    class=" h-10 w-full px-4 focus:border-white font-outfit"
-  />
-
-  <div class="listContainerWrapper z-50 w-full left-0 top-12">
+  <div class="listContainerWrapper z-50 w-full left-0 mt-2 bg-white rounded">
     {#if searchResults}
-      <div class="listContainer">
+      <div class="listContainer rounded">
         {#each searchResults as result, i}
           <div
             class="listItem hover:bg-secondary hover:text-white cursor-pointer z-50"

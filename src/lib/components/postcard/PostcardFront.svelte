@@ -16,6 +16,7 @@ https://observablehq.com/@d3/treemap
     dimensions,
     svg,
     textVis,
+    useLocationAsText,
   } from "$lib/stores.js";
 
   const width = $dimensions[1],
@@ -170,6 +171,7 @@ https://observablehq.com/@d3/treemap
       .attr("font-family", "IBM Plex Sans Bold")
       .attr("font-size", 30)
       .attr("fill", "#292929")
+      .attr("contenteditable", "")
       .text(function (d) {
         return d;
       });
@@ -178,9 +180,9 @@ https://observablehq.com/@d3/treemap
       .append("text")
       .attr("transform", "translate(" + width / 2 + "," + height * 0.95 + ")")
       .attr("text-anchor", "middle")
-      .attr("font-family", "IBM Plex Sans Text")
+      .attr("font-family", "IBM Plex Sans Bold")
       .attr("font-size", 10)
-      .attr("fill", "#277da1")
+      .attr("fill", "#2f2fa2")
       .text("Made with Open Data");
 
     // mySVG += '<g transform=translate('+a4With/2+','+a4Height*0.87+
@@ -199,18 +201,21 @@ https://observablehq.com/@d3/treemap
       })
       .attr("text-anchor", "end")
       .attr("font-family", "IBM Plex Sans Text")
-      .attr("font-size", 14)
+      .attr("font-size", 12)
       .text(function (d) {
         const w = d.x1 - d.x0;
         const h = d.y1 - d.y0;
         if (w < 30 || h < 30) return;
-        console.log(d.data.name, d.x1 - d.x0);
         return Math.round(d.data.size).toString() + "%";
         // return (Math.round(d.data.size * 10) / 10).toString() + " %";
       })
       .attr("fill", function (d) {
         if (d.data.color) {
-          return chroma(d.data.color).darken().hex();
+          if (d.data.name === "street" || d.data.name === "transport") {
+            return chroma(d.data.color).brighten(1).hex();
+          } else {
+            return chroma(d.data.color).darken(1).hex();
+          }
         }
       });
 
@@ -360,6 +365,29 @@ https://observablehq.com/@d3/treemap
 </script>
 
 <main class="w-fit" bind:this={visWrapper} />
+
+<div class="p-2">
+  <input
+    type="text"
+    bind:value={$textVis}
+    on:input={() => {
+      $useLocationAsText = false;
+    }}
+    placeholder="Type here"
+    class="input input-bordered input-primary w-full s"
+  />
+
+  <div class="form-control w-fit">
+    <label class="cursor-pointer label">
+      <input
+        bind:checked={$useLocationAsText}
+        type="checkbox"
+        class="checkbox checkbox-primary"
+      />
+      <span class="label-text ml-2">location as Text</span>
+    </label>
+  </div>
+</div>
 
 <style>
 </style>

@@ -11,7 +11,8 @@ const config = {
         400: "#ADADAD",
         500: "#949494",
       },
-      secondary: "#277da1",
+      primary: "#2f2fa2",
+      secondary: "#f64c72",
       white: "#ffffff",
     },
     fontFamily: {
@@ -19,7 +20,33 @@ const config = {
     },
   },
 
-  plugins: [],
+  plugins: [require("daisyui")],
+
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#2f2fa2",
+
+          secondary: "#f64c72",
+
+          accent: "#37CDBE",
+
+          neutral: "#3D4451",
+
+          "base-100": "#FFFFFF",
+
+          info: "#3ABFF8",
+
+          success: "#36D399",
+
+          warning: "#FBBD23",
+
+          error: "#F87272",
+        },
+      },
+    ],
+  },
 };
 
 module.exports = config;
