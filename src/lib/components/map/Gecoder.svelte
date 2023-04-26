@@ -1,13 +1,11 @@
 <script>
-  import { newBounds, textVis } from "$lib/stores.js";
+  import { newBounds, textVis, lang } from "$lib/stores.js";
 
   let searchText = "";
   let searchResults = undefined;
   let selectedIndex = undefined;
 
   async function search(event) {
-    console.log("SSSS");
-    console.log(event);
     if (event.keyCode === 13 && (selectedIndex || selectedIndex === 0)) {
       selectResult(
         searchResults[selectedIndex].value,
@@ -82,7 +80,7 @@
         autocomplete="off"
         autocorrect="off"
         spellcheck="false"
-        placeholder="search..."
+        placeholder={$lang === "de" ? "suche..." : "search..."}
         bind:value={searchText}
         on:keydown={search}
         on:click={killEvent}

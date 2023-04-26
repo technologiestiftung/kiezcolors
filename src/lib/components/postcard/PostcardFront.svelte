@@ -17,6 +17,7 @@ https://observablehq.com/@d3/treemap
     svg,
     textVis,
     useLocationAsText,
+    lang,
   } from "$lib/stores.js";
 
   const width = $dimensions[1],
@@ -171,10 +172,10 @@ https://observablehq.com/@d3/treemap
       .attr("font-family", "IBM Plex Sans Bold")
       .attr("font-size", 30)
       .attr("fill", "#292929")
-      .attr("contenteditable", "")
       .text(function (d) {
         return d;
-      });
+      })
+      .attr("contenteditable", true);
 
     $svg
       .append("text")
@@ -384,7 +385,9 @@ https://observablehq.com/@d3/treemap
         type="checkbox"
         class="checkbox checkbox-primary"
       />
-      <span class="label-text ml-2">location as Text</span>
+      <span class="label-text ml-2"
+        >{$lang === "de" ? "Standort als Text" : "location as Text"}</span
+      >
     </label>
   </div>
 </div>

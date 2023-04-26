@@ -152,7 +152,9 @@
     </svg>
   </button>
 
-  <div class="absolute right-2 bottom-6 z-50 ">Radius: {$circleRadius}m</div>
+  <div class="absolute right-2 bottom-6 z-50 text-md">
+    Radius: {$circleRadius}m
+  </div>
 
   <div class="absolute right-2 bottom-2 z-50 text-md">
     {#if $showBasemap}
@@ -170,9 +172,9 @@
     Geoportal Berlin / ALKIS Berlin
   </div>
 
-  <div class="absolute right-2 bottom-14 z-50 form-control w-fit">
+  <div class="absolute right-0 bottom-10 z-50 form-control w-fit">
     <label class="cursor-pointer label">
-      <span class="label-text mx-2">Basemap</span>
+      <span class="mx-2 text-md">Basemap</span>
       <input
         type="checkbox"
         bind:checked={$showBasemap}
