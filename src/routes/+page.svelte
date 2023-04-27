@@ -194,7 +194,7 @@
     >
 
     <div class="bottom-0 absolute text-sm mr-8 text-gray-500 mb-4">
-      <div class="form-control w-fit p-2 mt-6">
+      <!-- <div class="form-control w-fit p-2 mt-6">
         <label class="cursor-pointer label">
           <input
             bind:checked={$useLocationAsText}
@@ -207,7 +207,7 @@
               : "use location as Text"}</span
           >
         </label>
-      </div>
+      </div>  -->
       <p>
         {$lang === "en"
           ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by the Technologiestiftung Berlin and is funded by the Berlin Senate Department for the Interior, Digitization and Sports."

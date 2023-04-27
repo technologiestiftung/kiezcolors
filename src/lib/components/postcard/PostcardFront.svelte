@@ -371,9 +371,6 @@ https://observablehq.com/@d3/treemap
   <input
     type="text"
     bind:value={$textVis}
-    on:input={() => {
-      $useLocationAsText = false;
-    }}
     placeholder={$lang === "de" ? "Dein Text hier" : "Your text here"}
     class="input  w-full text-center absolute bottom-10 text-[30px] bold"
   />

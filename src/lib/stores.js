@@ -9,7 +9,7 @@ export let totalSize = writable(0);
 export let mapCenter = writable();
 export let showBasemap = writable(false);
 export let locationText = writable();
-export let useLocationAsText = writable(false);
+export let useLocationAsText = writable(true);
 export let lang = writable("de");
 export let newBounds = writable();
 //
