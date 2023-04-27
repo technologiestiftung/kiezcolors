@@ -80,7 +80,7 @@ https://observablehq.com/@d3/treemap
       .attr("y", 0)
       .attr("width", width)
       .attr("height", height)
-      .attr("fill", "#f9f9f9");
+      .attr("fill", "#fff"); // f9f9f9
 
     // defs
     // 	.append('svg:pattern')
@@ -365,19 +365,21 @@ https://observablehq.com/@d3/treemap
   }
 </script>
 
-<main class="w-fit" bind:this={visWrapper} />
+<div class="relative border">
+  <main class="w-fit" bind:this={visWrapper} />
 
-<div class="p-2">
   <input
     type="text"
     bind:value={$textVis}
     on:input={() => {
       $useLocationAsText = false;
     }}
-    placeholder="Type here"
-    class="input input-bordered input-primary w-full s"
+    placeholder="Dein Text"
+    class="input  w-full text-center absolute bottom-10 text-[30px] bold"
   />
+</div>
 
+<div class="p-2">
   <div class="form-control w-fit">
     <label class="cursor-pointer label">
       <input
@@ -393,4 +395,7 @@ https://observablehq.com/@d3/treemap
 </div>
 
 <style>
+  .bold {
+    font-family: "IBM Plex Sans Bold";
+  }
 </style>

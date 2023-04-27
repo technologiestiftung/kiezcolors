@@ -9,12 +9,12 @@ export let totalSize = writable(0);
 export let mapCenter = writable();
 export let showBasemap = writable(false);
 export let locationText = writable();
-export let useLocationAsText = writable(true);
+export let useLocationAsText = writable(false);
 export let lang = writable("de");
 export let newBounds = writable();
 //
 
-export let textVis = writable("Kiezcolors Text");
+export let textVis = writable("Dein Text hier");
 
 export let landuses = {
   AX_FlaecheBesondererFunktionalerPraegung: {
