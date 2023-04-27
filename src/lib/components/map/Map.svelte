@@ -3,8 +3,7 @@
   import maplibregl from "maplibre-gl";
   import { onMount } from "svelte";
   import mapStyle from "./mapStyle.js";
-
-  import Geocoder from "./Gecoder.svelte";
+  import MapKey from "$lib/components/map/MapKey.svelte";
 
   import drawCanvasCirlce from "$lib/assets/drawCanvasCirlce";
   import getMaxCircleRadius from "$lib/assets/getMaxCircleRadius";
@@ -114,11 +113,14 @@
   });
 </script>
 
-<div id="map" class="border-2 w-fit">
-  <Geocoder />
+<div id="map" class="w-screen h-screen !absolute left-0 z-0">
+  <canvas id="myCanvas" class="absolute" />
+</div>
 
+<div class="relative w-full h-full pointer-events-none">
+  <MapKey />
   <button
-    class="btn btn-primary text-2xl btn-square absolute right-2 top-16  leading-7 z-40 "
+    class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-4  leading-7 z-40 pointer-events-auto "
     on:click={() => map.zoomIn()}
     on:keypress={() => map.zoomIn()}
   >
@@ -136,7 +138,7 @@
     </svg>
   </button>
   <button
-    class="btn btn-primary text-2xl btn-square absolute right-2 top-24 mt-6   leading-7 z-40 "
+    class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-10 mt-8   leading-7 z-40 pointer-events-auto"
     on:click={() => map.zoomOut()}
     on:keypress={() => map.zoomOut()}
   >
@@ -152,7 +154,7 @@
     </svg>
   </button>
 
-  <div class="absolute right-2 bottom-6 z-50 text-md">
+  <div class="absolute right-2 bottom-8 z-50 text-md">
     Radius: {$circleRadius}m
   </div>
 
@@ -172,7 +174,9 @@
     Geoportal Berlin / ALKIS Berlin
   </div>
 
-  <div class="absolute right-0 bottom-10 z-50 form-control w-fit">
+  <div
+    class="absolute right-0 bottom-12 z-50 form-control w-fit pointer-events-auto"
+  >
     <label class="cursor-pointer label">
       <span class="mx-2 text-md">Basemap</span>
       <input
@@ -182,16 +186,9 @@
       />
     </label>
   </div>
-
-  <canvas id="myCanvas" class="absolute" />
 </div>
 
 <style>
-  #map {
-    width: 444px;
-    height: 630px;
-  }
-
   #myCanvas {
     z-index: 10;
     pointer-events: none;

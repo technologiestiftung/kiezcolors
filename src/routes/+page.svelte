@@ -1,7 +1,10 @@
 <script>
   import Map from "$lib/components/map/Map.svelte";
+
   import PostcardFront from "$lib/components/postcard/PostcardFront.svelte";
   import PostcardBack from "$lib/components/postcard/PostcardBack.svelte";
+  import Geocoder from "$lib/components/map//Gecoder.svelte";
+
   import {
     svg,
     svgBack,
@@ -17,8 +20,56 @@
   const width = $dimensions[1],
     height = $dimensions[0];
 
-  const btnClasses =
-    "border px-2 py-1 mr-2 hover:pointer-cursor hover:bg-gray-100";
+  function printSVG(base64EncodedSVG) {
+    // Convert base64 to ArrayBuffer
+    function base64ToArrayBuffer(base64) {
+      const binaryString = atob(base64.split(",")[1]);
+      const len = binaryString.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      return bytes.buffer;
+    }
+
+    // Convert the base64 data URL to a Blob
+    const svgData = base64ToArrayBuffer(base64EncodedSVG);
+    const blob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+
+    // Create a FileReader to read the Blob as a text
+    const reader = new FileReader();
+    reader.readAsText(blob);
+    reader.onloadend = function () {
+      // Create a temporary div element to hold the decoded SVG
+      const tempDiv = document.createElement("div");
+      tempDiv.style.display = "none";
+      tempDiv.innerHTML = reader.result;
+      document.body.appendChild(tempDiv);
+
+      // Retrieve the SVG element from the temporary div
+      const svgElement = tempDiv.querySelector("svg");
+
+      // Create a new window to display the SVG for printing
+      const printWindow = window.open("", "_blank");
+      printWindow.document.write(
+        "<!DOCTYPE html><html><head><title>Print SVG</title></head><body>"
+      );
+      printWindow.document.write("</body></html>");
+      printWindow.document.close();
+
+      // Append the SVG element to the new window
+      printWindow.document.body.appendChild(svgElement);
+
+      // Call the print function
+      printWindow.print();
+
+      // Close the new window after printing
+      printWindow.close();
+
+      // Remove the temporary div from the document
+      document.body.removeChild(tempDiv);
+    };
+  }
 
   function downloadSVG(svg) {
     const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
@@ -35,12 +86,14 @@
     var b64 = encode(svg.node().outerHTML);
 
     var file_path = "data:image/svg+xml;base64,\n" + b64;
-    var a = document.createElement("A");
-    a.href = file_path;
-    a.download = "ODIS-postcard.svg";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+
+    printSVG(file_path);
+    // var a = document.createElement("A");
+    // a.href = file_path;
+    // a.download = "ODIS-postcard.svg";
+    // document.body.appendChild(a);
+    // a.click();
+    // document.body.removeChild(a);
   }
 
   function downloadPNG(svg) {
@@ -93,13 +146,13 @@
   />
 </svelte:head>
 
-<div class="fixed right-4 top-4 margin-4">
+<div class="fixed right-4 top-4 margin-4 z-50">
   <div class="btn-group">
     <input
       type="radio"
       name="options"
       data-title="en"
-      class="btn btn-xs btn-outline "
+      class="btn btn-sm btn-outline "
       checked={$lang === "en"}
       on:click={() => {
         $lang = "en";
@@ -109,7 +162,7 @@
       type="radio"
       name="options"
       data-title="de"
-      class="btn btn-xs btn-outline "
+      class="btn btn-sm btn-outline "
       checked={$lang === "de"}
       on:click={() => {
         $lang = "de";
@@ -118,82 +171,96 @@
   </div>
 </div>
 
-<div class="bold flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
+<section class="w-screen h-screen bg-primary flex">
+  <div class="h-full w-1/3 bg-white shadow-lg z-10 relative p-8">
+    <div class="bold py-4 text-5xl">Kiezcolors</div>
+    <p class="my-4">
+      {#if $lang === "en"}
+        Move the map of Berlin to create a postcard showing the landuse
+        distribution in your neighborhood.
+      {:else}
+        Verschiebe die Karte von Berlin, um eine Postkarte zu erstellen, die die
+        Verteilung der Flächennutzung in Deiner Nachbarschaft zeigt.
+      {/if}
+    </p>
 
-<p class=" flex mt-4 flex-wrap justify-evenly px-6 md:px-10">
-  {#if $lang === "en"}
-    Move the map of Berlin to create a postcard showing the landuse distribution
-    in your neighborhood.
-  {:else}
-    Verschiebe die Karte von Berlin, um eine Postkarte zu erstellen, die die
-    Verteilung der Flächennutzung in Deiner Nachbarschaft zeigt.
-  {/if}
-</p>
+    <div class="w-full"><Geocoder /></div>
 
-<section class="flex m-4 mt-0 flex-wrap justify-evenly">
-  <span class=" m-2 drop-shadow-md"
-    ><span class="text-center w-full inline-block my-4"
-      >{$lang === "en" ? "Map" : "Karte"}</span
-    ><Map /></span
-  >
-  <span class="m-2 drop-shadow-md"
-    ><span class="text-center w-full inline-block my-4"
-      >{$lang === "en" ? "Your postcard" : "Deine Postkarte"}</span
-    ><PostcardFront /></span
-  >
+    <button
+      on:click={() => {
+        downloadSVG($svg);
+      }}
+      class="btn btn-secondary mt-8">Drucken</button
+    >
 
-  <!-- <span class=" m-2">
+    <div class="bottom-0 absolute text-sm mr-8 text-gray-500 mb-4">
+      <div class="form-control w-fit p-2 mt-6">
+        <label class="cursor-pointer label">
+          <input
+            bind:checked={$useLocationAsText}
+            type="checkbox"
+            class="checkbox checkbox-primary"
+          />
+          <span class="label-text ml-2"
+            >{$lang === "de"
+              ? "Standort als Text verwenden"
+              : "use location as Text"}</span
+          >
+        </label>
+      </div>
+      <p>
+        {$lang === "en"
+          ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by the Technologiestiftung Berlin and is funded by the Berlin Senate Department for the Interior, Digitization and Sports."
+          : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS ist ein Projekt der Technologiestiftung Berlin und wird von der Berliner Senatsverwaltung für Inneres, Digitalisierung und Sport gefördert."}
+      </p>
+
+      <div style="text-align:center;margin-top:20px" class="flex">
+        <a style="margin:10px" href="https://odis-berlin.de">
+          <img width="200" alt="odis-logo" src="./img/logo-odis-berlin.svg" />
+        </a>
+        <a style="margin:10px" href="https://www.technologiestiftung-berlin.de/"
+          ><img
+            width="150"
+            alt="technologiestiftung-logo"
+            src="./img/logo-technologiestiftung-berlin-de.svg"
+          /></a
+        >
+        <a style="margin:10px" href="https://www.berlin.de/sen/inneres/"
+          ><img
+            width="100"
+            alt="seninnds-logo"
+            src="./img/logo-berlin-seninnds-de.svg"
+          /></a
+        >
+        <a style="margin:10px" href="https://citylab-berlin.org/de/start/">
+          <img
+            width="200"
+            alt="citylab-logo"
+            src="./img/logo-citylab-berlin.svg"
+          /></a
+        >
+      </div>
+      <div class="w-full text-center text-gray-400">
+        <a href="https://www.technologiestiftung-berlin.de/impressum"
+          >Impressum</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="h-full w-full bg-secondary">
+    <Map />
+
+    <PostcardFront />
+  </div>
+</section>
+
+<!-- <span class=" m-2">
     <span class="text-center w-full inline-block my-4"
       >{$lang === "en" ? "Postcard back" : "Postkarte hinten"}
     </span>
     <PostcardBack />
   </span> -->
-</section>
-
-<footer class="flex mt-4 flex-wrap justify-evenly p-6 md:p-10 pt-20">
-  <p>
-    {$lang === "en"
-      ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by the Technologiestiftung Berlin and is funded by the Berlin Senate Department for the Interior, Digitization and Sports."
-      : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS ist ein Projekt der Technologiestiftung Berlin und wird von der Berliner Senatsverwaltung für Inneres, Digitalisierung und Sport gefördert."}
-  </p>
-
-  <div style="text-align:center;margin-top:20px" class="flex">
-    <a style="margin:10px" href="https://odis-berlin.de">
-      <img width="200" alt="odis-logo" src="./img/logo-odis-berlin.svg" />
-    </a>
-    <a style="margin:10px" href="https://www.technologiestiftung-berlin.de/"
-      ><img
-        width="150"
-        alt="technologiestiftung-logo"
-        src="./img/logo-technologiestiftung-berlin-de.svg"
-      /></a
-    >
-    <a style="margin:10px" href="https://www.berlin.de/sen/inneres/"
-      ><img
-        width="100"
-        alt="seninnds-logo"
-        src="./img/logo-berlin-seninnds-de.svg"
-      /></a
-    >
-    <a style="margin:10px" href="https://citylab-berlin.org/de/start/">
-      <img
-        width="200"
-        alt="citylab-logo"
-        src="./img/logo-citylab-berlin.svg"
-      /></a
-    >
-  </div>
-  <div class="w-full text-center text-gray-400">
-    <a href="https://www.technologiestiftung-berlin.de/impressum">Impressum</a>
-  </div>
-</footer>
-
 <style>
-  #nav {
-    width: 444px;
-    /* height: 630px; */
-  }
-
   .bold {
     font-family: "IBM Plex Sans Bold";
   }

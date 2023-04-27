@@ -14,7 +14,7 @@ export let lang = writable("de");
 export let newBounds = writable();
 //
 
-export let textVis = writable("Dein Text hier");
+export let textVis = writable("");
 
 export let landuses = {
   AX_FlaecheBesondererFunktionalerPraegung: {

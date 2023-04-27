@@ -184,7 +184,7 @@ https://observablehq.com/@d3/treemap
       .attr("font-family", "IBM Plex Sans Bold")
       .attr("font-size", 10)
       .attr("fill", "#2f2fa2")
-      .text("Made with Open Data");
+      .text("Viele Grüße vom CityLAB Kiezlabor");
 
     // mySVG += '<g transform=translate('+a4With/2+','+a4Height*0.87+
     // 			') text-anchor=middle><text id="img-title" fill=white font-size=25px font-family=Arial>TEXT</text></g>'
@@ -365,7 +365,7 @@ https://observablehq.com/@d3/treemap
   }
 </script>
 
-<div class="relative border">
+<div class="absolute border right-14 top-24 z-40 drop-shadow-xl">
   <main class="w-fit" bind:this={visWrapper} />
 
   <input
@@ -374,24 +374,9 @@ https://observablehq.com/@d3/treemap
     on:input={() => {
       $useLocationAsText = false;
     }}
-    placeholder="Dein Text"
+    placeholder={$lang === "de" ? "Dein Text hier" : "Your text here"}
     class="input  w-full text-center absolute bottom-10 text-[30px] bold"
   />
-</div>
-
-<div class="p-2">
-  <div class="form-control w-fit">
-    <label class="cursor-pointer label">
-      <input
-        bind:checked={$useLocationAsText}
-        type="checkbox"
-        class="checkbox checkbox-primary"
-      />
-      <span class="label-text ml-2"
-        >{$lang === "de" ? "Standort als Text" : "location as Text"}</span
-      >
-    </label>
-  </div>
 </div>
 
 <style>

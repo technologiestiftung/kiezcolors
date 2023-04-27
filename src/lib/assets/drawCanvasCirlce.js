@@ -13,10 +13,7 @@ export default function (map, canvas, circleRadius) {
   canvas.width = width;
   canvas.height = height;
 
-  // if (countCars) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  //   return;
-  // }
 
   ctx.moveTo(0, 0);
   ctx.lineTo(width, 0);
@@ -27,12 +24,17 @@ export default function (map, canvas, circleRadius) {
 
   ctx.moveTo(width / 4, height / 4);
   ctx.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
-  ctx.closePath();
-
-  ctx.fillStyle = "rgba(255,255,255,0.8)";
-  ctx.strokeStyle = "rgba(255,255,255,0.1)";
+  ctx.fillStyle = "rgba(255,255,255,0.4)";
+  ctx.strokeStyle = "rgba(255,255,255,0)";
   ctx.lineWidth = 0.1;
   ctx.fill();
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
+  ctx.strokeStyle = "rgba(255,255,255,1)";
+  ctx.lineWidth = 2;
   ctx.stroke();
 
   ctx.beginPath();

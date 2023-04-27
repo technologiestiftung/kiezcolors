@@ -73,14 +73,16 @@
 
 <svelte:window on:click={clearResults} />
 
-<div class="absolute z-50 top-2 " style="transform:translate(2%); width:96%">
+<div class="">
   <div class="form-control">
     <div class="input-group">
       <input
         autocomplete="off"
         autocorrect="off"
         spellcheck="false"
-        placeholder={$lang === "de" ? "suche..." : "search..."}
+        placeholder={$lang === "de"
+          ? "suche nach einem Ort"
+          : "search for a place"}
         bind:value={searchText}
         on:keydown={search}
         on:click={killEvent}
