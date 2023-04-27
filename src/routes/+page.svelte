@@ -118,23 +118,17 @@
   </div>
 </div>
 
-<div class="w-screen h-screen bg-primary">
-  <div class="h-full w-1/3 bg-secondary">
-    <div class="bold flex mt-8 flex-wrap justify-evenly text-4xl">
-      Kiezcolors
-    </div>
-    <p class=" flex mt-4 flex-wrap justify-evenly px-6 md:px-10">
-      {#if $lang === "en"}
-        Move the map of Berlin to create a postcard showing the landuse
-        distribution in your neighborhood.
-      {:else}
-        Verschiebe die Karte von Berlin, um eine Postkarte zu erstellen, die die
-        Verteilung der Flächennutzung in Deiner Nachbarschaft zeigt.
-      {/if}
-    </p>
-  </div>
-  <div />
-</div>
+<div class="bold flex mt-8 flex-wrap justify-evenly text-4xl">Kiezcolors</div>
+
+<p class=" flex mt-4 flex-wrap justify-evenly px-6 md:px-10">
+  {#if $lang === "en"}
+    Move the map of Berlin to create a postcard showing the landuse distribution
+    in your neighborhood.
+  {:else}
+    Verschiebe die Karte von Berlin, um eine Postkarte zu erstellen, die die
+    Verteilung der Flächennutzung in Deiner Nachbarschaft zeigt.
+  {/if}
+</p>
 
 <section class="flex m-4 mt-0 flex-wrap justify-evenly">
   <span class=" m-2 drop-shadow-md"
