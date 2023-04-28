@@ -13,6 +13,7 @@
     showBasemap,
     useLocationAsText,
     lang,
+    showBack,
   } from "$lib/stores.js";
   import font from "$lib/assets/font";
   import { encode } from "$lib/assets/base64";
@@ -94,6 +95,32 @@
     // document.body.appendChild(a);
     // a.click();
     // document.body.removeChild(a);
+
+    // async function go() {
+    //   const base64Image = b64; // Remove the "data:image/*;base64," prefix
+
+    //   try {
+    //     // Send the base64 image to the API
+    //     const response = await fetch("http://localhost:3000/print", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({ image: base64Image }),
+    //     });
+
+    //     if (response.ok) {
+    //       const result = await response.json();
+    //       alert(result.message);
+    //     } else {
+    //       throw new Error("Failed to send image to API.");
+    //     }
+    //   } catch (error) {
+    //     console.error(error);
+    //     alert("An error occurred while sending the image to the API.");
+    //   }
+    // }
+    // go();
   }
 
   function downloadPNG(svg) {
@@ -180,7 +207,8 @@
         distribution in your neighborhood.
       {:else}
         Verschiebe die Karte von Berlin, um eine Postkarte zu erstellen, die die
-        Verteilung der Flächennutzung in Deiner Nachbarschaft zeigt.
+        Verteilung der Flächennutzung in Deiner Nachbarschaft zeigt. Mit der
+        Suche kannst du nach einem Ort suchen.
       {/if}
     </p>
 
@@ -208,6 +236,18 @@
           >
         </label>
       </div>  -->
+
+      <div class="form-control w-fit p-2 mt-6">
+        <label class="cursor-pointer label">
+          <input
+            bind:checked={$showBack}
+            type="checkbox"
+            class="checkbox checkbox-primary"
+          />
+          <span class="label-text ml-2">showBack (for debugging)</span>
+        </label>
+      </div>
+
       <p>
         {$lang === "en"
           ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by the Technologiestiftung Berlin and is funded by the Berlin Senate Department for the Interior, Digitization and Sports."
@@ -247,19 +287,16 @@
       </div>
     </div>
   </div>
-  <div class="h-full w-full bg-secondary">
+  <div class="h-full w-full bg-secondary flex items-center">
     <Map />
-
     <PostcardFront />
   </div>
 </section>
 
-<!-- <span class=" m-2">
-    <span class="text-center w-full inline-block my-4"
-      >{$lang === "en" ? "Postcard back" : "Postkarte hinten"}
-    </span>
-    <PostcardBack />
-  </span> -->
+{#if $showBack}
+  <PostcardBack />
+{/if}
+
 <style>
   .bold {
     font-family: "IBM Plex Sans Bold";

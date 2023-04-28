@@ -2,9 +2,10 @@
   import { categories, dimensions } from "$lib/stores.js";
   import LogoCityLab from "$lib/components/logos/LogoCityLab.svelte";
   import LogoODIS from "$lib/components/logos/LogoODIS.svelte";
+  import LogoTSB from "$lib/components/logos/LogoTSB.svelte";
 
-  const width = $dimensions[1],
-    height = $dimensions[0];
+  const width = $dimensions[0],
+    height = $dimensions[1];
 </script>
 
 <svg
@@ -14,7 +15,20 @@
   {height}
   xmlns="http://www.w3.org/2000/svg"
 >
-  <rect x="0" y="0" {width} {height} fill="#f9f9f9" /><g>
+  <rect x="0" y="0" {width} {height} fill="#f9f9f9" />
+  <g>
+    <!-- <text
+      transform="translate(100,20)"
+      text-anchor="end"
+      font-family="IBM Plex Sans Text"
+      font-size="14"
+      fill="#292929"
+      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ea
+      exercitationem quibusdam deserunt veniam ipsum dignissimos numquam maxime
+      rem, optio molestias consectetur in cupiditate magni minus velit
+      asperiores impedit. Quisquam?
+    </text> -->
+
     {#each Object.values(categories) as { color, name, name_en }, i}
       <rect
         classs="rect-legend"
@@ -34,11 +48,43 @@
     {/each}
 
     <line
-      x1="30"
-      y1={height / 2}
-      x2={width - 30}
-      y2={height / 2}
+      y1="30"
+      x1={width / 2}
+      y2={height - 30}
+      x2={width / 2}
       style="stroke:#292929;stroke-width:1"
+    />
+
+    <line
+      y1={200}
+      x1={width - 30}
+      y2={200}
+      x2={width / 2 + 30}
+      style="stroke:#292929;stroke-width:1"
+    />
+
+    <line
+      y1={250}
+      x1={width - 30}
+      y2={250}
+      x2={width / 2 + 30}
+      style="stroke:#292929;stroke-width:1"
+    />
+
+    <line
+      y1={300}
+      x1={width - 30}
+      y2={300}
+      x2={width / 2 + 30}
+      style="stroke:#292929;stroke-width:1"
+    />
+
+    <rect
+      width="90"
+      height="120"
+      style="stroke:#292929;stroke-width:1"
+      transform={`translate(${width - 110},${20})`}
+      fill="transparent"
     />
 
     <text
@@ -56,10 +102,13 @@
       >
     </text>
   </g>
-  <g transform="translate(10,500)">
+  <g transform="translate(10,370)">
     <LogoCityLab width={150} height={50} />
   </g>
-  <g transform="translate(10,550)">
+  <g transform="translate(150,370)">
     <LogoODIS width={150} height={50} />
+  </g>
+  <g transform="translate(300,370)">
+    <LogoTSB width={150} height={50} />
   </g>
 </svg>
