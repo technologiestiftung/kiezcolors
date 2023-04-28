@@ -3,7 +3,9 @@
 
   import PostcardFront from "$lib/components/postcard/PostcardFront.svelte";
   import PostcardBack from "$lib/components/postcard/PostcardBack.svelte";
-  import Geocoder from "$lib/components/map//Gecoder.svelte";
+  // import Geocoder from "$lib/components/map/Gecoder.svelte";
+
+  import Search from "$lib/components/search/Search.svelte";
 
   import {
     svg,
@@ -199,7 +201,7 @@
 </div>
 
 <section class="w-screen h-screen bg-primary flex">
-  <div class="h-full w-1/3 bg-white shadow-lg z-10 relative p-8">
+  <div class="h-full w-1/3 bg-white shadow-lg z-10 relative p-8 overflow-auto">
     <div class="bold py-4 text-5xl">Kiezcolors</div>
     <p class="my-4">
       {#if $lang === "en"}
@@ -212,7 +214,7 @@
       {/if}
     </p>
 
-    <div class="w-full"><Geocoder /></div>
+    <div class="w-full"><Search /></div>
 
     <button
       on:click={() => {

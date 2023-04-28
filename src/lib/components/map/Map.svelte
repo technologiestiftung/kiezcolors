@@ -47,6 +47,11 @@
 
   const drawAndCount = function (map) {
     if (!map || !map.getLayer("landuse")) return;
+    // if (!map.loaded()) {
+    //   setTimeout(() => {
+    //     drawAndCount(map);
+    //   }, 1000);
+    // }
     const mC = map.getCenter().toArray();
     $mapCenter = [mC[0].toFixed(3), mC[1].toFixed(3)];
 
@@ -103,11 +108,15 @@
       drawAndCount(map);
 
       map.on("moveend", function (e) {
-        drawAndCount(map);
+        setTimeout(() => {
+          drawAndCount(map);
+        }, 100);
       });
 
       map.on("zoomend", function (e) {
-        drawAndCount(map);
+        setTimeout(() => {
+          drawAndCount(map);
+        }, 100);
       });
     });
   });
