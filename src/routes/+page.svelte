@@ -205,12 +205,14 @@
     <div class="bold py-4 text-5xl">Kiezcolors</div>
     <p class="my-4">
       {#if $lang === "en"}
-        Move the map of Berlin to create a postcard showing the landuse
-        distribution in your neighborhood.
+        Create a postcard, which shows the distribution of land use in your
+        neighborhood. Simply move the map from Berlin or search for a location.
+        You can also change the text on the postcard.
       {:else}
-        Verschiebe die Karte von Berlin, um eine Postkarte zu erstellen, die die
-        Verteilung der Flächennutzung in Deiner Nachbarschaft zeigt. Mit der
-        Suche kannst du nach einem Ort suchen.
+        Hier kannst du dir eine Postkarte erstellen, die die Verteilung der
+        Flächennutzung in Deiner Nachbarschaft zeigt. Verschiebe einfach die
+        Karte von Berlin oder suche nach einem Ort. Den Text auf der Postkarte
+        kannst du auch ändern.
       {/if}
     </p>
 

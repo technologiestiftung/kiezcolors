@@ -1,7 +1,6 @@
 <script>
   // https://github.com/rob-balfre/svelte-select/tree/feature/v5
   import Select from "svelte-select";
-  import Icon from "./Icon.svelte";
 
   import loadOptions from "./requestAddress.js";
   import { newBounds, lang } from "$lib/stores.js";
@@ -24,11 +23,12 @@
 
 <div class="mb-5 pt-5">
   <Select
-    {Icon}
     {noOptionsMessage}
     {loadOptions}
     loadOptionsInterval={1500}
-    placeholder={$lang === "de" ? "suche nach einem Ort" : "search for a place"}
+    placeholder={$lang === "de"
+      ? "nach einem Ort suchen"
+      : "search for a place"}
     on:select={handleSelect}
     on:clear={handelClear}
     label="display_name"
