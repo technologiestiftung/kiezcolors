@@ -57,7 +57,7 @@
         />
         <text
           classs="text-legend"
-          transform={`translate(35,${20 + i * 14})`}
+          transform={`translate(25,${19 + i * 14})`}
           text-anchor="start"
           font-family="IBM Plex Sans Text"
           font-size="11"
