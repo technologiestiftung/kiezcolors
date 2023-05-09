@@ -3,6 +3,7 @@
   import LogoCityLab from "$lib/components/logos/LogoCityLab.svelte";
   import LogoODIS from "$lib/components/logos/LogoODIS.svelte";
   import LogoTSB from "$lib/components/logos/LogoTSB.svelte";
+  import LogoSenatskanzlei from "$lib/components/logos/LogoSenatskanzlei.svelte";
 
   const width = $dimensions[0],
     height = $dimensions[1];
@@ -102,13 +103,16 @@
       >
     </text>
   </g>
-  <g transform="translate(10,370)">
-    <LogoCityLab width={150} height={50} />
+  <g transform="translate(20,380)">
+    <LogoCityLab width={140} height={50} />
   </g>
-  <g transform="translate(150,370)">
-    <LogoODIS width={150} height={50} />
+  <g transform="translate(165,380)">
+    <LogoODIS width={140} height={50} />
   </g>
-  <g transform="translate(300,370)">
-    <LogoTSB width={150} height={50} />
+  <g transform="translate(340,380)">
+    <LogoTSB width={140} height={50} />
+  </g>
+  <g transform="translate(500,380)">
+    <LogoSenatskanzlei width={140} height={50} />
   </g>
 </svg>

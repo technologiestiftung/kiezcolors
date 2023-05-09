@@ -3,6 +3,8 @@
 
   import PostcardFront from "$lib/components/postcard/PostcardFront.svelte";
   import PostcardBack from "$lib/components/postcard/PostcardBack.svelte";
+  import LogoSenatskanzlei from "$lib/components/logos/LogoSenatskanzlei.svelte";
+
   // import Geocoder from "$lib/components/map/Gecoder.svelte";
 
   import Search from "$lib/components/search/Search.svelte";
@@ -269,13 +271,14 @@
             src="./img/logo-technologiestiftung-berlin-de.svg"
           /></a
         >
-        <a style="margin:10px" href="https://www.berlin.de/sen/inneres/"
+        <a style="margin:10px" href="https://www.berlin.de/rbmskzl/"
           ><img
             width="100"
             alt="seninnds-logo"
-            src="./img/logo-berlin-seninnds-de.svg"
+            src="./img/B_RBm_Skzl_Logo_DE_V_PT_RGB.svg"
           /></a
         >
+
         <a style="margin:10px" href="https://citylab-berlin.org/de/start/">
           <img
             width="200"
