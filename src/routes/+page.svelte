@@ -224,7 +224,8 @@
       on:click={() => {
         downloadSVG($svg);
       }}
-      class="btn btn-secondary mt-8">Drucken</button
+      class="btn btn-secondary mt-8"
+      >{$lang === "en" ? "Print" : "Drucken"}</button
     >
 
     <div class="bottom-0 absolute text-sm mr-8 text-gray-500 mb-4">
@@ -264,6 +265,10 @@
         <a style="margin:10px" href="https://odis-berlin.de">
           <img width="200" alt="odis-logo" src="./img/logo-odis-berlin.svg" />
         </a>
+
+        <a style="margin:10px" href="https://citylab-berlin.org/de/start/">
+          <img width="200" alt="citylab-logo" src="./img/kiezlabor.svg" /></a
+        >
         <a style="margin:10px" href="https://www.technologiestiftung-berlin.de/"
           ><img
             width="150"
@@ -276,14 +281,6 @@
             width="100"
             alt="seninnds-logo"
             src="./img/B_RBm_Skzl_Logo_DE_V_PT_RGB.svg"
-          /></a
-        >
-
-        <a style="margin:10px" href="https://citylab-berlin.org/de/start/">
-          <img
-            width="200"
-            alt="citylab-logo"
-            src="./img/logo-citylab-berlin.svg"
           /></a
         >
       </div>
@@ -301,7 +298,9 @@
 </section>
 
 {#if $showBack}
-  <PostcardBack />
+  <span class="border-solid bg-primary m-4">
+    <PostcardBack />
+  </span>
 {/if}
 
 <style>

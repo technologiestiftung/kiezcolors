@@ -1,10 +1,11 @@
 <script>
   import { categories, dimensions } from "$lib/stores.js";
-  import LogoCityLab from "$lib/components/logos/LogoCityLab.svelte";
+  import LogoKiezlab from "$lib/components/logos/LogoKiezlab.svelte";
   import LogoODIS from "$lib/components/logos/LogoODIS.svelte";
   import LogoTSB from "$lib/components/logos/LogoTSB.svelte";
   import LogoSenatskanzlei from "$lib/components/logos/LogoSenatskanzlei.svelte";
 
+  import MulitlineText from "./MulitlineText.svelte";
   const width = $dimensions[0],
     height = $dimensions[1];
 </script>
@@ -17,36 +18,68 @@
   xmlns="http://www.w3.org/2000/svg"
 >
   <rect x="0" y="0" {width} {height} fill="#f9f9f9" />
-  <g>
-    <!-- <text
-      transform="translate(100,20)"
-      text-anchor="end"
-      font-family="IBM Plex Sans Text"
-      font-size="14"
-      fill="#292929"
-      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ea
-      exercitationem quibusdam deserunt veniam ipsum dignissimos numquam maxime
-      rem, optio molestias consectetur in cupiditate magni minus velit
-      asperiores impedit. Quisquam?
-    </text> -->
 
-    {#each Object.values(categories) as { color, name, name_en }, i}
-      <rect
-        classs="rect-legend"
-        width="20"
-        height="20"
-        fill={color}
-        transform={`translate(20,${20 + i * 24})`}
+  <g>
+    <g transform="translate(15,5)">
+      <MulitlineText
+        text="Wie viel Platz brauchen wir eigentlich, um zu wohnen, uns fortzubewegen und mal tief durchzuatmen?$Eine gerechte Nutzung der Fläche in Städten kann dazu beitragen, dass wir glücklicher und gesünder leben. Besuche kiezcolors.odis-berlin.de und entdecke die Verteilung in deinem Kiez,"
+        x="10"
+        y="30"
+        width="275"
+        lineHeight="1.4"
+        fontSize="11"
+        fontFamily="IBM Plex Sans Text"
+        fill="#292929"
       />
-      <text
-        classs="text-legend"
-        transform={`translate(45,${36 + i * 24})`}
-        text-anchor="start"
-        font-family="IBM Plex Sans Text"
-        font-size="14"
-        fill="#292929">{name} / {name_en}</text
-      >
-    {/each}
+    </g>
+
+    <g transform="translate(15,107)">
+      <MulitlineText
+        text="Mit herzlichen Grüßen aus dem Kiezlabor!"
+        x="10"
+        y="30"
+        width="275"
+        lineHeight="1.4"
+        fontSize="11"
+        fontFamily="IBM Plex Sans Text"
+        fill="#292929"
+      />
+    </g>
+
+    <g transform="translate(15,170)">
+      {#each Object.values(categories) as { color, name, name_en }, i}
+        <rect
+          classs="rect-legend"
+          width="10"
+          height="10"
+          fill={color}
+          transform={`translate(10,${10 + i * 14})`}
+        />
+        <text
+          classs="text-legend"
+          transform={`translate(35,${20 + i * 14})`}
+          text-anchor="start"
+          font-family="IBM Plex Sans Text"
+          font-size="11"
+          fill="#292929">{name} ({name_en})</text
+        >
+      {/each}
+    </g>
+
+    <g transform="translate(15,310)">
+      <MulitlineText
+        text="Du siehst die Flächenverteilung in einem 1000 Meter Radius.
+        Möglich gemacht durch offene Verwaltungsdaten des Liegenschaftskatasters (ALKIS) aus dem Geoportal Berlin. <3"
+        x="10"
+        y="30"
+        width="275"
+        lineHeight="1.4"
+        fontSize="9"
+        fontFamily="IBM Plex Sans Text"
+        fontStyle="italic"
+        fontFill="#666"
+      />
+    </g>
 
     <line
       y1="30"
@@ -84,7 +117,7 @@
       width="90"
       height="120"
       style="stroke:#292929;stroke-width:1"
-      transform={`translate(${width - 110},${20})`}
+      transform={`translate(${width - 120},${30})`}
       fill="transparent"
     />
 
@@ -103,16 +136,22 @@
       >
     </text>
   </g>
-  <g transform="translate(20,380)">
-    <LogoCityLab width={140} height={50} />
+  <g transform="translate(25,375)">
+    <!-- <text font-size="12" fill="#292929">Ein Projekt von</text> -->
+    <LogoODIS width={130} height={50} />
   </g>
-  <g transform="translate(165,380)">
-    <LogoODIS width={140} height={50} />
+  <g transform="translate(175,375)">
+    <!-- <text font-size="12" fill="#292929">mit</text> -->
+    <LogoKiezlab width={120} height={50} />
   </g>
-  <g transform="translate(340,380)">
-    <LogoTSB width={140} height={50} />
+  <g transform="translate(340,375)">
+    <!-- <text font-size="12" fill="#292929">unterstützt von</text> -->
+
+    <LogoTSB width={120} height={50} />
   </g>
-  <g transform="translate(500,380)">
-    <LogoSenatskanzlei width={140} height={50} />
+  <g transform="translate(500,370)">
+    <!-- <text font-size="12" fill="#292929">gefördert von</text> -->
+
+    <LogoSenatskanzlei width={120} height={50} />
   </g>
 </svg>
