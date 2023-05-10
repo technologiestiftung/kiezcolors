@@ -284,8 +284,8 @@
 
       <p>
         {$lang === "en"
-          ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS is a project by the Technologiestiftung Berlin and is funded by the Berlin Senate Department for the Interior, Digitization and Sports."
-          : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS ist ein Projekt der Technologiestiftung Berlin und wird von der Berliner Senatsverwaltung für Inneres, Digitalisierung und Sport gefördert."}
+          ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS and CityLAB are projects of the Technology Foundation Berlin and are funded by the Berlin Senate Chancellery."
+          : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert."}
       </p>
 
       <div style="text-align:center;margin-top:20px" class="flex">
