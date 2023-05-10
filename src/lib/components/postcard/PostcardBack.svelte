@@ -1,6 +1,6 @@
 <script>
   import { categories, dimensions } from "$lib/stores.js";
-  import LogoKiezlab from "$lib/components/logos/LogoKiezlab.svelte";
+  import LogoCityLab from "$lib/components/logos/LogoCityLab.svelte";
   import LogoODIS from "$lib/components/logos/LogoODIS.svelte";
   import LogoTSB from "$lib/components/logos/LogoTSB.svelte";
   import LogoSenatskanzlei from "$lib/components/logos/LogoSenatskanzlei.svelte";
@@ -143,7 +143,7 @@
   </g>
   <g transform="translate(175,375)">
     <!-- <text font-size="12" fill="#292929">mit</text> -->
-    <LogoKiezlab width={120} height={50} />
+    <LogoCityLab width={120} height={50} />
   </g>
   <g transform="translate(340,375)">
     <!-- <text font-size="12" fill="#292929">unterstützt von</text> -->

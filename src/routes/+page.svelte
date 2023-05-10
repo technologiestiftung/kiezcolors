@@ -294,7 +294,11 @@
         </a>
 
         <a style="margin:10px" href="https://citylab-berlin.org/de/start/">
-          <img width="200" alt="citylab-logo" src="./img/kiezlabor.svg" /></a
+          <img
+            width="200"
+            alt="citylab-logo"
+            src="./img/logo-citylab-berlin.svg"
+          /></a
         >
         <a style="margin:10px" href="https://www.technologiestiftung-berlin.de/"
           ><img
