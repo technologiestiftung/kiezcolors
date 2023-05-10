@@ -3,8 +3,7 @@
   import maplibregl from "maplibre-gl";
   import { onMount } from "svelte";
   import mapStyle from "./mapStyle.js";
-
-  import Geocoder from "./Gecoder.svelte";
+  import MapKey from "$lib/components/map/MapKey.svelte";
 
   import drawCanvasCirlce from "$lib/assets/drawCanvasCirlce";
   import getMaxCircleRadius from "$lib/assets/getMaxCircleRadius";
@@ -48,8 +47,13 @@
 
   const drawAndCount = function (map) {
     if (!map || !map.getLayer("landuse")) return;
+    // if (!map.loaded()) {
+    //   setTimeout(() => {
+    //     drawAndCount(map);
+    //   }, 1000);
+    // }
     const mC = map.getCenter().toArray();
-    $mapCenter = [mC[0].toFixed(4), mC[1].toFixed(4)];
+    $mapCenter = [mC[0].toFixed(3), mC[1].toFixed(3)];
 
     const canvas = document.getElementById("myCanvas");
 
@@ -73,7 +77,7 @@
 
     // intersectsGrid = circleIntersectsGrid(map, circleGeom);
 
-    const { sizes, sumSizes } = getLanduseSizes(map, circleGeom);
+    const { sizes, sumSizes } = getLanduseSizes(map, circleGeom, landuses);
     $areaSizes = sizes;
     $totalSize = sumSizes;
     $locationText = "Lat " + $mapCenter[1] + " N, Lng " + $mapCenter[0] + " E";
@@ -96,6 +100,7 @@
       // bounds: [13.3682291, 52.4827923, 13.4914434, 52.5310256],
       hash: true,
       minZoom: 10,
+      maxZoom: 14,
       center: [13.3915, 52.49899],
       zoom: 13,
     });
@@ -104,37 +109,66 @@
       drawAndCount(map);
 
       map.on("moveend", function (e) {
-        drawAndCount(map);
+        setTimeout(() => {
+          drawAndCount(map);
+        }, 100);
       });
 
       map.on("zoomend", function (e) {
-        drawAndCount(map);
+        setTimeout(() => {
+          drawAndCount(map);
+        }, 100);
       });
     });
   });
 </script>
 
-<div id="map" class="border-2 w-fit">
-  <Geocoder />
+<div id="map" class="w-screen h-screen !absolute left-0 z-0">
+  <canvas id="myCanvas" class="absolute" />
+</div>
 
+<div class="relative w-full h-full pointer-events-none">
+  <MapKey />
   <button
-    class="rounded-full absolute right-2 top-14 h-10 w-10 text-center cursor-pointer text-xl leading-7 hover:bg-gray-300 z-40 bg-white"
+    class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-4  leading-7 z-40 pointer-events-auto "
     on:click={() => map.zoomIn()}
     on:keypress={() => map.zoomIn()}
   >
-    +
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="26"
+      height="26"
+      fill="currentColor"
+      class="bi bi-plus"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+      />
+    </svg>
   </button>
   <button
-    class="rounded-full absolute right-2 top-24 mt-2 h-10 w-10 text-center cursor-pointer text-xl leading-7 hover:bg-gray-300 z-40 bg-white"
+    class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-10 mt-8   leading-7 z-40 pointer-events-auto"
     on:click={() => map.zoomOut()}
     on:keypress={() => map.zoomOut()}
   >
-    -
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="26"
+      height="26"
+      fill="currentColor"
+      class="bi bi-dash"
+      viewBox="0 0 16 16"
+    >
+      <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+    </svg>
   </button>
 
-  <div class="absolute right-2 bottom-8 z-50 ">Radius: {$circleRadius}m</div>
+  <div class="absolute right-2 bottom-8 z-50 text-md">
+    Radius: {$circleRadius}m
+  </div>
 
-  <div class="absolute right-2 bottom-2 z-50 ">
+  <div class="absolute right-2 bottom-2 z-50 text-md">
     {#if $showBasemap}
       &copy;
       <a
@@ -149,20 +183,22 @@
 
     Geoportal Berlin / ALKIS Berlin
   </div>
-  <label class="absolute right-2 bottom-14 z-50">
-    <input type="checkbox" bind:checked={$showBasemap} class="mt-4" />
-    Show Basemap
-  </label>
 
-  <canvas id="myCanvas" class="absolute" />
+  <div
+    class="absolute right-0 bottom-12 z-50 form-control w-fit pointer-events-auto"
+  >
+    <label class="cursor-pointer label">
+      <span class="mx-2 text-md">Basemap</span>
+      <input
+        type="checkbox"
+        bind:checked={$showBasemap}
+        class="toggle toggle-primary"
+      />
+    </label>
+  </div>
 </div>
 
 <style>
-  #map {
-    width: 444px;
-    height: 630px;
-  }
-
   #myCanvas {
     z-index: 10;
     pointer-events: none;

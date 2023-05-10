@@ -9,11 +9,15 @@ export let totalSize = writable(0);
 export let mapCenter = writable();
 export let showBasemap = writable(false);
 export let locationText = writable();
-export let useLocationAsText = writable(false);
+export let useLocationAsText = writable(true);
 export let lang = writable("de");
 export let newBounds = writable();
+export let showBack = writable(false);
+export let printBackUI = writable(true);
 
-export let textVis = writable("Kiezcolors Text");
+//
+
+export let textVis = writable("");
 
 export let landuses = {
   AX_FlaecheBesondererFunktionalerPraegung: {
@@ -143,7 +147,7 @@ export let landuses = {
     name_en: "Air traffic",
   },
   AX_TagebauGrubeSteinbruch: {
-    category: "industry",
+    category: "trash",
     info: "",
     name: "Tagebau, Grube, Steinbruch",
     name_en: "Open pit, mine, quarry",
@@ -163,13 +167,17 @@ export let landuses = {
 };
 
 export let categories = {
-  street: { color: "#292929", name: "street" },
-  living: { color: "#cf4b56", name: "living" },
-  trash: { color: "#89775c", name: "trash" },
-  transport: { color: "#4d5759", name: "transport" },
-  other: { color: "#9c6a74", name: "other" },
-  water: { color: "#277da1", name: "water" },
-  nature: { color: "#53935c", name: "nature" },
-  industry: { color: "#f9c74f", name: "industry" },
-  leisure: { color: "#a4ba72", name: "leisure" },
+  street: { color: "#292929", name_en: "Street", name: "Straßenverkehr" },
+  living: { color: "#cf4b56", name_en: "Living", name: "Wohnen" },
+  transport: { color: "#4d5759", name_en: "Transport", name: "Verkehr" },
+  water: { color: "#277da1", name_en: "Water", name: "Wasser" },
+  nature: { color: "#53935c", name_en: "Nature", name: "Natur" },
+  industry: { color: "#f9c74f", name_en: "Industry", name: "Industrie" },
+  leisure: { color: "#a4ba72", name_en: "Leisure", name: "Freizeit" },
+  trash: {
+    color: "#89775c",
+    name_en: "Trash, Open pit",
+    name: "Halde, Tagebau",
+  },
+  other: { color: "#9c6a74", name_en: "Other", name: "Andere" },
 };
