@@ -18,6 +18,7 @@
     useLocationAsText,
     lang,
     showBack,
+    printBackUI,
   } from "$lib/stores.js";
   import font from "$lib/assets/font";
   import { encode } from "$lib/assets/base64";
@@ -77,18 +78,27 @@
   }
 
   function downloadSVG(svg) {
-    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-    const style = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "style"
-    );
-    style.type = "text/css";
-    // prettier-ignore
-    style.innerHTML = font('Outfit');
-    defs.appendChild(style);
-    svg.node().appendChild(defs);
+    var b64;
+    console.log(svg);
+    if (svg._groups) {
+      const defs = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "defs"
+      );
+      const style = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "style"
+      );
+      style.type = "text/css";
+      // prettier-ignore
+      style.innerHTML = font('Outfit');
+      defs.appendChild(style);
+      svg.node().appendChild(defs);
 
-    var b64 = encode(svg.node().outerHTML);
+      b64 = encode(svg.node().outerHTML);
+    } else {
+      b64 = encode(svg.outerHTML);
+    }
 
     var file_path = "data:image/svg+xml;base64,\n" + b64;
 
@@ -163,6 +173,11 @@
       document.body.removeChild(a);
     };
   }
+
+  function downloadSVGback() {
+    const svgBack = document.getElementById("postcardBack");
+    downloadSVG(svgBack);
+  }
 </script>
 
 <svelte:head>
@@ -228,6 +243,18 @@
       >{$lang === "en" ? "Print" : "Drucken"}</button
     >
 
+    <br />
+
+    {#if $printBackUI}
+      <button
+        on:click={() => {
+          downloadSVGback();
+        }}
+        class="btn btn-sm btn-primary mt-12 btn-outline"
+        >{$lang === "en" ? "Print backside" : "Hinterseite Drucken"}</button
+      >
+    {/if}
+
     <div class="bottom-0 absolute text-sm mr-8 text-gray-500 mb-4">
       <!-- <div class="form-control w-fit p-2 mt-6">
         <label class="cursor-pointer label">
@@ -244,7 +271,7 @@
         </label>
       </div>  -->
 
-      <div class="form-control w-fit p-2 mt-6">
+      <!-- <div class="form-control w-fit p-2 mt-6">
         <label class="cursor-pointer label">
           <input
             bind:checked={$showBack}
@@ -253,7 +280,7 @@
           />
           <span class="label-text ml-2">showBack (for debugging)</span>
         </label>
-      </div>
+      </div> -->
 
       <p>
         {$lang === "en"
@@ -288,6 +315,11 @@
         <a href="https://www.technologiestiftung-berlin.de/impressum"
           >Impressum</a
         >
+        <input
+          bind:checked={$printBackUI}
+          type="checkbox"
+          class="checkbox checkbox-primary checkbox-xs opacity-90 fixed bottom-0 left-0"
+        />
       </div>
     </div>
   </div>
@@ -297,12 +329,12 @@
   </div>
 </section>
 
-{#if $showBack}
-  <span class="border-solid bg-primary m-4">
-    <PostcardBack />
-  </span>
-{/if}
+<!-- {#if $showBack} -->
+<span class="bg-primary p-4 hidden">
+  <PostcardBack />
+</span>
 
+<!-- {/if} -->
 <style>
   .bold {
     font-family: "IBM Plex Sans Bold";

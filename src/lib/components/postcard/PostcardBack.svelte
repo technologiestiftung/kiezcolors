@@ -16,8 +16,9 @@
   {width}
   {height}
   xmlns="http://www.w3.org/2000/svg"
+  id="postcardBack"
 >
-  <rect x="0" y="0" {width} {height} fill="#f9f9f9" />
+  <rect x="0" y="0" {width} {height} fill="#fff" />
 
   <g>
     <g transform="translate(15,5)">
@@ -46,18 +47,18 @@
       />
     </g>
 
-    <g transform="translate(15,170)">
+    <g transform="translate(15,160)">
       {#each Object.values(categories) as { color, name, name_en }, i}
         <rect
           classs="rect-legend"
           width="10"
           height="10"
           fill={color}
-          transform={`translate(10,${10 + i * 14})`}
+          transform={`translate(10,${10 + i * 16})`}
         />
         <text
           classs="text-legend"
-          transform={`translate(25,${19 + i * 14})`}
+          transform={`translate(25,${19 + i * 16})`}
           text-anchor="start"
           font-family="IBM Plex Sans Text"
           font-size="11"
@@ -84,9 +85,9 @@
     <line
       y1="30"
       x1={width / 2}
-      y2={height - 30}
+      y2={height - 80}
       x2={width / 2}
-      style="stroke:#292929;stroke-width:1"
+      style="stroke:rgb(200, 200, 200);stroke-width:1"
     />
 
     <line
@@ -94,7 +95,7 @@
       x1={width - 30}
       y2={200}
       x2={width / 2 + 30}
-      style="stroke:#292929;stroke-width:1"
+      style="stroke:rgb(200, 200, 200);stroke-width:1"
     />
 
     <line
@@ -102,7 +103,7 @@
       x1={width - 30}
       y2={250}
       x2={width / 2 + 30}
-      style="stroke:#292929;stroke-width:1"
+      style="stroke:rgb(200, 200, 200);stroke-width:1"
     />
 
     <line
@@ -110,13 +111,13 @@
       x1={width - 30}
       y2={300}
       x2={width / 2 + 30}
-      style="stroke:#292929;stroke-width:1"
+      style="stroke:rgb(200, 200, 200);stroke-width:1"
     />
 
     <rect
       width="90"
       height="120"
-      style="stroke:#292929;stroke-width:1"
+      style="stroke:rgb(200, 200, 200);stroke-width:1"
       transform={`translate(${width - 120},${30})`}
       fill="transparent"
     />
@@ -149,10 +150,10 @@
 
     <LogoTSB width={120} height={50} />
   </g>
-  <g transform="translate(500,370)">
+  <g transform="translate(470,355)">
     <!-- <text font-size="12" fill="#292929">gefördert von</text> -->
 
-    <LogoSenatskanzlei width={120} height={50} />
+    <LogoSenatskanzlei width={140} height={100} />
   </g>
 
   <defs

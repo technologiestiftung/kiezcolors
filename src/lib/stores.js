@@ -13,6 +13,7 @@ export let useLocationAsText = writable(true);
 export let lang = writable("de");
 export let newBounds = writable();
 export let showBack = writable(false);
+export let printBackUI = writable(true);
 
 //
 
