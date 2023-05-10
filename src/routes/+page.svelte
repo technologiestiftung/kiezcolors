@@ -227,7 +227,7 @@
         You can also change the text on the postcard.
       {:else}
         Hier kannst du dir eine Postkarte erstellen, die die Verteilung der
-        Flächennutzung in Deiner Nachbarschaft zeigt. Verschiebe einfach die
+        Flächennutzung in deiner Nachbarschaft zeigt. Verschiebe einfach die
         Karte von Berlin oder suche nach einen Ort. Den Text auf der Postkarte
         kannst du auch ändern.
       {/if}
@@ -251,7 +251,7 @@
           downloadSVGback();
         }}
         class="btn btn-sm btn-primary mt-12 btn-outline"
-        >{$lang === "en" ? "Print backside" : "Hinterseite Drucken"}</button
+        >{$lang === "en" ? "Print backside" : "Rückseite Drucken"}</button
       >
     {/if}
 
