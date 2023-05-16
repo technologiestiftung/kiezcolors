@@ -8,8 +8,11 @@
 
 # Kiezcolors
 
-A map based tool to create a postcard showing the landuse distribution in your neighborhood 
- 
+*Kiezcolors* is a map based tool that creates a postcard showing the landuse distribution in your neighborhood. The browser application uses Berlin’s landuse open data. By zooming in and out you can pick a location within Berlin and position it inside the circle. *Kiezcolors* then maps the individual areas onto a tree map diagram. You can print the resulting motive as a postcard and share it!
+
+![kiezcolors_overview](https://github.com/technologiestiftung/kiezcolors/assets/46717848/fc4b20c6-4485-4a53-aafd-19c2ce5633e0)
+
+
 ## Tech stack
 
 This website is a [svelte](https://svelte.dev/) app.
