@@ -23,6 +23,7 @@
     useLocationAsText,
     textVis,
     newBounds,
+    isMobile,
   } from "$lib/stores.js";
 
   let map;
@@ -39,11 +40,22 @@
     map.setCenter(b);
   }
 
+  function setScrollZoom(mobile) {
+    if (!map) return;
+    if (mobile) {
+      map.scrollZoom.disable();
+    } else {
+      map.scrollZoom.enable();
+    }
+  }
+
   $: setShowBasemap($showBasemap);
 
   $: drawAndCount(map, $useLocationAsText);
 
   $: setBounds($newBounds);
+
+  $: setScrollZoom($isMobile);
 
   const drawAndCount = function (map) {
     if (!map || !map.getLayer("landuse")) return;
@@ -123,12 +135,14 @@
   });
 </script>
 
-<div id="map" class="w-screen h-screen !absolute left-0 z-0">
+<div id="map" class="w-full h-1/2 lg:h-screen !absolute left-0 z-0">
   <canvas id="myCanvas" class="absolute" />
 </div>
 
 <div class="relative w-full h-full pointer-events-none">
-  <MapKey />
+  {#if !$isMobile}
+    <MapKey />
+  {/if}
   <button
     class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-4  leading-7 z-40 pointer-events-auto "
     on:click={() => map.zoomIn()}

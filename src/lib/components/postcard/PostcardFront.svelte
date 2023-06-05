@@ -18,6 +18,8 @@ https://observablehq.com/@d3/treemap
     textVis,
     useLocationAsText,
     lang,
+    isMobile,
+    screenWidth,
   } from "$lib/stores.js";
 
   let treemap;
@@ -92,7 +94,8 @@ https://observablehq.com/@d3/treemap
       .append("svg")
       .attr("width", width)
       .attr("height", height)
-      .attr("xmlns", "http://www.w3.org/2000/svg");
+      .attr("xmlns", "http://www.w3.org/2000/svg")
+      .attr("class", "inline " + ($isMobile ? "border" : ""));
 
     const rect = $svg.append("rect");
     rect
@@ -249,16 +252,32 @@ https://observablehq.com/@d3/treemap
       .duration(1000)
       .style("opacity", 1);
   }
+
+  //  style={$screenWidth <= 444 ? `transform:scale(${$screenWidth / 444})` : ""}
+  //  padding-left: ${
+  // (444 / $screenWidth) * 50
+  //   }px
 </script>
 
-<div class="absolute border right-16  z-40 drop-shadow-xl">
-  <main class="w-fit" bind:this={visWrapper} />
+<div
+  class={$isMobile
+    ? "mx-4 pt-10 text-center"
+    : "absolute border right-16 z-40 drop-shadow-xl"}
+  style={$screenWidth <= 500
+    ? `transform-origin: top left; transform:scale(${
+        ($screenWidth - 50) / 444
+      }); height: ${(630 * ($screenWidth - 0)) / 444}px;`
+    : ""}
+>
+  <main class="w-full text-center" bind:this={visWrapper} />
 
   <input
     type="text"
     bind:value={$textVis}
     placeholder={$lang === "de" ? "Dein Text hier" : "Your text here"}
-    class="input  w-full text-center absolute bottom-10 text-[30px] bold"
+    class="input  text-center absolute bottom-10 text-[30px] bold"
+    style={$isMobile ? `position: relative; bottom: 90px;  width:440px` : ""}
+    class:w-full={$screenWidth <= 444 ? `` : "w-full"}
   />
 </div>
 

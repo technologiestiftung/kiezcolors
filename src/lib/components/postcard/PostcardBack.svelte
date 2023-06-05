@@ -78,7 +78,7 @@
         fontSize="9"
         fontFamily="IBM Plex Sans Text"
         fontStyle="italic"
-        fontFill="#666"
+        fontFill="rgb(148, 148, 148)"
       />
     </g>
 
@@ -145,14 +145,28 @@
     <!-- <text font-size="12" fill="#292929">mit</text> -->
     <LogoCityLab width={120} height={50} />
   </g>
-  <g transform="translate(340,375)">
+  <g transform="translate(330,375)">
     <!-- <text font-size="12" fill="#292929">unterstützt von</text> -->
-
+    <text
+      transform="translate(60,-10)"
+      text-anchor="end"
+      font-family="IBM Plex Sans Text"
+      font-size="12"
+      fill="rgb(148, 148, 148)"
+      >Projekt der
+    </text>
     <LogoTSB width={120} height={50} />
   </g>
   <g transform="translate(470,355)">
     <!-- <text font-size="12" fill="#292929">gefördert von</text> -->
-
+    <text
+      transform="translate(90,10)"
+      text-anchor="end"
+      font-family="IBM Plex Sans Text"
+      font-size="12"
+      fill="rgb(148, 148, 148)"
+      >Gefördert durch
+    </text>
     <LogoSenatskanzlei width={140} height={100} />
   </g>
 

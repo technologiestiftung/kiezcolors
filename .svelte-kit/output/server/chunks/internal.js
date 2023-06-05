@@ -101,7 +101,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<meta name="viewport" content="width=device-width" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="de">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="' + assets2 + '/favicon.png" />\n    <meta name="viewport" content="width=device-width" />\n    ' + head + '\n  </head>\n  <body data-sveltekit-preload-data="hover">\n    <div style="display: contents">' + body + '</div>\n    <!-- <script>\n      var _paq = (window._paq = window._paq || []);\n      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */\n      _paq.push(["trackPageView"]);\n      _paq.push(["enableLinkTracking"]);\n      (function () {\n        var u = "https://piwik.technologiestiftung-berlin.de/";\n        _paq.push(["setTrackerUrl", u + "matomo.php"]);\n        _paq.push(["setSiteId", "30"]);\n        var d = document,\n          g = d.createElement("script"),\n          s = d.getElementsByTagName("script")[0];\n        g.async = true;\n        g.src = u + "matomo.js";\n        s.parentNode.insertBefore(g, s);\n      })();\n    <\/script> -->\n  </body>\n</html>\n',
     error: ({ status, message }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -149,7 +149,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "tbu0rf"
+  version_hash: "15qafkk"
 };
 function get_hooks() {
   return {};
