@@ -5,7 +5,8 @@
   import PostcardFront from "$lib/components/postcard/PostcardFront.svelte";
   import PostcardBack from "$lib/components/postcard/PostcardBack.svelte";
   import Search from "$lib/components/search/Search.svelte";
-  import SidebarButtonInfo from "$lib/components/SidebarButtonInfo.svelte";
+  import PrintAndDownload from "$lib/components/PrintAndDownload.svelte";
+  import Footer from "$lib/components/Footer.svelte";
 
   import {
     dimensions,
@@ -85,7 +86,8 @@
     <div class="w-full"><Search /></div>
 
     <span class="hidden lg:block">
-      <SidebarButtonInfo />
+      <PrintAndDownload />
+      <Footer />
     </span>
   </div>
   <div class="h-1/2 lg:h-full w-full bg-white flex items-center">
@@ -104,7 +106,8 @@
     <PostcardFront />
   {/if}
   <div class="lg:hidden lg:w-1/3 bg-white z-10 relative m-4 overflow-auto">
-    <SidebarButtonInfo />
+    <PrintAndDownload />
+    <Footer />
   </div>
 </section>
 

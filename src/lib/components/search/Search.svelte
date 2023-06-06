@@ -35,5 +35,3 @@
     value={selectedSearchResult}
   />
 </div>
-
-<!-- value={selectedSearchResult}  -->
