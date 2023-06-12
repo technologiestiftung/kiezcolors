@@ -83,8 +83,15 @@ Texts and content available as [CC BY](https://creativecommons.org/licenses/by/3
 
 <table>
   <tr>
+        <td>
+      Made by <a href="https://odis-berlin.de">
+        <br />
+        <br />
+        <img width="200" src="https://logos.citylab-berlin.org/logo-odis-berlin.svg" />
+      </a>
+    </td>
     <td>
-      Made by <a href="https://citylab-berlin.org/de/start/">
+      In cooperation with <a href="https://citylab-berlin.org/de/start/">
         <br />
         <br />
         <img width="200" src="https://citylab-berlin.org/wp-content/uploads/2021/05/citylab-logo.svg" />
