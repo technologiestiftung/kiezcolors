@@ -59,7 +59,6 @@
 
   function downloadSVG(svg) {
     var b64;
-    console.log(svg);
     if (svg._groups) {
       const defs = document.createElementNS(
         "http://www.w3.org/2000/svg",
@@ -82,13 +81,16 @@
 
     var file_path = "data:image/svg+xml;base64,\n" + b64;
 
-    printSVG(file_path);
-    // var a = document.createElement("A");
-    // a.href = file_path;
-    // a.download = "ODIS-postcard.svg";
-    // document.body.appendChild(a);
-    // a.click();
-    // document.body.removeChild(a);
+    if ($printBackUI) {
+      var a = document.createElement("A");
+      a.href = file_path;
+      a.download = "ODIS-postcard.svg";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
+      printSVG(file_path);
+    }
 
     // async function go() {
     //   const base64Image = b64; // Remove the "data:image/*;base64," prefix
@@ -166,7 +168,14 @@
     downloadSVG($svg);
   }}
   class="btn btn-secondary mb-8"
-  class:mt-8={!$isMobile}>{$lang === "en" ? "Print" : "Drucken"}</button
+  class:mt-8={!$isMobile}
+  >{!$printBackUI
+    ? $lang === "en"
+      ? "Print"
+      : "Drucken"
+    : $lang === "en"
+    ? "Download"
+    : "Herunterladen"}</button
 >
 
 <br />
@@ -177,6 +186,6 @@
       downloadSVGback();
     }}
     class="btn btn-sm btn-primary btn-outline mb-6"
-    >{$lang === "en" ? "Print backside" : "Rückseite Drucken"}</button
+    >{$lang === "en" ? "Download backside" : "Rückseite herunterladen"}</button
   >
 {/if}
