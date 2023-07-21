@@ -175,7 +175,7 @@ export let categories = {
   transport: { color: "#4d5759", name_en: "Transport", name: "Verkehr" },
   water: { color: "#277da1", name_en: "Water", name: "Wasser" },
   nature: { color: "#53935c", name_en: "Nature", name: "Natur" },
-  industry: { color: "#f9c74f", name_en: "Industry", name: "Industrie" },
+  industry: { color: "#f9c74f", name_en: "Economy", name: "Wirtschaft" },
   leisure: { color: "#a4ba72", name_en: "Leisure", name: "Freizeit" },
   trash: {
     color: "#89775c",
