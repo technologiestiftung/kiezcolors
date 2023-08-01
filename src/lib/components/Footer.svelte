@@ -5,8 +5,15 @@
 <div class="bottom-0 lg:absolute text-sm mr-8 text-gray-500 mb-4">
   <p>
     {$lang === "en"
-      ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS and CityLAB are projects of the Technology Foundation Berlin and are funded by the Berlin Senate Chancellery."
-      : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert."}
+      ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS and CityLAB are projects of the Technology Foundation Berlin and are funded by the Berlin Senate Chancellery. You can find the code to this project on "
+      : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert. Den Code zum Projekt findest auf "}
+    <a
+      class="font-bold"
+      href="https://github.com/technologiestiftung/kiezcolors/"
+    >
+      GitHub
+    </a>
+    .
   </p>
 
   <div

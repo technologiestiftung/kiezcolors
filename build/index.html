@@ -4,18 +4,48 @@
     <meta charset="utf-8" />
     <link rel="icon" href="./favicon.png" />
     <meta name="viewport" content="width=device-width" />
+
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kiezcolors" />
+    <meta
+      property="og:description"
+      content="Zeige dir die Flächennutzung in deinem Berliner Kiez an."
+    />
+    <meta property="og:url" content="https://kiezcolors.odis-berlin.de/" />
+    <meta property="og:site_name" content="Kiezcolors" />
+    <meta
+      property="og:image"
+      content="https://kiezcolors.odis-berlin.de/img/twitter.png"
+    />
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@citylabberlin" />
+    <meta name="twitter:creator" content="@citylabberlin" />
+    <meta name="twitter:url" content="https://kiezcolors.odis-berlin.de/" />
+    <meta name="twitter:title" content="Kiezcolors" />
+    <meta
+      name="twitter:description"
+      content="Zeige dir die Flächennutzung in deinem Berliner Kiez an."
+    />
+    <meta
+      name="twitter:image"
+      content="https://kiezcolors.odis-berlin.de/img/twitter.png"
+    />
+
     <meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout.c5fbb9d3.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_layout.df979111.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/_page.34febc5a.css" rel="stylesheet">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.ee5ba441.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.91d839b0.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.1f10dd1a.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.56289a66.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.bd93de8f.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.3b39a4aa.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.3ef78cff.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.385bc7d5.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.8457a1f5.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.9f9ded46.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.js.fb1865a6.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_layout.da46b06b.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.17809987.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.svelte.f5b180ca.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_page.js.3dc38d36.mjs">
 		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_page.da46b06b.mjs"><title>Kiezcolors</title><!-- HEAD_svelte-16uzuh9_START --><meta name="description" content="A map based tool to create a postcard showing the landuse distribution in your neighborhood"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=0"><!-- HEAD_svelte-16uzuh9_END -->
   </head>
@@ -62,17 +92,18 @@
     
 
     
-</div></div>
+</div></div></div>
 
-</div>
-
-    <span class="hidden lg:block"><button class="btn btn-secondary mb-8">Drucken</button>
+    <span class="hidden lg:block"><button class="btn btn-secondary mb-8">Herunterladen</button>
 
 <br>
 
-<button class="btn btn-sm btn-primary btn-outline mb-6">Rückseite Drucken</button>
-
-<div class="bottom-0 lg:absolute text-sm mr-8 text-gray-500 mb-4"><p>Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert.</p>
+<button class="btn btn-sm btn-primary btn-outline mb-6">Rückseite herunterladen</button>
+      <div class="bottom-0 lg:absolute text-sm mr-8 text-gray-500 mb-4"><p>Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert. Den Code zum Projekt findest auf 
+    <a class="font-bold" href="https://github.com/technologiestiftung/kiezcolors/">GitHub
+    </a>
+    .
+  </p>
 
   <div style="text-align:center;margin-top:20px" class="flex flex-wrap sm:flex-nowrap"><a class="basis-2/4" style="padding:10px" href="https://odis-berlin.de"><img width="200" alt="odis-logo" src="./img/logo-odis-berlin.svg"></a>
 
@@ -111,7 +142,7 @@
     </div><div class="inline-block align-middle"><div class="w-4 h-4 rounded-full ml-2 inline-block" style="background-color:#53935c"></div>
       <p class="align-middle leading-4 ml-1 inline-block mb-2">Natur</p>
     </div><div class="inline-block align-middle"><div class="w-4 h-4 rounded-full ml-2 inline-block" style="background-color:#f9c74f"></div>
-      <p class="align-middle leading-4 ml-1 inline-block mb-2">Industrie</p>
+      <p class="align-middle leading-4 ml-1 inline-block mb-2">Wirtschaft</p>
     </div><div class="inline-block align-middle"><div class="w-4 h-4 rounded-full ml-2 inline-block" style="background-color:#a4ba72"></div>
       <p class="align-middle leading-4 ml-1 inline-block mb-2">Freizeit</p>
     </div><div class="inline-block align-middle"><div class="w-4 h-4 rounded-full ml-2 inline-block" style="background-color:#89775c"></div>
@@ -126,13 +157,16 @@
 
   <input type="text" placeholder="Dein Text hier" class="input text-center absolute bottom-10 text-[30px] bold svelte-hlq8ce" style="position: relative; bottom: 90px;  width:440px" value="">
 </div>
-  <div class="lg:hidden lg:w-1/3 bg-white z-10 relative m-4 overflow-auto"><button class="btn btn-secondary mb-8">Drucken</button>
+  <div class="lg:hidden lg:w-1/3 bg-white z-10 relative m-4 overflow-auto"><button class="btn btn-secondary mb-8">Herunterladen</button>
 
 <br>
 
-<button class="btn btn-sm btn-primary btn-outline mb-6">Rückseite Drucken</button>
-
-<div class="bottom-0 lg:absolute text-sm mr-8 text-gray-500 mb-4"><p>Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert.</p>
+<button class="btn btn-sm btn-primary btn-outline mb-6">Rückseite herunterladen</button>
+    <div class="bottom-0 lg:absolute text-sm mr-8 text-gray-500 mb-4"><p>Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert. Den Code zum Projekt findest auf 
+    <a class="font-bold" href="https://github.com/technologiestiftung/kiezcolors/">GitHub
+    </a>
+    .
+  </p>
 
   <div style="text-align:center;margin-top:20px" class="flex flex-wrap sm:flex-nowrap"><a class="basis-2/4" style="padding:10px" href="https://odis-berlin.de"><img width="200" alt="odis-logo" src="./img/logo-odis-berlin.svg"></a>
 
@@ -156,7 +190,7 @@
         <text classs="text-legend" transform="translate(25,51)" text-anchor="start" font-family="IBM Plex Sans Text" font-size="11" fill="#292929">Verkehr (Transport)</text><rect classs="rect-legend" width="10" height="10" fill="#277da1" transform="translate(10,58)"></rect>
         <text classs="text-legend" transform="translate(25,67)" text-anchor="start" font-family="IBM Plex Sans Text" font-size="11" fill="#292929">Wasser (Water)</text><rect classs="rect-legend" width="10" height="10" fill="#53935c" transform="translate(10,74)"></rect>
         <text classs="text-legend" transform="translate(25,83)" text-anchor="start" font-family="IBM Plex Sans Text" font-size="11" fill="#292929">Natur (Nature)</text><rect classs="rect-legend" width="10" height="10" fill="#f9c74f" transform="translate(10,90)"></rect>
-        <text classs="text-legend" transform="translate(25,99)" text-anchor="start" font-family="IBM Plex Sans Text" font-size="11" fill="#292929">Industrie (Industry)</text><rect classs="rect-legend" width="10" height="10" fill="#a4ba72" transform="translate(10,106)"></rect>
+        <text classs="text-legend" transform="translate(25,99)" text-anchor="start" font-family="IBM Plex Sans Text" font-size="11" fill="#292929">Wirtschaft (Economy)</text><rect classs="rect-legend" width="10" height="10" fill="#a4ba72" transform="translate(10,106)"></rect>
         <text classs="text-legend" transform="translate(25,115)" text-anchor="start" font-family="IBM Plex Sans Text" font-size="11" fill="#292929">Freizeit (Leisure)</text><rect classs="rect-legend" width="10" height="10" fill="#89775c" transform="translate(10,122)"></rect>
         <text classs="text-legend" transform="translate(25,131)" text-anchor="start" font-family="IBM Plex Sans Text" font-size="11" fill="#292929">Halde, Tagebau (Trash, Open pit)</text><rect classs="rect-legend" width="10" height="10" fill="#9c6a74" transform="translate(10,138)"></rect>
         <text classs="text-legend" transform="translate(25,147)" text-anchor="start" font-family="IBM Plex Sans Text" font-size="11" fill="#292929">Andere (Other)</text></g><g transform="translate(15,310)">
@@ -226,7 +260,7 @@
 			
 			<script>
 				{
-					__sveltekit_15qafkk = {
+					__sveltekit_1byv7iz = {
 						env: {},
 						assets: new URL(".", location.href).pathname.replace(/^\/$/, ''),
 						element: document.currentScript.parentElement
@@ -235,10 +269,10 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.ee5ba441.mjs"),
-						import("./_app/immutable/entry/app.3ef78cff.mjs")
+						import("./_app/immutable/entry/start.91d839b0.mjs"),
+						import("./_app/immutable/entry/app.8457a1f5.mjs")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_15qafkk.element, {
+						kit.start(app, __sveltekit_1byv7iz.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,
@@ -248,7 +282,7 @@
 				}
 			</script>
 		</div>
-    <!-- <script>
+    <script>
       var _paq = (window._paq = window._paq || []);
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
       _paq.push(["trackPageView"]);
@@ -264,6 +298,6 @@
         g.src = u + "matomo.js";
         s.parentNode.insertBefore(g, s);
       })();
-    </script> -->
+    </script>
   </body>
 </html>

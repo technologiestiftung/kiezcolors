@@ -1964,6 +1964,9 @@ html {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+.font-bold {
+  font-weight: 700;
+}
 .italic {
   font-style: italic;
 }

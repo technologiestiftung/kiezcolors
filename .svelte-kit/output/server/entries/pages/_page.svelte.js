@@ -180,7 +180,7 @@ let categories = {
   transport: { color: "#4d5759", name_en: "Transport", name: "Verkehr" },
   water: { color: "#277da1", name_en: "Water", name: "Wasser" },
   nature: { color: "#53935c", name_en: "Nature", name: "Natur" },
-  industry: { color: "#f9c74f", name_en: "Industry", name: "Industrie" },
+  industry: { color: "#f9c74f", name_en: "Economy", name: "Wirtschaft" },
   leisure: { color: "#a4ba72", name_en: "Leisure", name: "Freizeit" },
   trash: {
     color: "#89775c",
@@ -1571,35 +1571,44 @@ const Search = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     },
     {},
     {}
-  )}</div>
-
-`;
+  )}</div>`;
 });
-const SidebarButtonInfo = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+const PrintAndDownload = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let $printBackUI, $$unsubscribe_printBackUI;
   let $dimensions, $$unsubscribe_dimensions;
   let $$unsubscribe_svg;
   let $isMobile, $$unsubscribe_isMobile;
   let $lang, $$unsubscribe_lang;
-  let $printBackUI, $$unsubscribe_printBackUI;
+  $$unsubscribe_printBackUI = subscribe(printBackUI, (value) => $printBackUI = value);
   $$unsubscribe_dimensions = subscribe(dimensions, (value) => $dimensions = value);
   $$unsubscribe_svg = subscribe(svg, (value) => value);
   $$unsubscribe_isMobile = subscribe(isMobile, (value) => $isMobile = value);
   $$unsubscribe_lang = subscribe(lang, (value) => $lang = value);
-  $$unsubscribe_printBackUI = subscribe(printBackUI, (value) => $printBackUI = value);
   $dimensions[1];
   $dimensions[0];
+  $$unsubscribe_printBackUI();
   $$unsubscribe_dimensions();
   $$unsubscribe_svg();
   $$unsubscribe_isMobile();
   $$unsubscribe_lang();
-  $$unsubscribe_printBackUI();
-  return `<button class="${["btn btn-secondary mb-8", !$isMobile ? "mt-8" : ""].join(" ").trim()}">${escape($lang === "en" ? "Print" : "Drucken")}</button>
+  return `<button class="${["btn btn-secondary mb-8", !$isMobile ? "mt-8" : ""].join(" ").trim()}">${escape(!$printBackUI ? $lang === "en" ? "Print" : "Drucken" : $lang === "en" ? "Download" : "Herunterladen")}</button>
 
 <br>
 
-${$printBackUI ? `<button class="${"btn btn-sm btn-primary btn-outline mb-6"}">${escape($lang === "en" ? "Print backside" : "Rückseite Drucken")}</button>` : ``}
-
-<div class="${"bottom-0 lg:absolute text-sm mr-8 text-gray-500 mb-4"}"><p>${escape($lang === "en" ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS and CityLAB are projects of the Technology Foundation Berlin and are funded by the Berlin Senate Chancellery." : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert.")}</p>
+${$printBackUI ? `<button class="${"btn btn-sm btn-primary btn-outline mb-6"}">${escape($lang === "en" ? "Download backside" : "Rückseite herunterladen")}</button>` : ``}`;
+});
+const Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let $lang, $$unsubscribe_lang;
+  let $printBackUI, $$unsubscribe_printBackUI;
+  $$unsubscribe_lang = subscribe(lang, (value) => $lang = value);
+  $$unsubscribe_printBackUI = subscribe(printBackUI, (value) => $printBackUI = value);
+  $$unsubscribe_lang();
+  $$unsubscribe_printBackUI();
+  return `<div class="${"bottom-0 lg:absolute text-sm mr-8 text-gray-500 mb-4"}"><p>${escape($lang === "en" ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS and CityLAB are projects of the Technology Foundation Berlin and are funded by the Berlin Senate Chancellery. You can find the code to this project on " : "Kiezcolors wurde von ODIS und CityLAB Berlin entwickelt. ODIS und CityLAB sind Projekte der Technologiestiftung Berlin und werden von der Berliner Senatskanzlei gefördert. Den Code zum Projekt findest auf ")}
+    <a class="${"font-bold"}" href="${"https://github.com/technologiestiftung/kiezcolors/"}">GitHub
+    </a>
+    .
+  </p>
 
   <div style="${"text-align:center;margin-top:20px"}" class="${"flex flex-wrap sm:flex-nowrap"}"><a class="${"basis-2/4"}" style="${"padding:10px"}" href="${"https://odis-berlin.de"}"><img width="${"200"}" alt="${"odis-logo"}" src="${"./img/logo-odis-berlin.svg"}"></a>
 
@@ -1652,13 +1661,15 @@ ${$$result.head += `<!-- HEAD_svelte-16uzuh9_START -->${$$result.title = `<title
 
     <div class="${"w-full"}">${validate_component(Search, "Search").$$render($$result, {}, {}, {})}</div>
 
-    <span class="${"hidden lg:block"}">${validate_component(SidebarButtonInfo, "SidebarButtonInfo").$$render($$result, {}, {}, {})}</span></div>
+    <span class="${"hidden lg:block"}">${validate_component(PrintAndDownload, "PrintAndDownload").$$render($$result, {}, {}, {})}
+      ${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}</span></div>
   <div class="${"h-1/2 lg:h-full w-full bg-white flex items-center"}">${validate_component(Map, "Map").$$render($$result, {}, {}, {})}
     ${!$isMobile ? `${validate_component(PostcardFront, "PostcardFront").$$render($$result, {}, {}, {})}` : ``}</div>
 
   ${$isMobile ? `<div class="${"relative width-full bg-gray-100"}">${validate_component(MapKey, "MapKey").$$render($$result, {}, {}, {})}</div>` : ``}
   ${$isMobile ? `${validate_component(PostcardFront, "PostcardFront").$$render($$result, {}, {}, {})}` : ``}
-  <div class="${"lg:hidden lg:w-1/3 bg-white z-10 relative m-4 overflow-auto"}">${validate_component(SidebarButtonInfo, "SidebarButtonInfo").$$render($$result, {}, {}, {})}</div></section>
+  <div class="${"lg:hidden lg:w-1/3 bg-white z-10 relative m-4 overflow-auto"}">${validate_component(PrintAndDownload, "PrintAndDownload").$$render($$result, {}, {}, {})}
+    ${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}</div></section>
 
 ${$printBackUI ? `<span class="${"p-4 hidden"}">${validate_component(PostcardBack, "PostcardBack").$$render($$result, {}, {}, {})}</span>` : ``}`;
 });
