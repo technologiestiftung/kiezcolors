@@ -40,6 +40,19 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
+## Data
+You can find the data on Berlins [Geoportal (FIS-Broker)](https://fbinter.stadt-berlin.de/fb/)
+
+Search for: *ALKIS*
+
+Select *ALKIS Berlin (Amtliches Liegenschaftskatasterinformationssystem)*
+
+Then select *ALKIS Berlin Tatsächliche Nutzung* on the right to get the WFS Link to download the data.
+
+Or download directly via WFS: https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_tatsaechlichenutzungflaechen
+
+You will need to convert the data to GeoJSON format if you want to create the tiles for the map. 
+  
 ## Tile Creation
 
 The tiles we created with *tippecanoe* by running the following command:
