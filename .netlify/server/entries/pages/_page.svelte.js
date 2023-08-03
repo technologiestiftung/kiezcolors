@@ -1656,7 +1656,7 @@ ${$$result.head += `<!-- HEAD_svelte-16uzuh9_START -->${$$result.title = `<title
         neighborhood. Simply move the map from Berlin or search for a location.
         You can also change the text on the postcard.` : `Hier kannst du dir eine Postkarte erstellen, die die Verteilung der
         Flächennutzung in deiner Nachbarschaft zeigt. Verschiebe einfach die
-        Karte von Berlin oder suche nach einen Ort. Den Text auf der Postkarte
+        Karte von Berlin oder suche nach einem Ort. Den Text auf der Postkarte
         kannst du auch ändern.`}</p>
 
     <div class="${"w-full"}">${validate_component(Search, "Search").$$render($$result, {}, {}, {})}</div>
