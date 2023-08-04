@@ -55,11 +55,12 @@ You will need to convert the data to GeoJSON format if you want to create the ti
   
 ## Tile Creation
 
-The tiles we created with *tippecanoe* by running the following command:
+The tiles were created with *tippecanoe* by running the following command:
 
 ```bash
 tippecanoe --output-to-directory ./tiles '--use-attribute-for-id=id' --no-tile-compression --force -B 13 '--minimum-zoom=10' '--maximum-zoom=13' ./alkis.geojson
 ```
+Your input data has to be in ```GeoJSON``` format and in the ```EPSG:4326``` projection. 
 
 ## Licence
 
