@@ -49,9 +49,20 @@ Select *ALKIS Berlin (Amtliches Liegenschaftskatasterinformationssystem)*
 
 Then select *ALKIS Berlin Tatsächliche Nutzung* on the right to get the WFS Link to download the data.
 
-Or download directly via WFS: https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_tatsaechlichenutzungflaechen
+Or download directly via WFS: 
 
-You will need to convert the data to GeoJSON format if you want to create the tiles for the map. 
+```
+https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_tatsaechlichenutzungflaechen?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+```
+
+Or as GeoJSON:
+
+```
+https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_tatsaechlichenutzungflaechen?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&outputFormat=application/json&TYPENAMES=fis:s_wfs_alkis_tatsaechlichenutzungflaechen
+```
+
+
+You will need to convert the data to ```GeoJSON``` format and convert it to the ```EPSG:4326``` projection if you want to create the tiles for the map . 
   
 ## Tile Creation
 
