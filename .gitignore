@@ -1,3 +1,7 @@
+# svelte stuff
+.svelte-kit
+build/
+
 # Logs
 logs
 *.log
@@ -102,3 +106,4 @@ dist
 
 # TernJS port file
 .tern-port
+

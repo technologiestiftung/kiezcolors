@@ -14,6 +14,38 @@
       GitHub
     </a>
     .
+    <br /><br />
+
+    <span class="text-xs font-thin text-gray-400">
+      {$lang === "en" ? "Data source:" : "Datenquelle:"}
+      <br />
+      <a
+        class="underline"
+        target="_blank"
+        rel="noreferrer"
+        href="https://daten.berlin.de/datensaetze/alkis-berlin-tatsächliche-nutzung-wfs"
+      >
+        ALKIS Berlin Tatsächliche Nutzung
+      </a>
+      |
+      <a
+        class="underline"
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.berlin.de/sen/sbw/">SenSBW</a
+      >
+      <!-- ,
+      {$lang === "en" ? "published under:" : "veröffentlicht unter"} -->
+      |
+      <a
+        class="underline"
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.govdata.de/dl-de/by-2-0"
+      >
+        DL-DE->BY-2.0
+      </a>
+    </span>
   </p>
 
   <div
