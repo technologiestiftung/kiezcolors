@@ -2,7 +2,7 @@
   import { lang, printBackUI } from "$lib/stores.js";
 </script>
 
-<div class="bottom-0 lg:absolute text-sm mr-8 text-gray-500 mb-4">
+<div class=" text-sm text-gray-400 mt-10">
   <p>
     {$lang === "en"
       ? "Kiezcolors was developed by ODIS and CityLAB Berlin. ODIS and CityLAB are projects of the Technology Foundation Berlin and are funded by the Berlin Senate Chancellery. You can find the code to this project on "
@@ -16,7 +16,7 @@
     .
     <br /><br />
 
-    <span class="text-xs font-thin text-gray-400">
+    <span class="text-sm font-thin text-gray-400">
       {$lang === "en" ? "Data source:" : "Datenquelle:"}
       <br />
       <a
@@ -48,10 +48,7 @@
     </span>
   </p>
 
-  <div
-    style="text-align:center;margin-top:20px"
-    class="flex flex-wrap sm:flex-nowrap"
-  >
+  <div style="text-align:center" class="flex flex-wrap sm:flex-nowrap mt-8">
     <a class="basis-2/4" style="padding:10px" href="https://odis-berlin.de">
       <img width="200" alt="odis-logo" src="./img/logo-odis-berlin.svg" />
     </a>
@@ -67,6 +64,12 @@
         src="./img/logo-citylab-berlin.svg"
       /></a
     >
+  </div>
+
+  <div
+    style="text-align:center;margin-top:20px"
+    class="flex flex-wrap sm:flex-nowrap"
+  >
     <a
       class="basis-2/4"
       style="padding:10px"
@@ -88,7 +91,8 @@
       /></a
     >
   </div>
-  <div class="w-full text-center text-gray-400">
+
+  <div class="w-full text-center text-gray-400 mt-4">
     <a href="https://www.technologiestiftung-berlin.de/impressum">Impressum</a>
     <input
       bind:checked={$printBackUI}

@@ -185,7 +185,7 @@
     on:click={() => {
       downloadSVGback();
     }}
-    class="btn btn-sm btn-primary btn-outline mb-6"
+    class="btn btn-primary btn-outline mb-6"
     >{$lang === "en" ? "Download backside" : "Rückseite herunterladen"}</button
   >
 {/if}

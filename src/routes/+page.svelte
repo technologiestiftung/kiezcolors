@@ -44,7 +44,7 @@
       type="radio"
       name="options"
       data-title="en"
-      class="btn btn-sm btn-outline "
+      class="btn btn-sm btn-outline"
       checked={$lang === "en"}
       on:click={() => {
         $lang = "en";
@@ -54,7 +54,7 @@
       type="radio"
       name="options"
       data-title="de"
-      class="btn btn-sm btn-outline "
+      class="btn btn-sm btn-outline"
       checked={$lang === "de"}
       on:click={() => {
         $lang = "de";
@@ -65,10 +65,10 @@
 
 <section class="w-full h-screen block lg:flex">
   <div
-    class="lg:h-full w-full lg:w-1/3 bg-white z-10 relative p-4 lg:p-8 overflow-auto "
+    class="lg:h-full w-full lg:w-1/3 bg-white z-10 relative p-4 lg:p-8 overflow-auto"
     class:shadow-lg={!$isMobile}
   >
-    <div class="bold py-4 text-5xl">Kiezcolors</div>
+    <div class="bold py-4 text-4xl md:text-4xl xl:text-5xl">Kiezcolors</div>
 
     <p class="my-4">
       {#if $lang === "en"}
