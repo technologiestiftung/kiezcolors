@@ -42,7 +42,7 @@
 		"chroma-js": "^2.4.2",
 		"d3": "^7.6.1",
 		"d3-hierarchy": "^3.1.2",
-		"daisyui": "^2.51.6",
+		"daisyui": "^4.0.0",
 		"maplibre-gl": "^2.1.9",
 		"svelte-select": "^5.6.0",
 		"textures": "^1.2.3"
