@@ -39,7 +39,7 @@
 		"@turf/intersect": "^6.5.0",
 		"@turf/midpoint": "^6.5.0",
 		"@turf/points-within-polygon": "^6.5.0",
-		"chroma-js": "^2.4.2",
+		"chroma-js": "^3.0.0",
 		"d3": "^7.6.1",
 		"d3-hierarchy": "^3.1.2",
 		"daisyui": "^2.51.6",
