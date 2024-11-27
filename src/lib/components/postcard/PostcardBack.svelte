@@ -36,7 +36,7 @@
 
     <g transform="translate(15,107)">
       <MulitlineText
-        text="Mit herzlichen Grüßen aus dem Kiezlabor!"
+        text="Mit herzlichen Grüßen aus dem CityLab!"
         x="10"
         y="30"
         width="275"
@@ -130,7 +130,7 @@
       fill="#292929"
       ><tspan x="0" y="0" dy="1.5em"
         >Data: Geoportal Berlin / ALKIS Berlin</tspan
-      ><tspan x="0" y="0" dy="3em">KiezLabor 2023</tspan><tspan
+      ><tspan x="0" y="0" dy="3em">CityLab 2024</tspan><tspan
         x="0"
         y="0"
         dy="4.5em">kiezcolors.odis-berlin.de</tspan
