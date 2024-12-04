@@ -20,7 +20,14 @@ https://observablehq.com/@d3/treemap
     lang,
     isMobile,
     screenWidth,
+    mapCenter,
+    circleRadius,
   } from "$lib/stores.js";
+  import geojson from "$lib/assets/berlin.js";
+
+  let projection;
+  let berlin = geojson();
+  berlin = berlin;
 
   let treemap;
   function sumByCount(d) {
@@ -195,6 +202,45 @@ https://observablehq.com/@d3/treemap
       .attr("font-size", 10)
       .attr("fill", "#2f2fa2")
       .text("Viele Grüße vom CityLAB");
+
+    let map = $svg.append("g");
+
+    projection = d3.geoMercator().fitSize([width, height], berlin);
+    const path = d3.geoPath().projection(projection);
+
+    map
+      .selectAll("path")
+      .data(berlin.features)
+      .enter()
+      .append("path")
+      .attr("d", path)
+      .attr("stroke", "white")
+      .attr("fill", "none")
+      .attr("stroke-width", 2)
+      .attr("stroke-opacity", 0.4);
+
+    // Render the circle
+    const radiusInDegrees = $circleRadius / 111320; // 1 degree ≈ 111,320 meters
+    const circle = d3.geoCircle().center($mapCenter).radius(radiusInDegrees); // Set radius in degrees
+    map
+      .append("path")
+      .datum(circle())
+      .attr("d", path)
+      .attr("fill", "none")
+      .attr("opacity", 0.8)
+      .attr("stroke", "white")
+      .attr("stroke-width", 6)
+      .attr("stroke-opacity", 0.4);
+
+    // Scale and center the map
+    const scale = 0.8; // Example scaling factor (1.2 = 20% larger)
+    const translateX = width / 2; // Center X
+    const translateY = height / 2.9; // Center Y
+
+    map.attr(
+      "transform",
+      `translate(${translateX},${translateY}) scale(${scale}) translate(${-translateX},${-translateY})`
+    );
   }
 
   function updateData(newData) {
