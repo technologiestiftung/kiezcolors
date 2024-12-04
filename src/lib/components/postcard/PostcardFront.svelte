@@ -216,7 +216,7 @@ https://observablehq.com/@d3/treemap
       .attr("d", path)
       .attr("stroke", "white")
       .attr("fill", "none")
-      .attr("stroke-width", 2)
+      .attr("stroke-width", 6)
       .attr("stroke-opacity", 0.4);
 
     // Render the circle
