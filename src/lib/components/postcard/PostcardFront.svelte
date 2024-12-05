@@ -216,10 +216,10 @@ https://observablehq.com/@d3/treemap
       .enter()
       .append("path")
       .attr("d", path)
-      .attr("stroke", "#292929")
+      .attr("stroke", "#2f2fa2")
       .attr("fill", "none")
-      .attr("stroke-width", 1)
-      .attr("stroke-opacity", 0.15);
+      .attr("stroke-width", 1);
+    // .attr("stroke-opacity", 0.15);
 
     // Render the circle
     const radiusInDegrees = $circleRadius / 111320; // 1 degree ≈ 111,320 meters
@@ -229,9 +229,9 @@ https://observablehq.com/@d3/treemap
       .datum(circle())
       .attr("d", path)
       .attr("fill", "none")
-      .attr("stroke", "#292929")
-      .attr("stroke-width", 2)
-      .attr("stroke-opacity", 0.15);
+      .attr("stroke", "#2f2fa2")
+      .attr("stroke-width", 2);
+    // .attr("stroke-opacity", 0.15);
 
     map.attr(
       "transform",
