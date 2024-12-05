@@ -137,7 +137,7 @@ https://observablehq.com/@d3/treemap
       .enter()
       .append("text")
       .attr("class", "title-text")
-      .attr("transform", "translate(" + width / 2 + "," + height * 0.91 + ")")
+      .attr("transform", "translate(" + width / 2 + "," + height * 0.9 + ")")
       .attr("text-anchor", "middle")
       .attr("font-family", "IBM Plex Sans Bold")
       .attr("font-size", 30)
@@ -218,8 +218,8 @@ https://observablehq.com/@d3/treemap
       .attr("d", path)
       .attr("stroke", "#292929")
       .attr("fill", "none")
-      .attr("stroke-width", 1);
-    // .attr("stroke-opacity", 0.4);
+      .attr("stroke-width", 1)
+      .attr("stroke-opacity", 0.15);
 
     // Render the circle
     const radiusInDegrees = $circleRadius / 111320; // 1 degree ≈ 111,320 meters
@@ -228,11 +228,13 @@ https://observablehq.com/@d3/treemap
       .append("path")
       .datum(circle())
       .attr("d", path)
-      // .attr("fill", "none")
+      .attr("fill", "none")
+      .attr("stroke", "#292929")
+
       // .attr("opacity", 0.8)
-      .attr("fill", "#292929");
-    // .attr("stroke-width", 6)
-    // .attr("stroke-opacity", 0.4);
+      // .attr("fill", "#292929")
+      .attr("stroke-width", 2)
+      .attr("stroke-opacity", 0.15);
 
     // Scale and center the map
     // const scale = 0.8; // Example scaling factor (1.2 = 20% larger)
@@ -328,7 +330,7 @@ https://observablehq.com/@d3/treemap
     type="text"
     bind:value={$textVis}
     placeholder={$lang === "de" ? "Dein Text hier" : "Your text here"}
-    class="input text-center absolute bottom-12 text-[30px] bold"
+    class="input text-center absolute bottom-[50px] text-[30px] bold"
     style={$isMobile ? `position: relative; bottom: 90px;  width:440px` : ""}
     class:w-full={$screenWidth <= 444 ? `` : "w-full"}
   />
