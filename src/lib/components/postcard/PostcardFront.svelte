@@ -230,21 +230,8 @@ https://observablehq.com/@d3/treemap
       .attr("d", path)
       .attr("fill", "none")
       .attr("stroke", "#292929")
-
-      // .attr("opacity", 0.8)
-      // .attr("fill", "#292929")
       .attr("stroke-width", 2)
       .attr("stroke-opacity", 0.15);
-
-    // Scale and center the map
-    // const scale = 0.8; // Example scaling factor (1.2 = 20% larger)
-    // const translateX = width / 2; // Center X
-    // const translateY = height / 2.9; // Center Y
-
-    // map.attr(
-    //   "transform",
-    //   `translate(${translateX},${translateY}) scale(${scale}) translate(${-translateX},${-translateY})`
-    // );
 
     map.attr(
       "transform",
