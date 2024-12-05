@@ -331,7 +331,9 @@ https://observablehq.com/@d3/treemap
     bind:value={$textVis}
     placeholder={$lang === "de" ? "Dein Text hier" : "Your text here"}
     class="input text-center absolute bottom-[50px] text-[30px] bold"
-    style={$isMobile ? `position: relative; bottom: 90px;  width:440px` : ""}
+    style={$isMobile
+      ? `position: relative; bottom: 97px;  width:440px; left:2px`
+      : ""}
     class:w-full={$screenWidth <= 444 ? `` : "w-full"}
   />
 </div>
