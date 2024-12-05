@@ -204,8 +204,10 @@ https://observablehq.com/@d3/treemap
       .text("Viele Grüße vom CityLAB");
 
     let map = $svg.append("g");
+    let mapWidth = 50;
+    let mapHeight = 50;
 
-    projection = d3.geoMercator().fitSize([width, height], berlin);
+    projection = d3.geoMercator().fitSize([mapWidth, mapHeight], berlin);
     const path = d3.geoPath().projection(projection);
 
     map
@@ -214,10 +216,10 @@ https://observablehq.com/@d3/treemap
       .enter()
       .append("path")
       .attr("d", path)
-      .attr("stroke", "white")
+      .attr("stroke", "#292929")
       .attr("fill", "none")
-      .attr("stroke-width", 6)
-      .attr("stroke-opacity", 0.4);
+      .attr("stroke-width", 1);
+    // .attr("stroke-opacity", 0.4);
 
     // Render the circle
     const radiusInDegrees = $circleRadius / 111320; // 1 degree ≈ 111,320 meters
@@ -226,20 +228,25 @@ https://observablehq.com/@d3/treemap
       .append("path")
       .datum(circle())
       .attr("d", path)
-      .attr("fill", "none")
-      .attr("opacity", 0.8)
-      .attr("stroke", "white")
-      .attr("stroke-width", 6)
-      .attr("stroke-opacity", 0.4);
+      // .attr("fill", "none")
+      // .attr("opacity", 0.8)
+      .attr("fill", "#292929");
+    // .attr("stroke-width", 6)
+    // .attr("stroke-opacity", 0.4);
 
     // Scale and center the map
-    const scale = 0.8; // Example scaling factor (1.2 = 20% larger)
-    const translateX = width / 2; // Center X
-    const translateY = height / 2.9; // Center Y
+    // const scale = 0.8; // Example scaling factor (1.2 = 20% larger)
+    // const translateX = width / 2; // Center X
+    // const translateY = height / 2.9; // Center Y
+
+    // map.attr(
+    //   "transform",
+    //   `translate(${translateX},${translateY}) scale(${scale}) translate(${-translateX},${-translateY})`
+    // );
 
     map.attr(
       "transform",
-      `translate(${translateX},${translateY}) scale(${scale}) translate(${-translateX},${-translateY})`
+      `translate(${width - mapWidth - 10},${height - mapHeight - 5})`
     );
   }
 
@@ -321,7 +328,7 @@ https://observablehq.com/@d3/treemap
     type="text"
     bind:value={$textVis}
     placeholder={$lang === "de" ? "Dein Text hier" : "Your text here"}
-    class="input text-center absolute bottom-10 text-[30px] bold"
+    class="input text-center absolute bottom-12 text-[30px] bold"
     style={$isMobile ? `position: relative; bottom: 90px;  width:440px` : ""}
     class:w-full={$screenWidth <= 444 ? `` : "w-full"}
   />

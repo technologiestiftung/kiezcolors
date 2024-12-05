@@ -34,8 +34,8 @@ declare module '$env/static/private' {
 	export const NVM_CD_FLAGS: string;
 	export const TERM: string;
 	export const SHELL: string;
-	export const TMPDIR: string;
 	export const HOMEBREW_REPOSITORY: string;
+	export const TMPDIR: string;
 	export const npm_config_global_prefix: string;
 	export const TERM_PROGRAM_VERSION: string;
 	export const COLOR: string;
@@ -88,6 +88,7 @@ declare module '$env/static/private' {
 	export const INFOPATH: string;
 	export const HOMEBREW_CELLAR: string;
 	export const LC_TERMINAL: string;
+	export const SQLITE_EXEMPT_PATH_FROM_VNODE_GUARDS: string;
 	export const npm_node_execpath: string;
 	export const npm_config_prefix: string;
 	export const COLORTERM: string;
@@ -129,8 +130,8 @@ declare module '$env/dynamic/private' {
 		NVM_CD_FLAGS: string;
 		TERM: string;
 		SHELL: string;
-		TMPDIR: string;
 		HOMEBREW_REPOSITORY: string;
+		TMPDIR: string;
 		npm_config_global_prefix: string;
 		TERM_PROGRAM_VERSION: string;
 		COLOR: string;
@@ -183,6 +184,7 @@ declare module '$env/dynamic/private' {
 		INFOPATH: string;
 		HOMEBREW_CELLAR: string;
 		LC_TERMINAL: string;
+		SQLITE_EXEMPT_PATH_FROM_VNODE_GUARDS: string;
 		npm_node_execpath: string;
 		npm_config_prefix: string;
 		COLORTERM: string;

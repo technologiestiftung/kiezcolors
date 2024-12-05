@@ -203,44 +203,44 @@ export default function () {
     }
   });
 
-  // function smoothCoordinates(coords) {
-  //   let windowSize = 2;
+  function smoothCoordinates(coords) {
+    let windowSize = 2;
 
-  //   if (windowSize < 1 || windowSize > coords.length) {
-  //     throw new Error(
-  //       "Invalid windowSize: must be between 1 and the number of coordinates."
-  //     );
-  //   }
+    if (windowSize < 1 || windowSize > coords.length) {
+      throw new Error(
+        "Invalid windowSize: must be between 1 and the number of coordinates."
+      );
+    }
 
-  //   const smoothed = [];
-  //   const halfWindow = Math.floor(windowSize / 2);
+    const smoothed = [];
+    const halfWindow = Math.floor(windowSize / 2);
 
-  //   for (let i = 0; i < coords.length; i++) {
-  //     let sumX = 0,
-  //       sumY = 0,
-  //       count = 0;
+    for (let i = 0; i < coords.length; i++) {
+      let sumX = 0,
+        sumY = 0,
+        count = 0;
 
-  //     // Calculate the average of the neighboring points
-  //     for (let j = -halfWindow; j <= halfWindow; j++) {
-  //       const index = i + j;
-  //       if (index >= 0 && index < coords.length) {
-  //         sumX += coords[index][0];
-  //         sumY += coords[index][1];
-  //         count++;
-  //       }
-  //     }
+      // Calculate the average of the neighboring points
+      for (let j = -halfWindow; j <= halfWindow; j++) {
+        const index = i + j;
+        if (index >= 0 && index < coords.length) {
+          sumX += coords[index][0];
+          sumY += coords[index][1];
+          count++;
+        }
+      }
 
-  //     smoothed.push([sumX / count, sumY / count]);
-  //   }
+      smoothed.push([sumX / count, sumY / count]);
+    }
 
-  //   return smoothed;
-  // }
-  // berlin.features.forEach((feature) => {
-  //   if (feature.geometry.type === "Polygon") {
-  //     feature.geometry.coordinates =
-  //       feature.geometry.coordinates.map(smoothCoordinates);
-  //   }
-  // });
+    return smoothed;
+  }
+  berlin.features.forEach((feature) => {
+    if (feature.geometry.type === "Polygon") {
+      feature.geometry.coordinates =
+        feature.geometry.coordinates.map(smoothCoordinates);
+    }
+  });
 
   return berlin;
 }
