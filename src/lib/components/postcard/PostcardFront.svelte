@@ -20,7 +20,14 @@ https://observablehq.com/@d3/treemap
     lang,
     isMobile,
     screenWidth,
+    mapCenter,
+    circleRadius,
   } from "$lib/stores.js";
+  import geojson from "$lib/assets/berlin.js";
+
+  let projection;
+  let berlin = geojson();
+  berlin = berlin;
 
   let treemap;
   function sumByCount(d) {
@@ -130,7 +137,7 @@ https://observablehq.com/@d3/treemap
       .enter()
       .append("text")
       .attr("class", "title-text")
-      .attr("transform", "translate(" + width / 2 + "," + height * 0.91 + ")")
+      .attr("transform", "translate(" + width / 2 + "," + height * 0.9 + ")")
       .attr("text-anchor", "middle")
       .attr("font-family", "IBM Plex Sans Bold")
       .attr("font-size", 30)
@@ -195,6 +202,41 @@ https://observablehq.com/@d3/treemap
       .attr("font-size", 10)
       .attr("fill", "#2f2fa2")
       .text("Viele Grüße vom CityLAB");
+
+    let map = $svg.append("g");
+    let mapWidth = 50;
+    let mapHeight = 50;
+
+    projection = d3.geoMercator().fitSize([mapWidth, mapHeight], berlin);
+    const path = d3.geoPath().projection(projection);
+
+    map
+      .selectAll("path")
+      .data(berlin.features)
+      .enter()
+      .append("path")
+      .attr("d", path)
+      .attr("stroke", "#292929")
+      .attr("fill", "none")
+      .attr("stroke-width", 1)
+      .attr("stroke-opacity", 0.15);
+
+    // Render the circle
+    const radiusInDegrees = $circleRadius / 111320; // 1 degree ≈ 111,320 meters
+    const circle = d3.geoCircle().center($mapCenter).radius(radiusInDegrees); // Set radius in degrees
+    map
+      .append("path")
+      .datum(circle())
+      .attr("d", path)
+      .attr("fill", "none")
+      .attr("stroke", "#292929")
+      .attr("stroke-width", 2)
+      .attr("stroke-opacity", 0.15);
+
+    map.attr(
+      "transform",
+      `translate(${width - mapWidth - 10},${height - mapHeight - 5})`
+    );
   }
 
   function updateData(newData) {
@@ -275,8 +317,10 @@ https://observablehq.com/@d3/treemap
     type="text"
     bind:value={$textVis}
     placeholder={$lang === "de" ? "Dein Text hier" : "Your text here"}
-    class="input text-center absolute bottom-10 text-[30px] bold"
-    style={$isMobile ? `position: relative; bottom: 90px;  width:440px` : ""}
+    class="input text-center absolute bottom-[50px] text-[30px] bold"
+    style={$isMobile
+      ? `position: relative; bottom: 97px;  width:440px; left:2px`
+      : ""}
     class:w-full={$screenWidth <= 444 ? `` : "w-full"}
   />
 </div>
