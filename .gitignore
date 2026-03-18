@@ -108,3 +108,6 @@ dist
 .tern-port
 
 .svelte-kit/
+
+/data/*
+!/data/create-tiles.ipynb

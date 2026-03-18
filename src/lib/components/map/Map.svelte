@@ -144,7 +144,7 @@
     <MapKey />
   {/if}
   <button
-    class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-4  leading-7 z-40 pointer-events-auto "
+    class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-4 leading-7 z-40 pointer-events-auto"
     on:click={() => map.zoomIn()}
     on:keypress={() => map.zoomIn()}
   >
@@ -162,7 +162,7 @@
     </svg>
   </button>
   <button
-    class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-10 mt-8   leading-7 z-40 pointer-events-auto"
+    class="btn btn-primary drop-shadow-xl text-2xl btn-circle absolute left-4 top-10 mt-8 leading-7 z-40 pointer-events-auto"
     on:click={() => map.zoomOut()}
     on:keypress={() => map.zoomOut()}
   >
@@ -195,7 +195,7 @@
       contributors &copy; |
     {/if}
 
-    Geoportal Berlin / ALKIS Berlin
+    Geoportal Berlin / ALKIS Berlin 2026
   </div>
 
   <div
