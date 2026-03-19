@@ -1,5 +1,10 @@
 <script>
   import { lang, printBackUI } from "$lib/stores.js";
+  import { browser } from "$app/environment";
+
+  let printOverride =
+    browser && new URLSearchParams(window.location.search).has("kiosk");
+  $printBackUI = !printOverride;
 </script>
 
 <div class=" text-sm text-gray-400 mt-10">

@@ -27,10 +27,10 @@
   } from "$lib/stores.js";
 
   let map;
+  let basemapIsShow = false;
 
   function setShowBasemap(show) {
     if (!map) return;
-
     map.setLayoutProperty("osm", "visibility", !show ? "none" : "visible");
   }
 
@@ -120,9 +120,22 @@
     map.on("load", function () {
       drawAndCount(map);
 
+      map.on("movestart", function (e) {
+        basemapIsShow = $showBasemap;
+      });
+
+      map.on("move", function (e) {
+        setTimeout(() => {
+          $showBasemap = true;
+        }, 100);
+      });
+
       map.on("moveend", function (e) {
         setTimeout(() => {
           drawAndCount(map);
+          if (!basemapIsShow) {
+            $showBasemap = false;
+          }
         }, 100);
       });
 
